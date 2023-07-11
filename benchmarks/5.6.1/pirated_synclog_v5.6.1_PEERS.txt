@@ -1,0 +1,20 @@
+
+Pirate Network Sync - Summary Report
+
+ENVIRONMENT:
+	pirated: v5.6.1-b0323f18b
+	OS: Ubuntu 22.04.2 LTS
+	Platform: Linux-5.15.0-75-generic-x86_64-with-glibc2.35
+	MEM: 94.31 GB
+	CPU: 1429.72Mhz x86_64
+	Cores: 24 logical | 12 physical
+
+NETWORK SYNC DETAILS:
+	Syncing took 2 days 23 hours 35 minutes
+	Blocks synced: 2454650 (20.32GB)
+	Peers: 31.40 avg
+	CPU: 4.20% avg (11.80% peak)
+	MEM: 5.96GB avg (6.33GB peak)
+
+DAEMON STARTUP:
+	Block Download Method: Network Peers
