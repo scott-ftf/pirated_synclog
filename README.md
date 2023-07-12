@@ -85,7 +85,7 @@ Once the daemon is in sync with the network, the script will generate a text sum
 
 upload the CSV here for a interactive chart of the logged data:
 
-## [https://scott-fff.github.io/pirated_synclog/](https://scott-fff.github.io/pirated_synclog/)
+## [https://scott-ftf.github.io/pirated_synclog/](https://scott-ftf.github.io/pirated_synclog/)
 
 <br />
 OPTIONAL: Run the chart HTML locally
