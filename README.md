@@ -64,7 +64,7 @@ python3 pirated_synclog.py stop
 
 After starting the sync logger, it will listen for the Pirate daemon to start. 
 
-#### *NOTE: this script requires the daemon output in the debug.log. sing `printtoconsole` will prevent the deamon output from being directed to the debug.log.*   
+#### *NOTE: this script requires the daemon output in the debug.log. setting `printtoconsole` will prevent the deamon output from being directed to the debug.log.*   
 
 Start the Pirate daemon disowned in the background with nohup:
 ```bash
