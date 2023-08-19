@@ -1,0 +1,27 @@
+
+Pirate Network Sync - Summary Report
+Friday, 18 August 2023, 08:56:36 UTC+0000
+
+ENVIRONMENT:
+	pirated: v5.7.5-f971474f6
+	OS: Ubuntu 22.04.3 LTS
+	Platform: Linux-5.15.0-79-generic-x86_64-with-glibc2.35
+	MEM: 94.31 GB
+	CPU: 1701.39Mhz x86_64
+	Cores: 24 logical | 12 physical
+
+NETWORK SYNC DETAILS:
+	Syncing took 3 hours 51 minutes
+	Blocks synced: 2530064 (38.81GB)
+	Peers: 0 avg
+	MEM: 2.61GB avg (3.23GB peak)
+	CPU: 13.29% avg (96.00% peak)
+	Load: 3.83 avg (18.44 peak)
+
+DAEMON PROCESSES:
+	Block Download Source: Bootstrap
+	Startup sequence took 3 hours 40 minutes
+	Bootstrap Download 0h 19m 16s
+	Block Extraction 0h 2m 0s
+	Rescan 3h 13m 11s
+	Building Witness Cache: 0h 4m 16s
