@@ -24,10 +24,10 @@ except ImportError:
 
 ### USER CONFIGURATION ###
 home = os.path.expanduser("~")
-datadir = os.path.join(home, '.komodo/PIRATE') # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
-CLI =  os.path.join(home, 'pirate/pirate-cli') # location of pirate_cli
-sample_rate = 1 # how many minutes between data collection loops
-debug_mode = True # logs more messages to the debug.log
+datadir = os.path.join(home, '.komodo/PIRATE')  # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
+CLI =  os.path.join(home, 'pirate/pirate-cli')  # location of pirate_cli
+sample_rate = 1                                 # how many minutes between data collection loops
+debug_mode = True                               # logs more messages to the debug.log
 
 # prepare some flags
 startup_data = {
@@ -98,6 +98,7 @@ def msg(*args):
 # Error message
 def err(*args):
     message = ' '.join(map(str, args))
+    logger.info("ERROR: " + message)
     message += "\nTraceback:\n"
     message += traceback.format_exc()  # Get traceback information
     logger.error(message)
@@ -109,10 +110,7 @@ daemon_detected = Event()
 # sleep for the remainder of the loop wait time
 def sleep_for_interval(start_time):
     interval = sample_rate * 60
-    # Time since the initial start
     elapsed_time = time.time() - start_time
-
-    # get the remaining time until the next interval
     sleep_time = interval - (elapsed_time % interval)
     debug(f"Sleeping for {sleep_time} seconds until next sample")
 
@@ -120,29 +118,20 @@ def sleep_for_interval(start_time):
     time.sleep(sleep_time)
 
 # simple function for formatting minutes to days, hours, minutes
-from datetime import timedelta
-
-# simple function for formatting minutes to days, hours, minutes
 def minutes_to_readable_time(total_minutes):
-    # Convert total time in minutes to timedelta
     total_time_td = timedelta(minutes=int(total_minutes))
 
     days = total_time_td.days
     hours, remainder = divmod(total_time_td.seconds, 3600)
     minutes, seconds = divmod(remainder, 60) 
 
-    # Only display units of time that are relevant
     time_string = ""
     if days > 0:
-        # add 's' if days > 1 for plural form
         time_string += f"{days} day{'s' if days > 1 else ''} "
-    if hours > 0 or days > 0:  # Show hours if there are any, or if there are days
-        # add 's' if hours > 1 for plural form
+    if hours > 0 or days > 0: 
         time_string += f"{hours} hour{'s' if hours > 1 else ''} "
-    # add 's' if minutes > 1 for plural form
     time_string += f"{minutes} minute{'s' if minutes > 1 else ''}"
 
-    # strip to remove trailing space
     return time_string.strip() 
 
 # shorthand h:m:s formatter
@@ -176,6 +165,13 @@ def checkCLIexists(CLI):
         err(error_message)
         sys.exit(1)
 
+# Check data directory path is correct
+def checkDatadirExists(datadir):
+    if not os.path.isdir(datadir):
+        error_message = f"The PIRATE data directory does not exist at: '{datadir}'"
+        err(error_message)
+        sys.exit(1)
+
 # read the daemon debug log and stream to queue
 def read_log(file, queue, position=0):
     with open(file, 'r') as f:
@@ -190,12 +186,23 @@ def read_log(file, queue, position=0):
             else:
                 time.sleep(0.1)  # Sleep briefly to avoid busy waiting
 
-# threaded worker for handeling reading the daemon debug.log
+# threaded worker for handling reading the daemon debug.log
 def log_monitor(queue):
     log_file_path = os.path.join(datadir, 'debug.log')
-    debug('Pirate daemon startup')
+    notified = False
+    
+    # Continuously check for the existence of the debug.log file
+    while not os.path.exists(log_file_path):
+        if not notified:
+            notified = True
+            debug('Waiting for daemon to create debug.log')
+        time.sleep(0.1)
+    
+    debug('Debug.log found, Pirate daemon startup')
+    
     position = os.path.getsize(log_file_path)  # Get the initial position of the file
     read_log(log_file_path, queue, position=position)
+    
     debug('Startup process completed')
 
 # listen for relevant messages in the debug.log and switch cases or set flags
@@ -454,7 +461,6 @@ def dataCollectionLoop(start_time, data_file):
         # print a summary of telemetry each loop
         msg(message)
 
-
         if startup_data['rescanning'] and "rescan_current_block" in startup_data:
             rescan_block = startup_data["rescan_current_block"] 
 
@@ -467,29 +473,22 @@ def dataCollectionLoop(start_time, data_file):
             else:
                 witnessCache = 1
 
-        # Output data to CSV
         with open(data_file, 'a') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([minutes, blocks, memory, cpu, load1, blockchain_size, block_diff, peers, rescan_block, bootstrap_progress, witnessCache])
 
-        # Sleep for the remaining time until the next interval
         sleep_for_interval(start_time)
 
 # detimine building witness time from log
 def buildingWitnessCache_minutes(df, sample_rate):
     try:
-        # Check if "BuildingWitnessCache" column exists
         if "BuildingWitnessCache" not in df.columns:
             return "unknown"
 
         # Filter rows where "BuildingWitnessCache" is > 0
         witness_cache = df[df["BuildingWitnessCache"] > 0]["BuildingWitnessCache"]
-
-        # If no rows > 0, return 0
         if len(witness_cache) == 0:
             return 0
-
-        # Sum all the lines that are > 0, then multiply by sample_rate
         total_minutes = int(witness_cache.sum() * sample_rate)
 
         return total_minutes
@@ -579,7 +578,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         cpu_info = platform.processor() 
         platform_version = platform.platform()
         logical_cores = psutil.cpu_count(logical=True)  # Includes hyper-threading cores
-        physical_cores = psutil.cpu_count(logical=False)  # Excludes hyper-threading co>
+        physical_cores = psutil.cpu_count(logical=False) 
         cpu_freq = psutil.cpu_freq()
 
         # set some times
@@ -697,8 +696,9 @@ def run():
     # Set up logging for errors and debugging
     configureLogging()
 
-    # check we have access to pirate-cli
+    # check we have access to pirate-cli, and that the data directory exists
     checkCLIexists(CLI)
+    checkDatadirExists(datadir)
 
     # show a welcome message
     printSplash()
