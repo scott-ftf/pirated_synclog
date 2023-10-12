@@ -24,10 +24,10 @@ except ImportError:
 
 ### USER CONFIGURATION ###
 home = os.path.expanduser("~")
-datadir = os.path.join(home, '.komodo/PIRATE')  # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
-CLI =  os.path.join(home, 'pirate/pirate-cli')  # location of pirate_cli
-sample_rate = 1                                 # how many minutes between data collection loops
-debug_mode = True                               # logs more messages to the debug.log
+datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
+CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate_cli
+sample_rate = 1                                     # how many minutes between data collection loops
+debug_mode = True                                   # logs more messages to the debug.log
 
 # prepare some flags
 startup_data = {

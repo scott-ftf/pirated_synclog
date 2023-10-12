@@ -39,6 +39,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 2s ease, visibility 2s ease;
+            text-decoration: none;
         }
         #art {
             width: 0px;
@@ -257,7 +258,7 @@
     </style>
 </head>
 <body>
-    <a href="" onclick="location.reload(); return false;">
+    <a href="" onclick="loadMainPage(); return false;">
         <svg id="art" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 111.7 117.8" style="enable-background:new 0 0 111.7 117.8;" xml:space="preserve"> <style type="text/css"> .st0{fill:#BB9645;} .st1{fill:#0A0B0B;} .st2{fill:#FFFFFF;} .st3{fill:#231F20;} .st4{fill:url(#SVGID_1_);} .st5{fill:url(#SVGID_2_);} .st6{fill:url(#SVGID_3_);} .st7{fill:url(#SVGID_4_);} .st8{fill:url(#SVGID_5_);} .st9{fill:url(#SVGID_6_);} .st10{fill:url(#SVGID_7_);} .st11{fill:url(#SVGID_8_);} .st12{fill:url(#SVGID_9_);} .st13{fill:url(#SVGID_10_);} .st14{fill:url(#SVGID_11_);} .st15{fill:#1B1B1B;} .st16{fill:url(#SVGID_12_);} .st17{fill:url(#SVGID_13_);} .st18{fill:url(#SVGID_14_);} .st19{fill:url(#SVGID_15_);} .st20{fill:url(#SVGID_16_);} .st21{fill:url(#SVGID_17_);} .st22{fill:url(#SVGID_18_);} .st23{fill:url(#SVGID_19_);} .st24{fill:url(#SVGID_20_);} .st25{fill:url(#SVGID_21_);} .st26{fill:url(#SVGID_22_);} </style> <g> <path class="st2" d="M23.8,29.8c0-4,3.7-7.3,8.3-7.3h40.8l29.6-14.9C98,3.1,91.7,0.3,84.8,0.3H27C12.9,0.3,1.6,11.6,1.6,25.5v34 L23.8,48V29.8z"/> <path class="st2" d="M110,24.2L87.8,35.4v22.2c0,4.1-3.8,7.4-8.4,7.4H30.6l-29,15.1v19v10.8v7.6h8.8l7.6-0.2c3.3-0.8,6-3.8,6-7.4 V88.4h60.9c13.9,0,25.2-11.3,25.2-25.2V25.5C110,25.1,110,24.7,110,24.2z"/> </g> </svg>
     </a>
     <div id="controls">
@@ -275,7 +276,7 @@
             </ul>
         </div>
     </div>
-    <span id="reloadButton">x</span>
+    <a href="" id="reloadButton" onclick="loadMainPage(); return false;">x</a>
 
     <!-- Canvas elements for rendering charts -->
     <div id="canvas_container">
@@ -397,18 +398,18 @@ function generateBenchmarkTree() {
 
             let level2Container = versionNode.querySelector(".level2");
             if (!level2Container) {
-                let level2Options = Object.keys(benchmarkFiles[version]);
-                level2Container = createTreeLevel(level2Options, function (level2Option) {
-                    loadFile(version, level2Option);
-                }, function (level2Option, level2Node) {
+                let sources = Object.keys(benchmarkFiles[version]);
+                level2Container = createTreeLevel(sources, function (source) {
+                    loadFile(version, source);
+                }, function (source, level2Node) {
                     let level3Container = level2Node.querySelector(".level3");
                     if (!level3Container) {
-                        let level3Options = Object.keys(benchmarkFiles[version][level2Option]);
+                        let settingss = Object.keys(benchmarkFiles[version][source]);
             
-                        level3Container = createTreeLevel(level3Options, function (level3Option) {
-                            loadFile(version, level2Option, level3Option);
+                        level3Container = createTreeLevel(settingss, function (settings) {
+                            loadFile(version, source, settings);
                         }, function (subOption, level3Node) {
-                            loadFile(version, level2Option, subOption);
+                            loadFile(version, source, subOption);
                         });
                         level3Container.classList.add("level3");
                         level2Node.appendChild(level3Container);
@@ -550,17 +551,38 @@ function handleFile() {
     reader.readAsText(file);
 }
 
-    // handle the file loading operation
-function loadFile(version, level2Option, level3Option) {
+checkUrlAndLoadFile();
+
+function checkUrlAndLoadFile() {
+    const params = new URLSearchParams(window.location.search);
+    const version = params.get('version');
+    const source = params.get('source');
+    const settings = params.get('settings');
+    if (version && source && settings) {
+        loadFile(version, source, settings);
+    }
+}
+
+function updateUrlWithParameters(version, source, settings) {
+    const params = new URLSearchParams();
+    params.set('version', version);
+    params.set('source', source);
+    params.set('settings', settings);
+
+    const newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    window.history.pushState({}, '', newUrl);
+}
 
 
-    var title = version + " " + level2Option + " sync (" + level3Option + ")" 
+// handle the file loading operation
+function loadFile(version, source, settings) {
+    var title = version + " " + source + " sync (" + settings + ")" 
     document.getElementById("headline").innerHTML = title;
 
     let request = new XMLHttpRequest();
-    let filePath = `./benchmarks/${version}/${level2Option}/${level3Option}/`;
+    let filePath = `./benchmarks/${version}/${source}/${settings}/`;
 
-    let csvFileName = benchmarkFiles[version][level2Option][level3Option];
+    let csvFileName = benchmarkFiles[version][source][settings];
 
 
     request.open("GET", filePath + csvFileName, true);
@@ -571,6 +593,8 @@ function loadFile(version, level2Option, level3Option) {
         renderChart(data, csvFileName);
     };
     request.send();
+
+    updateUrlWithParameters(version, source, settings); //add the selected options to the url
 
     // check for corresponding .txt file
     let txtFileName = csvFileName.replace('.csv', '.txt');
@@ -889,9 +913,12 @@ function renderChart(data, fileName) {
     updateChart();
 }
 
-document.getElementById('reloadButton').addEventListener('click', function() {
-  location.reload();
-});
+function loadMainPage() {
+    const baseUrl = window.location.origin + window.location.pathname;
+    window.history.pushState({}, '', baseUrl);
+    window.location.reload();  // This will refresh the page
+}
+
 
     </script>
 </body>
