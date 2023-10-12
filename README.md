@@ -1,4 +1,4 @@
-!['pirated_synLogger](https://i.imgur.com/dfOAQDM.png)
+!['pirated_synLogger](https://i.imgur.com/Qwdrn0K.png)
 
 # Pirate Daemon Sync Logger
 
@@ -43,7 +43,7 @@ Edit the configuration section in the first few lines of code to define CLI loca
 
 Run this script in the background
 ```bash
-nohup python3 ~/pirated_sync/pirated_synclog.py start &
+nohup python3 ~/pirated_sync/pirated_synclog.py start >/dev/null 2>&1 &
 ```
 
 Monitor a live feed of the sync progress by watching the output log
