@@ -332,7 +332,7 @@ def createDataFile():
     data_file = os.path.join(outputdir, fileName)
     with open(data_file, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Minutes","Blocks","Memory(GB)","CPU(%)","LoadAvg(1min)","BlockchainSize(GB)","BlocksAdded","Peers","Rescan(Height)","BootstrapDownload(%)","BuildingWitnessCache"])
+        writer.writerow(["Minutes","Blocks","Memory(GB)","CPU(%)","MachineLoadAvg(1min)","BlockchainSize(GB)","BlocksAdded","Peers","Rescan(Height)","BootstrapDownload(%)","BuildingWitnessCache"])
     msg(f"Output directory: {outputdir}")
     msg(f"CSV file created: {fileName}")
     return data_file
@@ -360,16 +360,27 @@ def dataCollectionLoop(start_time, data_file):
             # CPU utilization
             raw_cpu = psutil.cpu_percent(interval=1)
             cpu = "{: >4.1f}".format(raw_cpu)
+
+            # Total machine load
             load1, load5, load15 = os.getloadavg()
             load1 = "{: >5.2f}".format(load1)
             load5 = "{: >5.2f}".format(load5)
             load15 = "{: >5.2f}".format(load15)
 
-            # Memory utilization in gigabytes
-            memory_gb = psutil.virtual_memory().used / (1024 ** 3)
-
-            # Format the memory utilization to always display 3 decimal places
+            # Memory and CPU utilization for the pirated process
+            memory_gb = 0.000
+            cpu_percent = 0.0
+            for process in psutil.process_iter(['pid', 'name', 'memory_info', 'cpu_percent']):
+                if process.info['name'] == 'pirated':                    
+                    # Memory utilization in gigabytes for the process
+                    memory_gb = process.info['memory_info'].rss / (1024 ** 3)
+                   
+                    # CPU utilization for the process (measured over 1 second)
+                    cpu_percent = process.cpu_percent(interval=1)
+                    
             memory = "{:.3f}".format(memory_gb)
+            cpu = "{: >4.1f}".format(cpu_percent)
+            
 
             # Run du command to get blocks directory size in gigabytes
             try:
@@ -392,7 +403,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f"  │  MEM {memory}GB  CPU {cpu}%  load {load1}  size {blockchain_size}GB"
+            message += f"  │  daemon MEM {memory}GB  CPU {cpu}% | machine load {load1}  |  size {blockchain_size}GB"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
@@ -509,7 +520,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
     df = df.fillna(0)
 
     # Fill missing values for certain columns with their means
-    for col in ["CPU(%)", "LoadAvg(1min)", "Memory(GB)", "BlockchainSize(GB)"]:
+    for col in ["CPU(%)", "MachineLoadAvg(1min)", "Memory(GB)", "BlockchainSize(GB)"]:
         if col in df.columns:  # Check if column exists
             df[col] = df[col].fillna(df[col].mean())
 
@@ -533,7 +544,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         # set fallbacks in the case of missing data
         column_fallbacks = {
             "CPU(%)": 0,
-            "LoadAvg(1min)": 0,
+            "MachineLoadAvg(1min)": 0,
             "Memory(GB)": 0,
             "Minutes": 0,
             "Blocks": 0,
@@ -560,13 +571,13 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         # Handle these with fallbacks in case they don't exist
         cpu_avg = computed_values["CPU(%)_avg"]
         cpu_max = computed_values["CPU(%)_max"]
-        load_avg = computed_values["LoadAvg(1min)_avg"]
-        load_max = computed_values["LoadAvg(1min)_max"]
+        load_avg = computed_values["MachineLoadAvg(1min)_avg"]
+        load_max = computed_values["MachineLoadAvg(1min)_max"]
         memory_avg = computed_values["Memory(GB)_avg"]
         memory_max = computed_values["Memory(GB)_max"]
         total_minutes = computed_values["Minutes"]
         blocks_synced = int(computed_values["Blocks_max"])
-        blockchain_size_total = computed_values["BlockchainSize(GB)_max"]
+        blockchain_size_max = computed_values["BlockchainSize(GB)_max"]
         avg_peers = int(computed_values["Peers_avg"])
 
         # define some other environment details
@@ -579,14 +590,18 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         platform_version = platform.platform()
         logical_cores = psutil.cpu_count(logical=True)  # Includes hyper-threading cores
         physical_cores = psutil.cpu_count(logical=False) 
-        cpu_freq = psutil.cpu_freq()
+        cpu_freq = psutil.cpu_freq()        
 
         # set some times
         download_method = "Bootstrap" if bootstrapUsed else "Network Peers"
         bootstrap_download_time = hms(startup_data["bootstrap_download_time"]) if startup_data.get('bootstrap_download_time') else "N/A"
         bootstrap_extraction_time = hms(startup_data["bootstrap_extraction_time"]) if startup_data.get('bootstrap_extraction_time') else "N/A"
         
-        
+        # Get final blockchain size
+        du_output = subprocess.check_output(['du', '-sb', datadir + "/blocks"]).decode('utf-8').strip()
+        blockchain_size_bytes = int(du_output.split()[0])
+        blockchain_size_gb = blockchain_size_bytes / (1024 ** 3)            
+
         # display startup time with different resolutions depending on method
         if startup_data.get('startup_time'):
             if startup_data.get('bootstrap_used'):
@@ -633,7 +648,9 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
 
             write_and_print(f, "\nNETWORK SYNC DETAILS:")    
             write_and_print(f, f"\tSyncing took {readable_time}")
-            write_and_print(f, f"\tBlocks synced: {blocks_synced} ({blockchain_size_total:.2f}GB)")
+            write_and_print(f, f"\tBlocks synced: {blocks_synced}")
+            write_and_print(f, f"\tBlockchain size: {blockchain_size_gb:.2f}GB")            
+            write_and_print(f, f"\tMax Disk Used: {blockchain_size_max:.2f}GB")
             write_and_print(f, f"\tPeers: {avg_peers} avg")   
             write_and_print(f, f"\tMEM: {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
             write_and_print(f, f"\tCPU: {cpu_avg:.2f}% avg ({cpu_max:.2f}% peak)")
