@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Setting up the HTML document with required CSS and JS dependencies -->
     <title>Pirate Synclog CSV Upload</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴‍☠️</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0"></script>
-
-    <!-- Styling elements for the page -->
     <style>
         body, html {
             background-color: #272727;
@@ -23,9 +20,29 @@
             width: 200px;
             transition: all 0.7s ease-in-out;
         }
+        #controls {
+            margin: 0px auto;
+            width: 500px;
+            overflow: hidden;
+            transition: width 1s ease, max-height 1s ease;
+            max-height: 1000px;
+        }
+        #reloadButton {
+            position: fixed; 
+            top: 20px;
+            right: 40px;
+            cursor: pointer;
+            color: red;
+            font-weight: bold;
+            font-size: 32px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 2s ease, visibility 2s ease;
+        }
         #art {
             width: 0px;
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 30px;
             filter: drop-shadow(6px 6px 4px #00000069);
@@ -35,6 +52,13 @@
         #art:hover {
             opacity: 1;
             filter: drop-shadow(0px 0px 14px rgba(255, 255, 255, 0.7));
+        }
+        #headline {
+            display: block;
+            text-align: center;
+            color: #be9b42;
+            font-weight: 300;
+            font-size: 20px;
         }
         input {
             margin: 0px auto 20px;
@@ -47,7 +71,83 @@
         .benchmarkInput {
             text-align: center;
             margin-bottom: 20px;
+
         }
+        #benchmarkTree {
+            list-style: none;
+        }
+        .tree-level:focus-within {
+            background-color: #f0f0f0;
+        }
+        #benchmarkLink {
+            text-decoration: none;
+            color: #be9b42;
+            cursor: pointer;
+            font-weight: 300;
+        }
+        #benchmarkTree {
+            display: none;
+            text-align: left;
+            background-color: #36363660;
+            display: block;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        #benchmarkTree .tree_header {
+            color: #be9b42;
+            margin-bottom: 10px;
+            display: block;
+        }
+        #benchmarkTree .tree-level {
+            margin-left: 0px;
+            list-style: none;
+            padding: 2px
+        }
+        #benchmarkTree li span:hover {
+            color: #e3ca7f;
+            cursor: pointer;
+        }
+        #benchmarkTree .version {
+            color: #fff;
+            margin-top: 0px;
+            font-size: 18px;
+            display: block;
+            margin-left: 0px;
+            list-style: none;
+            padding: 0px;
+        }
+        #benchmarkTree li.version::before {
+            content: "├ ";
+            font-size: 26px;
+            color: #be9b424f;
+        }
+        #benchmarkTree li.version:last-of-type::before {
+            content: "└ ";
+        }
+        #benchmarkTree .level2 > li::before {
+            content: "│    ├ ";
+            font-size: 26px;
+            color: #be9b424f;
+            margin-left: 0px;
+            list-style: none;
+        }
+        #benchmarkTree .level2 > li:last-of-type::before  {
+            content: "│    └ ";
+        }
+        #benchmarkTree .level3 > li::before {
+            content: "↪";   
+            margin-right: 8px;
+            color: #be9b42;
+        }
+        #benchmarkTree .level3 > li {
+            margin-left: 60px;
+            color: #be9b42;
+            margin-top: 6px;
+        }
+        #benchmarkTree .level2 {
+            list-style: none;
+            font-weight: 200;
+        }        
         #loadError {
             margin-top: 10px;
             font-size: 14px;
@@ -89,14 +189,23 @@
             text-align: center;
         }
         #downloadButton {
+            display: inline-block;
+            padding: 5px 9px;
+            background-color: #be9b42;
+            color: #333;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
             cursor: pointer;
-            opacity: 0.9;
-            display: block;
-            margin: 80px auto 40px;
+            transition: background-color 0.3s ease;
+            margin: 60px auto 40px;
             box-shadow: 8px 8px 6px #00000025;
         }
         #downloadButton:hover {
             opacity: 1.0;
+            background-color: #ffbd30;
         }
         a:hover {
             color: #fff;
@@ -148,27 +257,25 @@
     </style>
 </head>
 <body>
-    <!-- logo -->
-    <svg id="logo" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 299.99936 225.272" xml:space="preserve" sodipodi:docname="Pirate_Logo_Stacked_WG.svg" inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs66" /><sodipodi:namedview id="namedview64" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="1.4941812" inkscape:cx="296.48346" inkscape:cy="222.52991" inkscape:window-width="3778" inkscape:window-height="1536" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="Layer_1" /> <style type="text/css" id="style2"> 	.pl0{fill:#BB9645;} 	.pl1{fill:#0A0B0B;} 	.pl2{fill:#FFFFFF;} 	.pl3{fill:#231F20;} 	.pl4{fill:url(#SVGID_1_);} 	.pl5{fill:url(#SVGID_2_);} 	.pl6{fill:url(#SVGID_3_);} 	.pl7{fill:url(#SVGID_4_);} 	.pl8{fill:url(#SVGID_5_);} 	.pl9{fill:url(#SVGID_6_);} 	.pl10{fill:url(#SVGID_7_);} 	.pl11{fill:url(#SVGID_8_);} 	.pl12{fill:url(#SVGID_9_);} 	.pl13{fill:url(#SVGID_10_);} 	.pl14{fill:url(#SVGID_11_);} 	.pl15{fill:#1B1B1B;} 	.pl16{fill:url(#SVGID_12_);} 	.pl17{fill:url(#SVGID_13_);} 	.pl18{fill:url(#SVGID_14_);} 	.pl19{fill:url(#SVGID_15_);} 	.pl20{fill:url(#SVGID_16_);} 	.pl21{fill:url(#SVGID_17_);} 	.pl22{fill:url(#SVGID_18_);} 	.pl23{fill:url(#SVGID_19_);} 	.pl24{fill:url(#SVGID_20_);} 	.pl25{fill:url(#SVGID_21_);} 	.pl26{fill:url(#SVGID_22_);} </style> <g id="g61" transform="matrix(0.50658455,0,0,0.50658455,-53.242036,-9.2766448)"> 	<g id="g22"> 		<g id="g14"> 			<path class="pl2" d="m 280.2,333.6 c -3,-3 -4.5,-6.9 -4.5,-11.6 0,-4.7 1.5,-8.6 4.5,-11.6 3,-3 7.1,-4.5 12.1,-4.5 5,0 9.1,1.5 12.2,4.5 3.1,3 4.7,6.9 4.7,11.6 0,4.7 -1.6,8.6 -4.7,11.6 -3.1,3 -7.2,4.5 -12.2,4.5 -5.1,0.1 -9.1,-1.5 -12.1,-4.5 z m -0.6,17 h 25.5 v 110.6 h -25.5 z" id="path4" /> 			<path class="pl2" d="m 328.6,350.6 h 23.7 v 15.1 c 3,-4.6 7.2,-8.3 12.7,-11.2 5.5,-2.9 11.3,-4.3 17.2,-4.3 h 13.3 v 22.2 h -13.3 c -8.4,0 -15.2,2.6 -20.4,7.8 -5.2,5.2 -7.8,11.9 -7.8,20.2 v 60.9 H 328.5 V 350.6 Z" id="path6" /> 			<path class="pl2" d="m 405.8,454.4 c -6.9,-5.7 -10.3,-13.3 -10.3,-22.7 v -8 c 0,-9.3 3.6,-16.8 10.7,-22.4 7.2,-5.6 16.6,-8.4 28.3,-8.4 h 13.7 c 4.1,0 8.6,0.6 13.3,1.8 4.7,1.2 8.9,2.7 12.6,4.7 v -13.7 c 0,-4.6 -1.5,-8.3 -4.4,-11.1 -3,-2.8 -6.8,-4.2 -11.5,-4.2 h -18.6 c -4.9,0 -8.8,1.1 -11.7,3.4 -3,2.3 -4.4,5.3 -4.4,9 h -24.8 c 0,-10.2 3.8,-18.4 11.3,-24.6 7.5,-6.2 17.4,-9.3 29.7,-9.3 h 18.6 c 12.4,0 22.4,3.4 29.9,10.1 7.5,6.7 11.3,15.6 11.3,26.7 v 75.6 h -23.7 v -14 c -3.5,4.7 -8,8.5 -13.3,11.4 -5.3,2.9 -10.6,4.3 -15.7,4.3 h -13.7 c -11.4,-0.1 -20.4,-2.9 -27.3,-8.6 z M 448.2,443 c 5.9,0 11.2,-1.7 16,-5 4.7,-3.3 8,-7.7 10,-13.2 v -5.3 c -2.5,-2.1 -6.1,-3.7 -10.6,-5 -4.6,-1.3 -9.4,-1.9 -14.4,-1.9 h -14 c -4.4,0 -8,1.1 -10.7,3.3 -2.7,2.2 -4.1,5.1 -4.1,8.6 v 6.2 c 0,3.7 1.4,6.6 4.2,8.9 2.8,2.2 6.5,3.3 11.1,3.3 h 12.5 z" id="path8" /> 			<path class="pl2" d="m 536.9,452.7 c -5.8,-5.6 -8.6,-14.5 -8.6,-26.6 V 372.5 H 508.8 V 350.6 H 529 v -33.5 h 24.8 v 33.5 h 28.8 v 21.9 h -28.8 v 52.7 c 0,4.9 1,8.4 2.9,10.6 1.9,2.2 4.9,3.3 9.1,3.3 h 16.8 V 461 h -18.2 c -12.6,0.1 -21.8,-2.7 -27.5,-8.3 z" id="path10" /> 			<path class="pl2" d="m 611.2,457.8 c -6.9,-3.4 -12.2,-8.2 -16,-14.4 -3.8,-6.2 -5.7,-13.4 -5.7,-21.5 v -29.7 c 0,-8.6 1.9,-16.1 5.7,-22.7 3.8,-6.6 9.1,-11.7 16,-15.3 6.9,-3.6 14.8,-5.4 23.8,-5.4 h 17.7 c 13.4,0 24.2,3.9 32.4,11.7 8.1,7.8 12.2,18.2 12.2,31.2 v 22.2 h -82.2 v 8 c 0,5.9 1.8,10.6 5.4,14.2 3.6,3.5 8.5,5.3 14.5,5.3 h 17.1 c 5.9,0 10.7,-1.4 14.3,-4.3 3.6,-2.9 5.4,-6.7 5.4,-11.4 h 25 c 0,11.2 -4.1,20.2 -12.4,27 -8.3,6.8 -19.1,10.2 -32.6,10.2 H 635 c -9,0 -16.9,-1.7 -23.8,-5.1 z m 61,-62.9 v -3.1 c 0,-6.5 -1.8,-11.7 -5.3,-15.7 -3.5,-4 -8.2,-6 -14,-6 H 635 c -6.1,0 -11,2.1 -14.7,6.3 -3.8,4.2 -5.7,9.7 -5.7,16.5 v 2 z" id="path12" /> 		</g> 		<g id="g20"> 			<path class="pl2" d="m 134.8,345.4 c 0,-5.3 5,-9.8 11,-9.8 h 54.4 l 39.5,-19.8 c -6.1,-6 -14.4,-9.7 -23.6,-9.7 H 139 c -18.8,0 -33.8,15 -33.8,33.6 v 45.4 l 29.6,-15.4 z" id="path16" /> 			<path class="pl2" d="m 249.7,338 -29.6,14.8 v 29.5 c 0,5.5 -5.1,9.9 -11.2,9.9 h -65.1 l -38.7,20.2 v 25.3 14.4 10.2 h 11.7 l 10.1,-0.3 c 4.4,-1 8,-5 8,-9.9 v -28.7 h 81.2 c 18.6,0 33.6,-15 33.6,-33.6 v -50.2 c 0,-0.5 0,-1.1 0,-1.6 z" id="path18" /> 		</g> 	</g> 	<g id="g59"> 		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="302.39981" y1="42.203999" x2="496.93771" y2="232.7718"> 			<stop offset="0" style="stop-color:#B38C30" id="stop24" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop26" /> 		</linearGradient> 		<path class="pl4" d="m 332.1,177.4 c 4.1,-0.8 13,-2.4 23.3,-4.1 1.3,-0.2 2.5,1 2.1,2.3 -0.6,2.4 -1.4,4.8 -2.2,7.3 -0.3,0.9 0.5,1.8 1.4,1.6 46.9,-9.1 80.1,-24.8 107.7,-46.8 1.5,-1.2 2.4,-2.9 2.7,-4.7 2.1,-14 -2.1,-22 -6.3,-25.8 -4.5,-4.1 -7.9,-8.1 -32.5,-9.6 -13.9,-0.5 -21.5,0.2 -24,0.5 -0.4,0.1 -0.6,0.5 -0.4,0.9 2.5,3.9 13.4,22.1 10.1,38.8 l -5.4,-18.9 c -3.5,-9.7 -9.1,-19.2 -11.6,-22.7 -0.7,-1 -0.4,-2 0.8,-2.2 3.3,-0.6 10,-0.8 17.4,-1.4 8.7,-0.4 17.2,-0.1 22.8,0.6 C 431.7,62.7 418.5,51.5 388.7,49.6 V 20.2 c 0,-0.7 -0.6,-1.3 -1.3,-1.3 h -4.3 c -0.7,0 -1.3,0.6 -1.3,1.3 v 29 c -24.8,-0.8 -46.2,1.6 -53.1,2.3 -0.9,0.1 -1.4,1.1 -0.9,1.8 2.4,4 11.9,15.7 15.7,32.2 -8.9,-0.1 -18.5,1 -27.8,4.6 -1,0.4 -1.3,1.6 -0.6,2.4 24.6,30.2 17.4,72.4 15.1,82.8 -0.3,1.3 0.7,2.3 1.9,2.1 z" id="path29" style="fill:url(#SVGID_1_)" /> 		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="337.70029" y1="6.1680002" x2="532.23828" y2="196.73579"> 			<stop offset="0" style="stop-color:#B38C30" id="stop31" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop33" /> 		</linearGradient> 		<path class="pl5" d="m 361.2,31.6 c 0,0 -0.6,-2.6 -0.1,-4.9 6.6,-1.4 16.2,1.3 16.2,1.3 0,0 0,-4.3 0,-7.9 -5,-2.3 -16,-2 -19.6,-1.2 -3.6,0.8 -4.2,2.5 -5,4.1 -7.1,0.2 -14.6,2 -14.6,2 l 4.7,2.8 -3.9,4.3 c 6.6,-2.7 22.3,-0.5 22.3,-0.5 z" id="path36" style="fill:url(#SVGID_2_)" /> 		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="282.0394" y1="62.988499" x2="476.57739" y2="253.5563"> 			<stop offset="0" style="stop-color:#B38C30" id="stop38" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop40" /> 		</linearGradient> 		<path class="pl6" d="m 480.7,228.4 c -10.1,-2.8 -8.1,-2.7 -20,-5.1 6.7,-8.1 28,-34.8 22.8,-43.3 -6.2,-10 -13.4,-16.6 -11.1,-26.2 2.3,-9.6 18.4,-20.7 22,-23.8 3.6,-3.1 -2.9,-8.8 -5.7,-6.3 -2.9,2.4 -4.9,4.4 -11.8,9.4 -8.5,6.2 -15.5,13.9 -14.7,24.7 0.7,9.6 0.8,37.1 -11.8,51.7 -0.7,0.8 -1.9,0 -1.5,-0.9 3.1,-6.8 3.8,-16.1 3.2,-23.7 -26.1,13 -49.4,15.6 -64.9,15.5 -0.9,0 -1,-1.3 -0.2,-1.5 24.9,-5 62.4,-18.1 64.4,-23.7 2.3,-6.2 -1,-17.4 -1,-17.4 0,0 -12.3,6.1 -30.1,13.2 -5.9,2.6 -12.2,5 -19.2,7.2 -1.5,0.5 -3,0.9 -4.5,1.4 -20.2,6.6 -47.3,12.8 -62.3,12.2 -12.1,-0.4 -20.1,-1.6 -22.7,-2 -0.5,-0.1 -0.9,0.3 -0.9,0.8 0.3,4.5 1.9,23.7 10.6,32.7 -2,0.4 -5.5,1.3 -8,2.6 -2.6,1.3 -9.9,8.4 -4.5,7.8 30.4,-3.5 69.6,-6.7 88.1,-6.1 19.5,0.6 57.9,6.5 91.9,11.9 5.5,0.9 -2.9,-9.7 -8.1,-11.1 z" id="path43" style="fill:url(#SVGID_3_)" /> 		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="243.6169" y1="102.2115" x2="438.15479" y2="292.7793"> 			<stop offset="0" style="stop-color:#B38C30" id="stop45" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop47" /> 		</linearGradient> 		<path class="pl7" d="m 471.4,243.7 c -17.7,-3.9 -47.3,-9.6 -73,-9.9 -32.5,-0.4 -62.4,4 -86,9.1 -5.3,1.2 -4,9.1 1.4,8.5 30.4,-3.5 66.1,-6.9 84.6,-6.3 15.1,0.4 49.2,3.9 71.4,7.2 5.6,0.7 7.1,-7.4 1.6,-8.6 z" id="path50" style="fill:url(#SVGID_4_)" /> 		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="236.7075" y1="109.2649" x2="431.24551" y2="299.83261"> 			<stop offset="0" style="stop-color:#B38C30" id="stop52" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop54" /> 		</linearGradient> 		<path class="pl8" d="m 437.2,259 c -12.5,-2.7 -26.8,-4.8 -41.4,-5 -18.5,-0.2 -35.5,2.3 -48.9,5.2 -3,0.7 -2.3,5.2 0.8,4.8 17.3,-2 37.6,-3.9 48.1,-3.6 8.6,0.2 24.6,2.3 40.3,4.7 3.8,0.5 4.9,-5.3 1.1,-6.1 z" id="path57" style="fill:url(#SVGID_5_)" /> 	</g> </g> </svg>
-
     <a href="" onclick="location.reload(); return false;">
         <svg id="art" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 111.7 117.8" style="enable-background:new 0 0 111.7 117.8;" xml:space="preserve"> <style type="text/css"> .st0{fill:#BB9645;} .st1{fill:#0A0B0B;} .st2{fill:#FFFFFF;} .st3{fill:#231F20;} .st4{fill:url(#SVGID_1_);} .st5{fill:url(#SVGID_2_);} .st6{fill:url(#SVGID_3_);} .st7{fill:url(#SVGID_4_);} .st8{fill:url(#SVGID_5_);} .st9{fill:url(#SVGID_6_);} .st10{fill:url(#SVGID_7_);} .st11{fill:url(#SVGID_8_);} .st12{fill:url(#SVGID_9_);} .st13{fill:url(#SVGID_10_);} .st14{fill:url(#SVGID_11_);} .st15{fill:#1B1B1B;} .st16{fill:url(#SVGID_12_);} .st17{fill:url(#SVGID_13_);} .st18{fill:url(#SVGID_14_);} .st19{fill:url(#SVGID_15_);} .st20{fill:url(#SVGID_16_);} .st21{fill:url(#SVGID_17_);} .st22{fill:url(#SVGID_18_);} .st23{fill:url(#SVGID_19_);} .st24{fill:url(#SVGID_20_);} .st25{fill:url(#SVGID_21_);} .st26{fill:url(#SVGID_22_);} </style> <g> <path class="st2" d="M23.8,29.8c0-4,3.7-7.3,8.3-7.3h40.8l29.6-14.9C98,3.1,91.7,0.3,84.8,0.3H27C12.9,0.3,1.6,11.6,1.6,25.5v34 L23.8,48V29.8z"/> <path class="st2" d="M110,24.2L87.8,35.4v22.2c0,4.1-3.8,7.4-8.4,7.4H30.6l-29,15.1v19v10.8v7.6h8.8l7.6-0.2c3.3-0.8,6-3.8,6-7.4 V88.4h60.9c13.9,0,25.2-11.3,25.2-25.2V25.5C110,25.1,110,24.7,110,24.2z"/> </g> </svg>
     </a>
+    <div id="controls">
+        <!-- logo -->
+        <svg id="logo" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 299.99936 225.272" xml:space="preserve" sodipodi:docname="Pirate_Logo_Stacked_WG.svg" inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs66" /><sodipodi:namedview id="namedview64" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="1.4941812" inkscape:cx="296.48346" inkscape:cy="222.52991" inkscape:window-width="3778" inkscape:window-height="1536" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="Layer_1" /> <style type="text/css" id="style2"> 	.pl0{fill:#BB9645;} 	.pl1{fill:#0A0B0B;} 	.pl2{fill:#FFFFFF;} 	.pl3{fill:#231F20;} 	.pl4{fill:url(#SVGID_1_);} 	.pl5{fill:url(#SVGID_2_);} 	.pl6{fill:url(#SVGID_3_);} 	.pl7{fill:url(#SVGID_4_);} 	.pl8{fill:url(#SVGID_5_);} 	.pl9{fill:url(#SVGID_6_);} 	.pl10{fill:url(#SVGID_7_);} 	.pl11{fill:url(#SVGID_8_);} 	.pl12{fill:url(#SVGID_9_);} 	.pl13{fill:url(#SVGID_10_);} 	.pl14{fill:url(#SVGID_11_);} 	.pl15{fill:#1B1B1B;} 	.pl16{fill:url(#SVGID_12_);} 	.pl17{fill:url(#SVGID_13_);} 	.pl18{fill:url(#SVGID_14_);} 	.pl19{fill:url(#SVGID_15_);} 	.pl20{fill:url(#SVGID_16_);} 	.pl21{fill:url(#SVGID_17_);} 	.pl22{fill:url(#SVGID_18_);} 	.pl23{fill:url(#SVGID_19_);} 	.pl24{fill:url(#SVGID_20_);} 	.pl25{fill:url(#SVGID_21_);} 	.pl26{fill:url(#SVGID_22_);} </style> <g id="g61" transform="matrix(0.50658455,0,0,0.50658455,-53.242036,-9.2766448)"> 	<g id="g22"> 		<g id="g14"> 			<path class="pl2" d="m 280.2,333.6 c -3,-3 -4.5,-6.9 -4.5,-11.6 0,-4.7 1.5,-8.6 4.5,-11.6 3,-3 7.1,-4.5 12.1,-4.5 5,0 9.1,1.5 12.2,4.5 3.1,3 4.7,6.9 4.7,11.6 0,4.7 -1.6,8.6 -4.7,11.6 -3.1,3 -7.2,4.5 -12.2,4.5 -5.1,0.1 -9.1,-1.5 -12.1,-4.5 z m -0.6,17 h 25.5 v 110.6 h -25.5 z" id="path4" /> 			<path class="pl2" d="m 328.6,350.6 h 23.7 v 15.1 c 3,-4.6 7.2,-8.3 12.7,-11.2 5.5,-2.9 11.3,-4.3 17.2,-4.3 h 13.3 v 22.2 h -13.3 c -8.4,0 -15.2,2.6 -20.4,7.8 -5.2,5.2 -7.8,11.9 -7.8,20.2 v 60.9 H 328.5 V 350.6 Z" id="path6" /> 			<path class="pl2" d="m 405.8,454.4 c -6.9,-5.7 -10.3,-13.3 -10.3,-22.7 v -8 c 0,-9.3 3.6,-16.8 10.7,-22.4 7.2,-5.6 16.6,-8.4 28.3,-8.4 h 13.7 c 4.1,0 8.6,0.6 13.3,1.8 4.7,1.2 8.9,2.7 12.6,4.7 v -13.7 c 0,-4.6 -1.5,-8.3 -4.4,-11.1 -3,-2.8 -6.8,-4.2 -11.5,-4.2 h -18.6 c -4.9,0 -8.8,1.1 -11.7,3.4 -3,2.3 -4.4,5.3 -4.4,9 h -24.8 c 0,-10.2 3.8,-18.4 11.3,-24.6 7.5,-6.2 17.4,-9.3 29.7,-9.3 h 18.6 c 12.4,0 22.4,3.4 29.9,10.1 7.5,6.7 11.3,15.6 11.3,26.7 v 75.6 h -23.7 v -14 c -3.5,4.7 -8,8.5 -13.3,11.4 -5.3,2.9 -10.6,4.3 -15.7,4.3 h -13.7 c -11.4,-0.1 -20.4,-2.9 -27.3,-8.6 z M 448.2,443 c 5.9,0 11.2,-1.7 16,-5 4.7,-3.3 8,-7.7 10,-13.2 v -5.3 c -2.5,-2.1 -6.1,-3.7 -10.6,-5 -4.6,-1.3 -9.4,-1.9 -14.4,-1.9 h -14 c -4.4,0 -8,1.1 -10.7,3.3 -2.7,2.2 -4.1,5.1 -4.1,8.6 v 6.2 c 0,3.7 1.4,6.6 4.2,8.9 2.8,2.2 6.5,3.3 11.1,3.3 h 12.5 z" id="path8" /> 			<path class="pl2" d="m 536.9,452.7 c -5.8,-5.6 -8.6,-14.5 -8.6,-26.6 V 372.5 H 508.8 V 350.6 H 529 v -33.5 h 24.8 v 33.5 h 28.8 v 21.9 h -28.8 v 52.7 c 0,4.9 1,8.4 2.9,10.6 1.9,2.2 4.9,3.3 9.1,3.3 h 16.8 V 461 h -18.2 c -12.6,0.1 -21.8,-2.7 -27.5,-8.3 z" id="path10" /> 			<path class="pl2" d="m 611.2,457.8 c -6.9,-3.4 -12.2,-8.2 -16,-14.4 -3.8,-6.2 -5.7,-13.4 -5.7,-21.5 v -29.7 c 0,-8.6 1.9,-16.1 5.7,-22.7 3.8,-6.6 9.1,-11.7 16,-15.3 6.9,-3.6 14.8,-5.4 23.8,-5.4 h 17.7 c 13.4,0 24.2,3.9 32.4,11.7 8.1,7.8 12.2,18.2 12.2,31.2 v 22.2 h -82.2 v 8 c 0,5.9 1.8,10.6 5.4,14.2 3.6,3.5 8.5,5.3 14.5,5.3 h 17.1 c 5.9,0 10.7,-1.4 14.3,-4.3 3.6,-2.9 5.4,-6.7 5.4,-11.4 h 25 c 0,11.2 -4.1,20.2 -12.4,27 -8.3,6.8 -19.1,10.2 -32.6,10.2 H 635 c -9,0 -16.9,-1.7 -23.8,-5.1 z m 61,-62.9 v -3.1 c 0,-6.5 -1.8,-11.7 -5.3,-15.7 -3.5,-4 -8.2,-6 -14,-6 H 635 c -6.1,0 -11,2.1 -14.7,6.3 -3.8,4.2 -5.7,9.7 -5.7,16.5 v 2 z" id="path12" /> 		</g> 		<g id="g20"> 			<path class="pl2" d="m 134.8,345.4 c 0,-5.3 5,-9.8 11,-9.8 h 54.4 l 39.5,-19.8 c -6.1,-6 -14.4,-9.7 -23.6,-9.7 H 139 c -18.8,0 -33.8,15 -33.8,33.6 v 45.4 l 29.6,-15.4 z" id="path16" /> 			<path class="pl2" d="m 249.7,338 -29.6,14.8 v 29.5 c 0,5.5 -5.1,9.9 -11.2,9.9 h -65.1 l -38.7,20.2 v 25.3 14.4 10.2 h 11.7 l 10.1,-0.3 c 4.4,-1 8,-5 8,-9.9 v -28.7 h 81.2 c 18.6,0 33.6,-15 33.6,-33.6 v -50.2 c 0,-0.5 0,-1.1 0,-1.6 z" id="path18" /> 		</g> 	</g> 	<g id="g59"> 		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="302.39981" y1="42.203999" x2="496.93771" y2="232.7718"> 			<stop offset="0" style="stop-color:#B38C30" id="stop24" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop26" /> 		</linearGradient> 		<path class="pl4" d="m 332.1,177.4 c 4.1,-0.8 13,-2.4 23.3,-4.1 1.3,-0.2 2.5,1 2.1,2.3 -0.6,2.4 -1.4,4.8 -2.2,7.3 -0.3,0.9 0.5,1.8 1.4,1.6 46.9,-9.1 80.1,-24.8 107.7,-46.8 1.5,-1.2 2.4,-2.9 2.7,-4.7 2.1,-14 -2.1,-22 -6.3,-25.8 -4.5,-4.1 -7.9,-8.1 -32.5,-9.6 -13.9,-0.5 -21.5,0.2 -24,0.5 -0.4,0.1 -0.6,0.5 -0.4,0.9 2.5,3.9 13.4,22.1 10.1,38.8 l -5.4,-18.9 c -3.5,-9.7 -9.1,-19.2 -11.6,-22.7 -0.7,-1 -0.4,-2 0.8,-2.2 3.3,-0.6 10,-0.8 17.4,-1.4 8.7,-0.4 17.2,-0.1 22.8,0.6 C 431.7,62.7 418.5,51.5 388.7,49.6 V 20.2 c 0,-0.7 -0.6,-1.3 -1.3,-1.3 h -4.3 c -0.7,0 -1.3,0.6 -1.3,1.3 v 29 c -24.8,-0.8 -46.2,1.6 -53.1,2.3 -0.9,0.1 -1.4,1.1 -0.9,1.8 2.4,4 11.9,15.7 15.7,32.2 -8.9,-0.1 -18.5,1 -27.8,4.6 -1,0.4 -1.3,1.6 -0.6,2.4 24.6,30.2 17.4,72.4 15.1,82.8 -0.3,1.3 0.7,2.3 1.9,2.1 z" id="path29" style="fill:url(#SVGID_1_)" /> 		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="337.70029" y1="6.1680002" x2="532.23828" y2="196.73579"> 			<stop offset="0" style="stop-color:#B38C30" id="stop31" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop33" /> 		</linearGradient> 		<path class="pl5" d="m 361.2,31.6 c 0,0 -0.6,-2.6 -0.1,-4.9 6.6,-1.4 16.2,1.3 16.2,1.3 0,0 0,-4.3 0,-7.9 -5,-2.3 -16,-2 -19.6,-1.2 -3.6,0.8 -4.2,2.5 -5,4.1 -7.1,0.2 -14.6,2 -14.6,2 l 4.7,2.8 -3.9,4.3 c 6.6,-2.7 22.3,-0.5 22.3,-0.5 z" id="path36" style="fill:url(#SVGID_2_)" /> 		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="282.0394" y1="62.988499" x2="476.57739" y2="253.5563"> 			<stop offset="0" style="stop-color:#B38C30" id="stop38" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop40" /> 		</linearGradient> 		<path class="pl6" d="m 480.7,228.4 c -10.1,-2.8 -8.1,-2.7 -20,-5.1 6.7,-8.1 28,-34.8 22.8,-43.3 -6.2,-10 -13.4,-16.6 -11.1,-26.2 2.3,-9.6 18.4,-20.7 22,-23.8 3.6,-3.1 -2.9,-8.8 -5.7,-6.3 -2.9,2.4 -4.9,4.4 -11.8,9.4 -8.5,6.2 -15.5,13.9 -14.7,24.7 0.7,9.6 0.8,37.1 -11.8,51.7 -0.7,0.8 -1.9,0 -1.5,-0.9 3.1,-6.8 3.8,-16.1 3.2,-23.7 -26.1,13 -49.4,15.6 -64.9,15.5 -0.9,0 -1,-1.3 -0.2,-1.5 24.9,-5 62.4,-18.1 64.4,-23.7 2.3,-6.2 -1,-17.4 -1,-17.4 0,0 -12.3,6.1 -30.1,13.2 -5.9,2.6 -12.2,5 -19.2,7.2 -1.5,0.5 -3,0.9 -4.5,1.4 -20.2,6.6 -47.3,12.8 -62.3,12.2 -12.1,-0.4 -20.1,-1.6 -22.7,-2 -0.5,-0.1 -0.9,0.3 -0.9,0.8 0.3,4.5 1.9,23.7 10.6,32.7 -2,0.4 -5.5,1.3 -8,2.6 -2.6,1.3 -9.9,8.4 -4.5,7.8 30.4,-3.5 69.6,-6.7 88.1,-6.1 19.5,0.6 57.9,6.5 91.9,11.9 5.5,0.9 -2.9,-9.7 -8.1,-11.1 z" id="path43" style="fill:url(#SVGID_3_)" /> 		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="243.6169" y1="102.2115" x2="438.15479" y2="292.7793"> 			<stop offset="0" style="stop-color:#B38C30" id="stop45" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop47" /> 		</linearGradient> 		<path class="pl7" d="m 471.4,243.7 c -17.7,-3.9 -47.3,-9.6 -73,-9.9 -32.5,-0.4 -62.4,4 -86,9.1 -5.3,1.2 -4,9.1 1.4,8.5 30.4,-3.5 66.1,-6.9 84.6,-6.3 15.1,0.4 49.2,3.9 71.4,7.2 5.6,0.7 7.1,-7.4 1.6,-8.6 z" id="path50" style="fill:url(#SVGID_4_)" /> 		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="236.7075" y1="109.2649" x2="431.24551" y2="299.83261"> 			<stop offset="0" style="stop-color:#B38C30" id="stop52" /> 			<stop offset="1" style="stop-color:#F2DE98" id="stop54" /> 		</linearGradient> 		<path class="pl8" d="m 437.2,259 c -12.5,-2.7 -26.8,-4.8 -41.4,-5 -18.5,-0.2 -35.5,2.3 -48.9,5.2 -3,0.7 -2.3,5.2 0.8,4.8 17.3,-2 37.6,-3.9 48.1,-3.6 8.6,0.2 24.6,2.3 40.3,4.7 3.8,0.5 4.9,-5.3 1.1,-6.1 z" id="path57" style="fill:url(#SVGID_5_)" /> 	</g> </g> </svg>
 
-    <!-- Input field to accept CSV files -->
-    <input type="file" id="csvFile" accept=".csv" onchange="handleFile()" />
+        <!-- Input field to accept CSV files -->
+        <input type="file" id="csvFile" accept=".csv" onchange="handleFile()" />
 
-    <div class="benchmarkInput">
-        <p>-or-</p>
-        <!-- Dropdown list for benchmark data files -->
-        <select id="benchmarkData" >
-            <option value="">Benchmark data</option>
-            <!-- Options will be added here dynamically -->
-        </select>
-
-        <!-- Load button -->
-        <button onclick="loadFile()">Load</button> <span id="loadError"></span>
+        <!-- Benchmark files -->
+        <div class="benchmarkInput">
+            <p>-or-</p>
+            <a id="benchmarkLink" href="#">LOAD BENCHMARK</a>
+            <ul id="benchmarkTree" style="display: none;">
+            </ul>
+        </div>
     </div>
+    <span id="reloadButton">x</span>
 
     <!-- Canvas elements for rendering charts -->
     <div id="canvas_container">
@@ -177,7 +284,7 @@
     <div id="extra_data">
         <p>
             <div id="report">
-                <h2>Sync Report</h2>
+                <h2 id="headline">Sync Report</h2>
             </div>
             
         </p>        
@@ -186,243 +293,324 @@
         <svg version="1.1" x="0px" y="0px" viewBox="0 0 34 34" enable-background="new 0 0 1000 1000" xml:space="preserve" id="svg12" sodipodi:docname="github.svg" inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs16" /><sodipodi:namedview id="namedview14" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="0.3595" inkscape:cx="716.2726" inkscape:cy="724.61752" inkscape:window-width="1473" inkscape:window-height="1012" inkscape:window-x="26" inkscape:window-y="23" inkscape:window-maximized="0" inkscape:current-layer="svg12" /> <path style="fill:#3399db;fill-opacity:1;stroke-width:0.0247883" d="M 16.541418,34.00131 C 11.224002,33.862902 6.2804446,31.234291 3.1595279,26.885861 1.5388754,24.627765 0.48505958,21.944415 0.13240875,19.17782 c -0.176545,-1.385046 -0.176545,-2.970594 0,-4.35564 C 0.72781958,10.151075 3.2552804,5.9290829 7.1141529,3.1595279 9.3722346,1.5388754 12.055585,0.48505958 14.82218,0.13240875 c 1.385046,-0.176545 2.970594,-0.176545 4.35564,0 4.671119,0.59541083 8.893097,3.12287165 11.662652,6.98174415 1.620667,2.2580817 2.674468,4.9414321 3.027119,7.7080271 0.176545,1.385046 0.176545,2.970594 0,4.35564 -0.595411,4.671119 -3.122857,8.893097 -6.98173,11.662652 -2.50699,1.799294 -5.506583,2.887053 -8.584476,3.11304 -0.507081,0.03726 -1.318817,0.05922 -1.759967,0.04774 z m 1.216449,-3.306797 c 3.074634,-0.173783 5.950921,-1.341413 8.240297,-3.345133 2.243221,-1.963344 3.769381,-4.526915 4.397772,-7.38718 0.525541,-2.392055 0.399245,-4.922265 -0.361887,-7.25057 C 29.775252,11.919982 29.349997,10.960261 28.931641,10.223736 27.733014,8.1134979 25.895838,6.2765204 23.776278,5.0689112 20.439348,3.1677162 16.388602,2.7639379 12.71163,3.9659654 11.919982,4.2247479 10.960261,4.6500171 10.223736,5.0683587 8.1134979,6.2670004 6.2765204,8.1041621 5.0689112,10.223736 c -1.901195,3.336916 -2.3049733,7.387662 -1.1029458,11.064649 0.2587825,0.791633 0.6840517,1.751368 1.1023933,2.487893 0.7438634,1.309595 1.7563409,2.542817 2.9334917,3.573102 2.6765366,2.342572 6.1885526,3.546781 9.7560166,3.345133 z m -2.35671,-2.908898 c 0,-0.0057 0.04505,-0.06389 0.100017,-0.130192 0.05497,-0.0663 0.130333,-0.181801 0.167322,-0.256785 l 0.06729,-0.136283 0.0071,-2.10266 0.0071,-2.102645 -0.05638,0.01686 c -0.0884,0.02635 -0.163384,0.08089 -0.210899,0.153411 -0.04052,0.06177 -0.04463,0.202172 -0.0561,1.889762 l -0.01275,1.823066 -0.05964,0.120275 c -0.132033,0.266092 -0.414134,0.483126 -0.783105,0.602551 -0.159063,0.05143 -0.26452,0.06673 -0.53295,0.07678 l -0.334645,0.01275 0.129342,-0.11645 c 0.08401,-0.07565 0.157916,-0.174448 0.210701,-0.281647 l 0.08132,-0.165155 0.0071,-1.416044 0.0071,-1.416043 -0.763016,-0.01459 C 12.55955,24.326993 12.304848,24.299226 11.988308,24.191361 11.572814,24.049695 11.233593,23.818594 10.935994,23.474386 10.723196,23.228255 10.571245,22.99534 10.221427,22.379147 10.066628,22.106481 9.8754062,21.786966 9.7964979,21.6691 c -0.26435,-0.394783 -0.5775608,-0.710586 -0.86887,-0.876067 -0.14025,-0.07962 -0.088258,-0.09931 0.2049209,-0.07721 0.5526416,0.04165 0.9572132,0.263287 1.6593132,0.908735 0.64838,0.596076 0.838157,0.741894 1.171158,0.899923 0.34935,0.165778 0.39076,0.171601 1.299197,0.18275 l 0.822758,0.0099 0.01558,-0.09477 c 0.02564,-0.155465 0.111775,-0.43156 0.185371,-0.593881 0.106675,-0.23528 0.259816,-0.445811 0.512861,-0.704934 l 0.231781,-0.237348 -0.242066,-0.03117 c -0.133166,-0.01714 -0.409388,-0.06403 -0.613884,-0.104266 -1.853963,-0.364565 -3.141883,-1.119946 -3.936761,-2.308983 -0.08897,-0.133025 -0.165863,-0.254306 -0.170906,-0.269407 -0.01417,-0.04179 -1.2350786,-0.03074 -1.7688928,0.01601 -0.6352475,0.05567 -1.0404991,0.118575 -1.77429,0.275712 -0.058083,0.01275 -0.067717,0.0042 -0.083017,-0.06531 -0.00992,-0.04363 -0.00708,-0.08911 0.00425,-0.101008 0.035133,-0.03513 0.8539383,-0.188912 1.2971141,-0.243667 0.5700384,-0.07041 1.0835659,-0.101575 1.67518,-0.101575 0.2784034,0 0.5061892,-0.0099 0.5061892,-0.02168 0,-0.01133 -0.027058,-0.08288 -0.060208,-0.157717 l -0.060208,-0.136 -0.1494441,-0.01686 c -0.5510834,-0.06233 -2.3118867,-0.05723 -3.0518825,0.0085 -0.1567825,0.01417 -0.3219942,0.02564 -0.3671292,0.02564 -0.079617,1.99e-4 -0.081883,-0.0028 -0.074375,-0.09279 l 0.00708,-0.09293 0.3594367,-0.03032 c 0.539495,-0.04547 2.1894725,-0.06687 2.7129875,-0.03528 0.2446583,0.01473 0.4500467,0.02168 0.4564075,0.0153 0.00567,-0.0057 -0.023375,-0.131467 -0.066017,-0.278135 -0.3410341,-1.171016 -0.3601308,-2.527999 -0.050717,-3.598871 0.1986308,-0.687296 0.5090226,-1.258284 0.9801206,-1.803006 l 0.132175,-0.152844 -0.04774,-0.206593 C 10.478,10.860769 10.476937,9.9176088 10.641143,9.1166538 c 0.02791,-0.1362834 0.0612,-0.28135 0.07381,-0.3222492 0.01275,-0.040942 0.03528,-0.121975 0.05029,-0.180285 l 0.02734,-0.1059667 0.166203,0.01445 c 1.044409,0.090808 2.036997,0.4367725 2.99591,1.044225 l 0.251713,0.15946 0.33082,-0.063042 c 0.796705,-0.1516967 1.528314,-0.2179967 2.413023,-0.2186767 0.888037,-6.8e-4 1.601428,0.061908 2.483487,0.2179825 l 0.351688,0.062192 0.245947,-0.1611459 C 20.892608,8.999297 21.882504,8.6526103 23.002861,8.522872 l 0.128208,-0.014875 0.04123,0.142035 c 0.277993,0.95625 0.363404,1.847914 0.2567,2.679668 l -0.02635,0.20536 0.147461,0.191264 c 0.4267,0.553421 0.76415,1.203954 0.992871,1.914044 0.207329,0.643691 0.286762,1.189207 0.285161,1.958272 -0.0014,0.739217 -0.0476,1.145163 -0.197455,1.741098 -0.03683,0.146398 -0.06106,0.272127 -0.05369,0.279381 0.0071,0.0071 0.229571,4.39e-4 0.493992,-0.01516 0.557727,-0.03287 2.158461,-0.01275 2.736518,0.03414 l 0.371833,0.03032 -0.0085,0.0867 c -0.0042,0.04774 -0.01275,0.09109 -0.01799,0.09647 -0.0057,0.0057 -0.179874,-0.0042 -0.388124,-0.02082 -0.865314,-0.06984 -2.445167,-0.07579 -3.096947,-0.01133 l -0.173131,0.017 -0.06021,0.136 c -0.03315,0.0748 -0.06021,0.144231 -0.06021,0.154233 0,0.0099 0.343017,0.02465 0.762237,0.03258 0.965713,0.01813 1.543118,0.07777 2.361088,0.243724 0.457767,0.09293 0.423158,0.07777 0.396029,0.172422 -0.01275,0.04349 -0.02777,0.08415 -0.03414,0.09052 -0.0057,0.0057 -0.109792,-0.01133 -0.230052,-0.03967 -0.309783,-0.07253 -0.900859,-0.1683 -1.321651,-0.214285 -0.40188,-0.04392 -1.417559,-0.08146 -1.797155,-0.06644 l -0.247889,0.0099 -0.123958,0.222134 c -0.486597,0.872185 -1.354262,1.599785 -2.429243,2.037152 -0.547514,0.222757 -1.279052,0.429434 -1.821947,0.514732 -0.102283,0.01601 -0.199353,0.03612 -0.215772,0.04462 -0.01969,0.0099 0.01643,0.0731 0.106675,0.185682 0.18469,0.230322 0.340042,0.501642 0.430751,0.752335 0.147999,0.40902 0.149303,0.432325 0.149303,2.684371 0,1.915985 0.0028,2.061562 0.04519,2.196712 0.06063,0.194211 0.154502,0.336487 0.335878,0.509079 l 0.15113,0.14382 H 20.75994 c -0.393876,0 -0.871165,-0.09605 -1.162106,-0.233906 -0.316243,-0.149826 -0.48025,-0.351531 -0.529295,-0.650972 -0.01275,-0.08075 -0.02366,-0.876648 -0.02366,-1.81322 -1.13e-4,-1.492699 -0.0042,-1.676569 -0.04023,-1.737216 -0.04802,-0.08132 -0.09577,-0.113475 -0.203362,-0.137133 l -0.08061,-0.01771 0.0071,2.090589 0.0071,2.09059 0.07848,0.16558 c 0.04321,0.09109 0.125375,0.216551 0.182878,0.278856 l 0.104408,0.113334 -0.220051,-2.55e-4 c -0.727373,-6.24e-4 -1.232939,-0.27642 -1.395416,-0.761275 -0.05057,-0.150719 -0.05171,-0.194805 -0.05171,-2.023637 0,-1.767363 -0.0028,-1.872578 -0.04491,-1.924967 -0.05454,-0.06729 -0.160905,-0.07253 -0.228622,-0.01133 -0.0476,0.04321 -0.04873,0.08628 -0.04873,1.956176 0,2.081565 -1.56e-4,2.084044 -0.139683,2.294971 -0.144996,0.219088 -0.45009,0.366124 -0.901369,0.434379 -0.213052,0.03216 -0.66929,0.05015 -0.66929,0.02621 z M 13.899873,23.19934 c 0.151286,-0.06318 0.138408,-0.209199 -0.02309,-0.262522 -0.07338,-0.02422 -0.101716,-0.02167 -0.179916,0.01657 -0.0765,0.0374 -0.09279,0.05837 -0.09279,0.119708 0,0.06021 0.01657,0.08259 0.0867,0.117725 0.104692,0.05227 0.104408,0.05227 0.209114,0.0085 z m -0.654061,-0.02763 c 0.05567,-0.02876 0.0731,-0.05511 0.0731,-0.110075 0,-0.148523 -0.241343,-0.207867 -0.360556,-0.08868 -0.03343,0.03343 -0.06092,0.07296 -0.06092,0.08783 0,0.01487 0.02734,0.0544 0.06092,0.08783 0.07083,0.07083 0.178373,0.07947 0.287428,0.02309 z m -0.676033,-0.0255 c 0.06432,-0.04505 0.07437,-0.16242 0.01785,-0.209312 -0.0204,-0.017 -0.08656,-0.03641 -0.146852,-0.04321 -0.09393,-0.0099 -0.118858,-0.0028 -0.173499,0.05142 -0.07919,0.07919 -0.07962,0.102283 -0.0028,0.178783 0.07183,0.07183 0.219342,0.08259 0.305475,0.02224 z m -0.65025,-0.22056 c 0.03343,-0.03343 0.06092,-0.07296 0.06092,-0.08783 0,-0.06049 -0.122258,-0.148736 -0.206238,-0.148736 -0.105683,0 -0.215163,0.08217 -0.215163,0.161529 0,0.135575 0.248384,0.187255 0.360556,0.07508 z m -0.529125,-0.36184 c 0.07664,-0.09237 -0.0043,-0.19703 -0.152901,-0.19703 -0.164093,0 -0.254193,0.117866 -0.155706,0.203631 0.09506,0.08273 0.236853,0.07976 0.308607,-0.0071 z m -0.415565,-0.368773 c 0.05653,-0.06262 0.03202,-0.136992 -0.05737,-0.174052 -0.152703,-0.06318 -0.31127,0.06446 -0.213789,0.172182 0.05992,0.06616 0.21206,0.06715 0.271164,0.0014 z M 10.62682,21.817609 c 0.04774,-0.06814 0.01431,-0.137842 -0.07693,-0.160806 -0.07593,-0.01898 -0.18877,0.03414 -0.200373,0.09435 -0.02168,0.112483 0.206734,0.167294 0.277341,0.06644 z m -0.355215,-0.294497 c 0.09548,-0.051 0.04193,-0.172649 -0.07593,-0.172649 -0.115033,0 -0.170935,0.118858 -0.08061,0.17153 0.05596,0.03258 0.09718,0.03287 0.156556,0.0011 z M 9.9471037,21.25131 c 0.035983,0 0.05185,-0.07976 0.022808,-0.11475 -0.038817,-0.04675 -0.133875,-0.04278 -0.184535,0.0085 -0.039383,0.03938 -0.038533,0.04477 0.014733,0.08783 0.031167,0.02522 0.072533,0.03981 0.0918,0.03244 0.019267,-0.0071 0.0442,-0.01417 0.05525,-0.01417 z M 9.6502696,21.015818 c 0.040658,-0.04902 -0.0085,-0.111492 -0.0867,-0.111492 -0.078908,0 -0.1275,0.06247 -0.0867,0.111492 0.017,0.0204 0.055958,0.03726 0.0867,0.03726 0.030742,0 0.069842,-0.01672 0.0867,-0.03726 z" id="path4737" /></svg> 
     </a>
 
-    <script>
-        let chart;
-        let currentFileName = '';
-        let currentFileContent = '';
+<script>
+let chart;
+let currentFileName = '';
+let currentFileContent = '';
 
-        // Array to store the names of the benchmark files
-        let benchmarkFiles = [
-            "5.6.1/pirated_synclog_v5.6.1_PEERS.csv",
-            "5.6.1/pirated_synclog_v5.6.1_BOOTSTRAP.csv",
-            "5.7.1/pirated_synclog_v5.7.1_PEERS.csv",
-            "5.7.1/pirated_synclog_v5.7.1_BOOTSTRAP.csv",
-            "5.7.2/pirated_synclog_v5.7.2_PEERS.csv",
-            "5.7.2/pirated_synclog_v5.7.2_BOOTSTRAP.csv",
-            "5.7.4/pirated_synclog_v5.7.4_PEERS.csv",
-            "5.7.4/pirated_synclog_v5.7.4_BOOTSTRAP.csv",
-            "5.7.5/pirated_synclog_v5.7.5_PEERS.csv",
-            "5.7.5/pirated_synclog_v5.7.5_BOOTSTRAP.csv"
-        ];
+// Array to store the names of the benchmark files
+let benchmarkFiles = {
+    "v5.6.1": {
+        "peers": {
+            "default_settings": "pirated_synclog_v5.6.1_PEERS.csv", 
+        },
+        "bootstrap":{
+            "default_settings": "pirated_synclog_v5.6.1_BOOTSTRAP.csv"
+        }
+    },
+    "v5.7.1":  {
+        "peers": {
+            "default_settings": "pirated_synclog_v5.7.1_PEERS.csv"
+        },
+        "bootstrap":{
+            "default_settings": "pirated_synclog_v5.7.1_BOOTSTRAP.csv"
+        }
+    },
+    "v5.7.2":  {
+        "peers": {
+            "default_settings": "pirated_synclog_v5.7.2_PEERS.csv"
+        },
+        "bootstrap":{
+            "default_settings": "pirated_synclog_v5.7.2_BOOTSTRAP.csv"
+        }
+    },
+    "v5.7.4":  {
+        "peers": {
+            "default_settings": "pirated_synclog_v5.7.4_PEERS.csv"
+        },
+        "bootstrap":{
+            "default_settings": "pirated_synclog_v5.7.4_BOOTSTRAP.csv"
+        }
+    },
+    "v5.7.5":  {
+        "peers": {
+            "default_settings": "pirated_synclog_v5.7.5_PEERS.csv"
+        },
+        "bootstrap":{
+            "default_settings": "pirated_synclog_v5.7.5_BOOTSTRAP.csv"
+        }
+    },
+}
 
-        // Define your color mapping
-        const colorMapping = {
-            "Blocks": '#2d2d2d',
-            "Memory(GB)": '#8e00ff',
-            "CPU(%)": '#ee17ed',
-            "BlockchainSize(GB)": '#40cbd6',
-            "BlocksAdded": '#329542',
-            "Peers": '#c9ff75',
-            "Rescan(Height)": '#d13278',
-            "BootstrapDownload(%)": '#499bf7',
-            "LoadAvg(1min)": "#ffffff",
-            "BuildingWitnessCache": "#ee9836"
-        };
+// Define your color mapping
+const colorMapping = {
+    "Blocks": '#2d2d2d',
+    "Memory(GB)": '#8e00ff',
+    "CPU(%)": '#ee17ed',
+    "BlockchainSize(GB)": '#40cbd6',
+    "BlocksAdded": '#329542',
+    "Peers": '#c9ff75',
+    "Rescan(Height)": '#d13278',
+    "BootstrapDownload(%)": '#499bf7',
+    "LoadAvg(1min)": "#ffffff",
+    "BuildingWitnessCache": "#ee9836"
+};
 
-        // Function to handle the file download operation
-        function downloadFile() {
-            if (currentFileName === "" || currentFileContent === "") {
-                alert("No file is selected.");
+// Function to create a tree level with options
+function createTreeLevel(options, callback, parentCallback) {
+    let levelContainer = document.createElement("ul");
+    levelContainer.classList.add("tree-level"); 
+    for (let option of options) {
+        let optionNode = document.createElement("li");
+        let span = document.createElement("span");
+        span.textContent = option;
+        optionNode.appendChild(span); 
+        optionNode.addEventListener("click", function(event) {
+            event.stopPropagation(); 
+            if (options.length === 1) {
+                callback(option);
             } else {
-                // Create a blob from the file content
-                let file = new Blob([currentFileContent], {type: 'text/csv'});
-                // Create a link element
-                let a = document.createElement("a");
-                a.href = URL.createObjectURL(file);
-                a.download = currentFileName; 
-                // Add the link element to the document
-                document.body.appendChild(a);
-                // Simulate click on the link to start download
-                a.click();
-                // Cleanup
-                document.body.removeChild(a);
+                parentCallback(option, optionNode);
             }
-        }
+        });
+        levelContainer.appendChild(optionNode);
+    }
 
-        // populate the dropdown list
-        window.onload = function() {
-            let select = document.getElementById("benchmarkData");
-            for(let i = 0; i < benchmarkFiles.length; i++) {
-                let opt = benchmarkFiles[i];
-                let el = document.createElement("option");
-                el.textContent = opt;
-                el.value = opt;
-                select.appendChild(el);
-            }
-        };
+    return levelContainer;
+}
 
-        // load the text file and append its contents to a div
-        function loadTextFile(fileName) {
-            return fetch("./benchmarks/" + fileName)
-                .then(response => {
-                    if (response.ok) {
-                        return response.text();
-                    } else {
-                        throw new Error('File not found');
-                    }
-                })
-                .then(contents => {
-                    // Check if "extra_data_textbox" exists
-                    let extraDataTextbox = document.getElementById("extra_data_textbox");
-                    
-                    // If it doesn't exist, create a new one
-                    if (!extraDataTextbox) {
-                        extraDataTextbox = document.createElement("pre");
-                        extraDataTextbox.id = "extra_data_textbox";
-                        document.getElementById("report").appendChild(extraDataTextbox);
-                    }
-                    
-                    // Update the contents
-                    extraDataTextbox.textContent = contents;
-                })
-                .catch(error => {
-                    // If the file is not found, do nothing (only solution for client side)
-                });
-        }
+// Generate the benchmark tree
+function generateBenchmarkTree() {
+    let treeContainer = document.getElementById("benchmarkTree");
+    treeContainer.innerHTML = '<span class="tree_header">Pirate Daemon Version</span>'; 
 
-        // load an image file and append it to a div
-        function loadImage(fileName) {
-            return fetch("./benchmarks/" + fileName)
-                .then(response => {
-                    if (response.ok) {
-                        // Check if "extra_data_imgbox" exists
-                        let extraDataImgbox = document.getElementById("extra_data_imgbox");
+    for (let version in benchmarkFiles) {
+        let versionNode = document.createElement("li");
+        versionNode.classList.add("version");
+        let span = document.createElement("span");
+        span.textContent = version;
+    
+        versionNode.appendChild(span); 
 
-                        // If it doesn't exist, create a new one
-                        if (!extraDataImgbox) {
-                            extraDataImgbox = document.createElement("div");
-                            extraDataImgbox.id = "extra_data_imgbox";
-                            document.getElementById("report").appendChild(extraDataImgbox);
-                        }
+        versionNode.addEventListener("click", function(event) {
+            event.stopPropagation();  // Prevent event from propagating to parent nodes
 
-                        // Remove existing content
-                        extraDataImgbox.innerHTML = '';
-
-                        let img = document.createElement("img");
-                        img.src = "./benchmarks/" + fileName;
-
-                        // Create anchor element
-                        let anchor = document.createElement("a");
-                        // Point the anchor to the image source
-                        anchor.href = "./benchmarks/" + fileName;
-                        // Set the anchor target to '_blank' to open in a new tab
-                        anchor.target = '_blank';
-                        // Append the img to the anchor
-                        anchor.appendChild(img);
-
-                        // Append the anchor to the div instead of the image
-                        extraDataImgbox.appendChild(anchor);
-                    } else {
-                        throw new Error('Image not found');
-                    }
-                })
-                .catch(error => {
-                    // If the image file is not found, do nothing
-                });
-        }
-
-        function createDownloadButton(selectedFile) {
-            // Check if a button with the id "downloadButton" already exists
-            var existingButton = document.getElementById("downloadButton");
-
-            // If it does exist, remove it
-            if (existingButton) {
-                existingButton.parentNode.removeChild(existingButton);
-            }
-
-            // Create new button element
-            var btn = document.createElement("button");
-
-            // Set button attributes
-            btn.id = "downloadButton";
-            btn.onclick = downloadFile;
-            btn.innerText = '⬇ ' + selectedFile;
-
-            // Append the button to the "report" element
-            document.getElementById("report").appendChild(btn);
-        }
-
-
-        // Handles the file input operation
-        function handleFile() {
-            const fileInput = document.getElementById('csvFile');            
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            // Update the current file's name
-            currentFileName = file.name;
-            document.getElementById("downloadButton").style.display = 'none';
-
-            // Parsing the content of the file
-            reader.onload = function (e) {
-                const contents = e.target.result;
-                currentFileContent = contents; // Save the current file content
-                const data = parseCSV(contents);        
-                renderChart(data, currentFileName);
-            };
-            reader.readAsText(file);
-        }
-
-        // handle the file loading operation
-        function loadFile() {
-            let dropdown = document.getElementById("benchmarkData");
-            let selectedFile = dropdown.value;
-            currentFileName = selectedFile; // Save the current file's name
+            let level2Container = versionNode.querySelector(".level2");
+            if (!level2Container) {
+                let level2Options = Object.keys(benchmarkFiles[version]);
+                level2Container = createTreeLevel(level2Options, function (level2Option) {
+                    loadFile(version, level2Option);
+                }, function (level2Option, level2Node) {
+                    let level3Container = level2Node.querySelector(".level3");
+                    if (!level3Container) {
+                        let level3Options = Object.keys(benchmarkFiles[version][level2Option]);
             
-            if (selectedFile === "") {
-                document.getElementById('loadError').innerText = 'Please select a file from the dropdown menu';
-            } else {
-                document.getElementById('loadError').innerText = '';
-                let request = new XMLHttpRequest();
-                request.open("GET", "./benchmarks/" + selectedFile, true);
-                request.onload = function(e) {
-                    const contents = e.target.responseText;
-                    currentFileContent = contents; // Save the current file content
-                    const data = parseCSV(contents);        
-                    renderChart(data, currentFileName);
-                };
-                request.send();
+                        level3Container = createTreeLevel(level3Options, function (level3Option) {
+                            loadFile(version, level2Option, level3Option);
+                        }, function (subOption, level3Node) {
+                            loadFile(version, level2Option, subOption);
+                        });
+                        level3Container.classList.add("level3");
+                        level2Node.appendChild(level3Container);
 
-                // check for corresponding .txt file
-                let txtFileName = currentFileName.replace('.csv', '.txt');
-                let textFilePromise = loadTextFile(txtFileName);
-
-                // After loading .txt, check for corresponding .png file
-                let pngFileName = currentFileName.replace('.csv', '.png');
-                let imageFilePromise = loadImage(pngFileName);
-
-                // Wait for both promises to complete before creating the download button
-                Promise.all([textFilePromise, imageFilePromise]).then(() => {
-                    createDownloadButton(currentFileName);
-                });
-            }
-        }
-
-        function parseCSV(text) {
-            const lines = text.split('\n');
-            const headers = lines[0].split(',').map(header => header.trim());  // trim headers
-            let lastValidCPU = null; // Initialize last valid CPU value
-            const data = lines.slice(1).map(line => {
-                const values = line.split(',');
-                let row = {};
-                headers.forEach((header, index) => {
-                    // replace zero values in CPU% with the previous valid value 
-                    if (header === 'CPU(%)') { // Check if current header is CPU(%)
-                        if (values[index] !== '' && parseFloat(values[index]) !== 0) { // If value is not empty or zero, it's valid
-                            lastValidCPU = values[index]; // Update last valid CPU value
-                        }
-                        row[header] = lastValidCPU; // Use last valid CPU value for current row
                     } else {
-                        // If value exists at this index, trim it
-                        if (values[index] !== undefined) {
-                            row[header] = values[index].trim();  // trim values
-                        }
+                        level2Node.removeChild(level3Container);                                
                     }
                 });
-                return row;
-            });
-            return data;
-        }
+                level2Container.classList.add("level2");
+                versionNode.appendChild(level2Container);
+            } else {
+                versionNode.removeChild(level2Container);
+            }
+        });
+        treeContainer.appendChild(versionNode);
+    }
+};
+
+window.onload = function () {
+    generateBenchmarkTree();
+    document.getElementById("benchmarkLink").addEventListener("click", function () {
+        let treeContainer = document.getElementById("benchmarkTree");
+        treeContainer.style.display = treeContainer.style.display === "none" ? "block" : "none";
+    });
+};
+
+// load the text file and append its contents to a div
+function loadTextFile(file) {
+    return fetch(file)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('File not found');
+            }
+        })
+        .then(contents => {
+            // Check if "extra_data_textbox" exists
+            let extraDataTextbox = document.getElementById("extra_data_textbox");
+            
+            // If it doesn't exist, create a new one
+            if (!extraDataTextbox) {
+                extraDataTextbox = document.createElement("pre");
+                extraDataTextbox.id = "extra_data_textbox";
+                document.getElementById("report").appendChild(extraDataTextbox);
+            }
+            
+            // Update the contents
+            extraDataTextbox.textContent = contents;
+        })
+        .catch(error => {
+            // If the file is not found, do nothing (only solution for client side)
+        });
+}
+
+// load an image file and append it to a div
+function loadImage(file) {
+    return fetch(file)
+        .then(response => {
+            if (response.ok) {
+                // Check if "extra_data_imgbox" exists
+                let extraDataImgbox = document.getElementById("extra_data_imgbox");
+
+                // If it doesn't exist, create a new one
+                if (!extraDataImgbox) {
+                    extraDataImgbox = document.createElement("div");
+                    extraDataImgbox.id = "extra_data_imgbox";
+                    document.getElementById("report").appendChild(extraDataImgbox);
+                }
+
+                // Remove existing content
+                extraDataImgbox.innerHTML = '';
+
+                let img = document.createElement("img");
+                img.src = file;
+
+                // Create anchor element
+                let anchor = document.createElement("a");
+                // Point the anchor to the image source
+                anchor.href = file;
+                // Set the anchor target to '_blank' to open in a new tab
+                anchor.target = '_blank';
+                // Append the img to the anchor
+                anchor.appendChild(img);
+
+                // Append the anchor to the div instead of the image
+                extraDataImgbox.appendChild(anchor);
+            } else {
+                throw new Error('Image not found');
+            }
+        })
+        .catch(error => {
+            // If the image file is not found, do nothing
+        });
+}
+
+function createDownloadButton(filePath) {
+    // Check if a button with the id "downloadButton" already exists
+    var existingButton = document.getElementById("downloadButton");
+    let fileName = filePath.split("/").pop();
+
+
+    // If it does exist, remove it
+    if (existingButton) {
+        existingButton.parentNode.removeChild(existingButton);
+    }
+
+    // Create new button element
+    var btn = document.createElement("a");
+
+    // Set button attributes
+    btn.id = "downloadButton";
+    btn.href = filePath;
+    btn.download = filePath.split("/").pop()
+    btn.innerText = '⬇ ' + fileName;
+
+    // Append the button to the "report" element
+    document.getElementById("report").appendChild(btn);
+}
+
+
+// Handles the file input operation
+function handleFile() {
+    const fileInput = document.getElementById('csvFile');            
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    // Update the current file's name
+    currentFileName = file.name;
+    document.getElementById("downloadButton").style.display = 'none';
+
+    // Parsing the content of the file
+    reader.onload = function (e) {
+        const contents = e.target.result;
+        currentFileContent = contents; // Save the current file content
+        const data = parseCSV(contents);        
+        renderChart(data, currentFileName);
+    };
+    reader.readAsText(file);
+}
+
+    // handle the file loading operation
+function loadFile(version, level2Option, level3Option) {
+
+
+    var title = version + " " + level2Option + " sync (" + level3Option + ")" 
+    document.getElementById("headline").innerHTML = title;
+
+    let request = new XMLHttpRequest();
+    let filePath = `./benchmarks/${version}/${level2Option}/${level3Option}/`;
+
+    let csvFileName = benchmarkFiles[version][level2Option][level3Option];
+
+
+    request.open("GET", filePath + csvFileName, true);
+    request.onload = function(e) {
+        const contents = e.target.responseText;
+        currentFileContent = contents; // Save the current file content
+        const data = parseCSV(contents);        
+        renderChart(data, csvFileName);
+    };
+    request.send();
+
+    // check for corresponding .txt file
+    let txtFileName = csvFileName.replace('.csv', '.txt');
+    let textFilePromise = loadTextFile(filePath + txtFileName);
+
+    // After loading .txt, check for corresponding .png file
+    let pngFileName = csvFileName.replace('.csv', '.png');
+    let imageFilePromise = loadImage(filePath + pngFileName);
+
+    // Wait for both promises to complete before creating the download button
+    Promise.all([textFilePromise, imageFilePromise]).then(() => {
+        createDownloadButton(filePath + csvFileName);
+        });     
+}
+
+function parseCSV(text) {
+    const lines = text.split('\n');
+    const headers = lines[0].split(',').map(header => header.trim());  // trim headers
+    let lastValidCPU = null; // Initialize last valid CPU value
+    const data = lines.slice(1).map(line => {
+        const values = line.split(',');
+        let row = {};
+        headers.forEach((header, index) => {
+            // replace zero values in CPU% with the previous valid value 
+            if (header === 'CPU(%)') { // Check if current header is CPU(%)
+                if (values[index] !== '' && parseFloat(values[index]) !== 0) { // If value is not empty or zero, it's valid
+                    lastValidCPU = values[index]; // Update last valid CPU value
+                }
+                row[header] = lastValidCPU; // Use last valid CPU value for current row
+            } else {
+                // If value exists at this index, trim it
+                if (values[index] !== undefined) {
+                    row[header] = values[index].trim();  // trim values
+                }
+            }
+        });
+        return row;
+    });
+    return data;
+}
 
 // destroy the previous chart if any
 function destroyChart() {
@@ -602,8 +790,15 @@ function customizeTooltip() {
 
 // update the chart and apply changes
 function updateChart() {
-    document.getElementById("logo").style.width = 0;
-    document.getElementById("logo").style.marginBottom = '0px';
+    var controls = document.getElementById('controls');
+    controls.style.width = '0px';
+    controls.style.maxHeight = '0px';
+    controls.style.marginBottom = '80px';
+
+    var reloadButton = document.getElementById('reloadButton')
+    reloadButton.style.opacity = 1;
+    reloadButton.style.visibility = 'visible';
+
     document.getElementById("canvas_container").style.display = 'block';
     document.getElementById("art").style.width = '30px';
     chart.update();
@@ -693,6 +888,10 @@ function renderChart(data, fileName) {
     customizeTooltip();
     updateChart();
 }
+
+document.getElementById('reloadButton').addEventListener('click', function() {
+  location.reload();
+});
 
     </script>
 </body>
