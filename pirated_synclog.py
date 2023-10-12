@@ -378,7 +378,7 @@ def dataCollectionLoop(start_time, data_file):
                     # CPU utilization for the process (measured over 1 second)
                     cpu_percent = process.cpu_percent(interval=1)
                     
-            memory = "{:.3f}".format(memory_gb)
+            memory = "{: >4.1f}".format(memory_gb)
             cpu = "{: >4.1f}".format(cpu_percent)
             
 
@@ -403,7 +403,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f"  │  daemon MEM {memory}GB  CPU {cpu}% | machine load {load1}  |  size {blockchain_size}GB"
+            message += f"  │  pirated MEM {memory}GB  CPU {cpu}%  │  machine load {load1}  │  size {blockchain_size}GB"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
