@@ -396,32 +396,32 @@ function generateBenchmarkTree() {
         versionNode.addEventListener("click", function(event) {
             event.stopPropagation();  // Prevent event from propagating to parent nodes
 
-            let level2Container = versionNode.querySelector(".level2");
-            if (!level2Container) {
+            let sourceContainer = versionNode.querySelector(".level2");
+            if (!sourceContainer) {
                 let sources = Object.keys(benchmarkFiles[version]);
-                level2Container = createTreeLevel(sources, function (source) {
+                sourceContainer = createTreeLevel(sources, function (source) {
                     loadFile(version, source);
-                }, function (source, level2Node) {
-                    let level3Container = level2Node.querySelector(".level3");
-                    if (!level3Container) {
-                        let settingss = Object.keys(benchmarkFiles[version][source]);
+                }, function (source, sourceNode) {
+                    let settingsContainer = sourceNode.querySelector(".level3");
+                    if (!settingsContainer) {
+                        let settings = Object.keys(benchmarkFiles[version][source]);
             
-                        level3Container = createTreeLevel(settingss, function (settings) {
+                        settingsContainer = createTreeLevel(settings, function (settings) {
                             loadFile(version, source, settings);
-                        }, function (subOption, level3Node) {
+                        }, function (subOption, settingsNode) {
                             loadFile(version, source, subOption);
                         });
-                        level3Container.classList.add("level3");
-                        level2Node.appendChild(level3Container);
+                        settingsContainer.classList.add("level3");
+                        sourceNode.appendChild(settingsContainer);
 
                     } else {
-                        level2Node.removeChild(level3Container);                                
+                        sourceNode.removeChild(settingsContainer);                                
                     }
                 });
-                level2Container.classList.add("level2");
-                versionNode.appendChild(level2Container);
+                sourceContainer.classList.add("level2");
+                versionNode.appendChild(sourceContainer);
             } else {
-                versionNode.removeChild(level2Container);
+                versionNode.removeChild(sourceContainer);
             }
         });
         treeContainer.appendChild(versionNode);
