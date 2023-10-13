@@ -506,7 +506,19 @@ def buildingWitnessCache_minutes(df, sample_rate):
     except Exception as e:
         err(f"Error in computing witness cache time: {e}")
         return "unknown"
-    
+
+# Return the total and available storage size  
+def get_storage_info(path):
+    try:
+        stat = os.statvfs(path)
+        total_space = stat.f_frsize * stat.f_blocks  
+        total_storage = total_space / (1024**3) 
+        available_space = stat.f_frsize * stat.f_bavail 
+        available_storage = available_space / (1024**3)
+        return total_storage, available_storage
+    except Exception as e:
+        return "?", "?"
+
 # print the summary to the sync.log and a summary txt file
 def write_and_print(f, message):
     msg(message)
@@ -579,18 +591,22 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         blocks_synced = int(computed_values["Blocks_max"])
         blockchain_size_max = computed_values["BlockchainSize(GB)_max"]
         avg_peers = int(computed_values["Peers_avg"])
+        max_peers = int(computed_values["Peers_max"])
 
         # define some other environment details
         utc_now = datetime.now(timezone.utc)
         report_date = utc_now.strftime("%A, %d %B %Y, %H:%M:%S %Z%z")
         readable_time = minutes_to_readable_time(total_minutes)
+        sync_time = hms(total_minutes * 60)
         pirate_version = startup_data['PIRATEversion'] if startup_data.get('PIRATEversion') else "unknown"
+        root_type = os.popen(f'df -T {datadir} | awk \'NR==2 {{print $2}}\'').read().strip() or "Unknown"
         total_mem = psutil.virtual_memory().total / (1024 ** 3) 
         cpu_info = platform.processor() 
         platform_version = platform.platform()
         logical_cores = psutil.cpu_count(logical=True)  # Includes hyper-threading cores
         physical_cores = psutil.cpu_count(logical=False) 
-        cpu_freq = psutil.cpu_freq()        
+        cpu_freq = psutil.cpu_freq()      
+        total_storage, available_storage = get_storage_info(datadir) 
 
         # set some times
         download_method = "Bootstrap" if bootstrapUsed else "Network Peers"
@@ -604,12 +620,9 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
 
         # display startup time with different resolutions depending on method
         if startup_data.get('startup_time'):
-            if startup_data.get('bootstrap_used'):
-                startup_time = minutes_to_readable_time(int(startup_data["startup_time"] / 60)) 
-            else:
-                startup_time = hms(startup_data["startup_time"]) 
+            startup_time = hms(startup_data["startup_time"]) 
         else:
-            startup_time = "N/A"
+            startup_time = "UNKOWN"
 
         # decide how to get witness cache time depending on download method
         if startup_data.get("building_witness_time"):
@@ -635,35 +648,40 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
 
         # ok, write the summary to the summary.txt and show in the sync.log
         with open(summary_file, 'w') as f:
-            write_and_print(f, "\nPirate Network Sync - Summary Report")
+            write_and_print(f, "\nPIRATE NETWORK SYNC - Summary Report")
+
+            write_and_print(f, "\n\nSYNCHRONIZATION TIME:")
+            write_and_print(f, f"\t{readable_time}")
             write_and_print(f, report_date)
 
             write_and_print(f, "\nENVIRONMENT:")
-            write_and_print(f, f"\tpirated: {pirate_version}")
+            write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tOS: {os_info}")
             write_and_print(f, f"\tPlatform: {platform_version}")
+            write_and_print(f, f"\Storage available: {available_storage:.2f} GB of {total_storage:.2f} GB ({root_type})")
             write_and_print(f, f"\tMEM: {total_mem:.2f} GB")
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\nNETWORK SYNC DETAILS:")    
-            write_and_print(f, f"\tSyncing took {readable_time}")
+            write_and_print(f, "\nTELEMETRY SUMMARY:")    
             write_and_print(f, f"\tBlocks synced: {blocks_synced}")
             write_and_print(f, f"\tBlockchain size: {blockchain_size_gb:.2f}GB")            
-            write_and_print(f, f"\tMax Disk Used: {blockchain_size_max:.2f}GB")
-            write_and_print(f, f"\tPeers: {avg_peers} avg")   
-            write_and_print(f, f"\tMEM: {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
-            write_and_print(f, f"\tCPU: {cpu_avg:.2f}% avg ({cpu_max:.2f}% peak)")
-            write_and_print(f, f"\tLoad: {load_avg:.2f} avg ({load_max:.2f} peak)")           
+            write_and_print(f, f"\tMax disk used: {blockchain_size_max:.2f}GB")
+            if download_method != "Bootstrap": 
+                write_and_print(f, f"\tPeers: {avg_peers} avg ({max_peers} peak)")   
+            write_and_print(f, f"\tPirated MEM: {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
+            write_and_print(f, f"\tPirated CPU: {cpu_avg:.2f}% avg ({cpu_max:.2f}% peak)")
+            write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
-            write_and_print(f, "\nDAEMON PROCESSES:")  
-            write_and_print(f, f"\tBlock Download Source: {download_method}")
-            write_and_print(f, f"\tStartup sequence took {startup_time}")            
+            write_and_print(f, "\nSYNC PROCESSES:")  
+            write_and_print(f, f"\tTotal Sync Time: {sync_time}")
+            write_and_print(f, f"\tBlock download source: {download_method}")
+            write_and_print(f, f"\tStartup sequence: {startup_time}")            
             if download_method == "Bootstrap":      
-                write_and_print(f, f"\tBootstrap Download {bootstrap_download_time}")   
-                write_and_print(f, f"\tBlock Extraction {bootstrap_extraction_time}")
-                write_and_print(f, f"\tRescan {rescan_time}")   
-            write_and_print(f, f"\tBuilding Witness Cache: {building_witness_time}")                  
+                write_and_print(f, f"\tBootstrap download: {bootstrap_download_time}")   
+                write_and_print(f, f"\tBlock extraction: {bootstrap_extraction_time}")
+                write_and_print(f, f"\tRescan: {rescan_time}")   
+            write_and_print(f, f"\tBuilding witness cache: {building_witness_time}")                  
 
         # mark the exit
         msg(f"\nThe sync summary, data CSV, error logs, and chart saved in '{outputdir}'")
