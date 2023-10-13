@@ -357,10 +357,6 @@ def dataCollectionLoop(start_time, data_file):
 
         # check for machine data
         try:
-            # CPU utilization
-            raw_cpu = psutil.cpu_percent(interval=1)
-            cpu = "{: >4.1f}".format(raw_cpu)
-
             # Total machine load
             load1, load5, load15 = os.getloadavg()
             load1 = "{: >5.2f}".format(load1)
@@ -379,9 +375,8 @@ def dataCollectionLoop(start_time, data_file):
                     cpu_percent = process.cpu_percent(interval=1)
                     
             memory = "{: >4.1f}".format(memory_gb)
-            cpu = "{: >4.1f}".format(cpu_percent)
+            cpu = "{: >5.1f}".format(cpu_percent)
             
-
             # Run du command to get blocks directory size in gigabytes
             try:
                 # Try to run the du command
@@ -403,7 +398,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f"  │  pirated MEM {memory}GB  CPU {cpu}%  │  machine load {load1}  │  size {blockchain_size}GB"
+            message += f"  │  pirated: MEM {memory}GB  CPU {cpu}%  │  machine: load {load1}  disk {blockchain_size}GB"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
