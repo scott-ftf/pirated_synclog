@@ -338,7 +338,8 @@ let benchmarkFiles = {
     },
     "v5.7.5":  {
         "peers": {
-            "default_settings": "pirated_synclog_v5.7.5_PEERS.csv"
+            "default_settings": "pirated_synclog_v5.7.5_PEERS.csv",
+            "checkpoints_disabled": "pirated_synclog_v5.7.5_PEERS_CHECKPOINTS_DISABLED.csv"
         },
         "bootstrap":{
             "default_settings": "pirated_synclog_v5.7.5_BOOTSTRAP.csv"
@@ -356,7 +357,7 @@ const colorMapping = {
     "Peers": '#c9ff75',
     "Rescan(Height)": '#d13278',
     "BootstrapDownload(%)": '#499bf7',
-    "LoadAvg(1min)": "#ffffff",
+    "MachineLoadAvg(1min)": "#ffffff",
     "BuildingWitnessCache": "#ee9836"
 };
 
@@ -729,7 +730,7 @@ function createDataset(header, values, color, fileName) {
 // check if a header should be hidden
 function isHeaderHidden(header, fileName) {
     return (
-        header === "LoadAvg(1min)" ||
+        header === "MachineLoadAvg(1min)" ||
         ((header === "BootstrapDownload(%)" || header === "Rescan(Height)") && !fileName.toUpperCase().includes("BOOTSTRAP")) ||
         ((header === "BlockchainSize(GB)" || header === "BlocksAdded" || header === "Peers") && fileName.toUpperCase().includes("BOOTSTRAP"))
     );
