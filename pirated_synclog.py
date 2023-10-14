@@ -727,7 +727,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
             write_and_print(f, "\nSYNC PROCESSES:")  
-            write_and_print(f, f"\tTotal Sync Time: {sync_time}")
+            write_and_print(f, f"\tTotal sync time: {readable_time}")
             write_and_print(f, f"\tBlock download source: {download_method}")
             write_and_print(f, f"\tStartup sequence: {startup_time}")            
             if download_method == "Bootstrap":      
