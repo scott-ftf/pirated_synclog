@@ -23,7 +23,7 @@
         #report #logo {
             max-width: 180px;
             margin-bottom: 30px;
-            margin-top: 40px;
+            margin-top: 60px;
             filter: drop-shadow(8px 8px 4px #00000046);
         }
         #controls {
@@ -570,7 +570,7 @@ function handleFile() {
 
     // Update the current file's name
     currentFileName = file.name;
-    document.getElementById("downloadButton").style.display = 'none';
+    //document.getElementById("downloadButton").style.display = 'none';
 
     // Parsing the content of the file
     reader.onload = function (e) {
@@ -578,6 +578,7 @@ function handleFile() {
         currentFileContent = contents; // Save the current file content
         const data = parseCSV(contents);        
         renderChart(data, currentFileName);
+        document.getElementById("extra_data").style.display = "none";
     };
     reader.readAsText(file);
 }
