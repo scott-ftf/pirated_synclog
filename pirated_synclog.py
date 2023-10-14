@@ -702,7 +702,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
 
             write_and_print(f, "\n\nSYNCHRONIZATION TIME:")
             write_and_print(f, f"\t{readable_time}")
-            write_and_print(f, report_date)
+            write_and_print(f, f"\t{report_date}")
 
             write_and_print(f, "\nENVIRONMENT:")
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
