@@ -27,7 +27,9 @@ home = os.path.expanduser("~")
 datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
 CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate_cli
 sample_rate = 1                                     # how many minutes between data collection loops
+test_file_size = 100                                # size of file in mb for testing i/o speed
 debug_mode = True                                   # logs more messages to the debug.log
+
 
 # prepare some flags
 startup_data = {
@@ -513,6 +515,57 @@ def get_storage_info(path):
         return total_storage, available_storage
     except Exception as e:
         return "?", "?"
+import os
+import time
+
+# Test disk write speed
+def measure_write_speed():
+    block_size = 1024 * 1024  # 1 MB
+    blocks = int(test_file_size)
+    buffer = os.urandom(block_size)
+    test_file_path = os.path.join(datadir, 'test_file')
+    
+    try:
+        start_time = time.time()
+        
+        with open(test_file_path, 'wb') as f:
+            for _ in range(blocks):
+                f.write(buffer)
+
+        end_time = time.time()
+        os.remove(test_file_path)  # Clean up
+        write_speed = test_file_size / (end_time - start_time)
+        return f"{write_speed:.2f} MB/s"
+    
+    except:
+        return "unknown"
+
+# Test disk read speed
+def measure_read_speed():
+    block_size = 1024 * 1024  # 1 MB
+    blocks = int(test_file_size)
+    buffer = os.urandom(block_size)
+    test_file_path = os.path.join(datadir, 'test_file')
+    
+    try:
+        # First, create the file to be read
+        with open(test_file_path, 'wb') as f:
+            for _ in range(blocks):
+                f.write(buffer)
+        
+        start_time = time.time()
+
+        with open(test_file_path, 'rb') as f:
+            while f.read(block_size):
+                pass
+
+        end_time = time.time()
+        os.remove(test_file_path)  # Clean up
+        read_speed = test_file_size / (end_time - start_time)
+        return f"{read_speed:.2f} MB/s"
+
+    except:
+        return "unknown"
 
 # print the summary to the sync.log and a summary txt file
 def write_and_print(f, message):
@@ -602,6 +655,8 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         physical_cores = psutil.cpu_count(logical=False) 
         cpu_freq = psutil.cpu_freq()      
         total_storage, available_storage = get_storage_info(datadir) 
+        write_speed = measure_write_speed()
+        read_speed = measure_read_speed()
 
         # set some times
         download_method = "Bootstrap" if bootstrapUsed else "Network Peers"
@@ -652,8 +707,11 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, "\nENVIRONMENT:")
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tOS: {os_info}")
-            write_and_print(f, f"\tPlatform: {platform_version}")
-            write_and_print(f, f"\Storage available: {available_storage:.2f} GB of {total_storage:.2f} GB ({root_type})")
+            write_and_print(f, f"\tPlatform: {platform_version}") 
+            write_and_print(f, f"\tDatadir file system {root_type}")
+            write_and_print(f, f"\tDisk space: {available_storage:.2f} GB of {total_storage:.2f} GB")
+            write_and_print(f, f"\tRead speed test: {read_speed}")
+            write_and_print(f, f"\tWrite speed test: {write_speed}")
             write_and_print(f, f"\tMEM: {total_mem:.2f} GB")
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
