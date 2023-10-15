@@ -10,7 +10,10 @@ ENVIRONMENT:
 	Pirate daemon version: v5.7.5-f971474f6
 	OS: Ubuntu 22.04.3 LTS
 	Platform: Linux-5.15.0-86-generic-x86_64-with-glibc2.35
-	Storage available: 13504.31 GB of 14782.98 GB (ext4)
+	File system: ext4
+	Disk space fee: 13504.31 GB of 14782.98 GB
+	Read speed test: 6221.71 MB/s
+	Write speed test: 1080.91 MB/s
 	MEM: 94.31 GB
 	CPU: 1426.08Mhz x86_64
 	Cores: 24 logical | 12 physical
@@ -21,7 +24,7 @@ TELEMETRY SUMMARY:
 	Max disk used: 27.75GB
 	Peers: 32 avg (46 peak)
 	Pirated MEM: 2.30GB avg (2.80GB peak)
-	Pirated CPU: 499.00% avg (2318.40% peak)
+	Pirated CPU: 499% avg (2318% peak)
 	Machine load: 5.59 avg (24.51 peak)
 
 SYNC PROCESSES:

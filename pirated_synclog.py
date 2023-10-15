@@ -708,7 +708,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tOS: {os_info}")
             write_and_print(f, f"\tPlatform: {platform_version}") 
-            write_and_print(f, f"\tDatadir file system {root_type}")
+            write_and_print(f, f"\tFile system: {root_type}")
             write_and_print(f, f"\tDisk space free: {available_storage:.2f} GB of {total_storage:.2f} GB")
             write_and_print(f, f"\tRead speed test: {read_speed}")
             write_and_print(f, f"\tWrite speed test: {write_speed}")
