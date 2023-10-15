@@ -629,8 +629,8 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
                 computed_values[column + "_max"] = fallback
 
         # Handle these with fallbacks in case they don't exist
-        cpu_avg = computed_values["CPU(%)_avg"]
-        cpu_max = computed_values["CPU(%)_max"]
+        cpu_avg = int(computed_values["CPU(%)_avg"])
+        cpu_max = int(computed_values["CPU(%)_max"])
         load_avg = computed_values["MachineLoadAvg(1min)_avg"]
         load_max = computed_values["MachineLoadAvg(1min)_max"]
         memory_avg = computed_values["Memory(GB)_avg"]
@@ -709,7 +709,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tOS: {os_info}")
             write_and_print(f, f"\tPlatform: {platform_version}") 
             write_and_print(f, f"\tDatadir file system {root_type}")
-            write_and_print(f, f"\tDisk space: {available_storage:.2f} GB of {total_storage:.2f} GB")
+            write_and_print(f, f"\tDisk space free: {available_storage:.2f} GB of {total_storage:.2f} GB")
             write_and_print(f, f"\tRead speed test: {read_speed}")
             write_and_print(f, f"\tWrite speed test: {write_speed}")
             write_and_print(f, f"\tMEM: {total_mem:.2f} GB")
@@ -723,7 +723,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             if download_method != "Bootstrap": 
                 write_and_print(f, f"\tPeers: {avg_peers} avg ({max_peers} peak)")   
             write_and_print(f, f"\tPirated MEM: {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
-            write_and_print(f, f"\tPirated CPU: {cpu_avg:.2f}% avg ({cpu_max:.2f}% peak)")
+            write_and_print(f, f"\tPirated CPU: {round(cpu_avg):d}% avg ({round(cpu_max):d}% peak)")
             write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
             write_and_print(f, "\nSYNC PROCESSES:")  

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pirate Synclog CSV Upload</title>
+    <title>Pirate Daemon Sync Logger</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Pirated Sync Logger" id="ogTitle">
+    <meta property="og:description" content="Log Pirate Chain Network daemon sync processes" id="ogDesc">
+    <meta property="og:image" content="https://scott-ftf.github.io/pirated_synclog/benchmarks/v5.7.5/peers/checkpoints_disabled/pirated_synclog_v5.7.5_PEERS_CHECKPOINTS_DISABLED.png" id="ogImg">
+    <meta property="og:url" content="https://scott-ftf.github.io/pirated_synclog/" id="ogURL">
+    <meta name="twitter:card" content="https://scott-ftf.github.io/pirated_synclog/benchmarks/v5.7.5/peers/checkpoints_disabled/pirated_synclog_v5.7.5_PEERS_CHECKPOINTS_DISABLED.png" id="twitterCard">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏴‍☠️</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0"></script>
     <style>
@@ -583,8 +588,10 @@ function handleFile() {
     reader.readAsText(file);
 }
 
+// run function on page load
 checkUrlAndLoadFile();
 
+// if params in url, load that benchmark
 function checkUrlAndLoadFile() {
     const params = new URLSearchParams(window.location.search);
     const version = params.get('version');
@@ -595,6 +602,7 @@ function checkUrlAndLoadFile() {
     }
 }
 
+// add benchmark params to url to support link sharing
 function updateUrlWithParameters(version, source, settings) {
     const params = new URLSearchParams();
     params.set('version', version);
@@ -608,6 +616,7 @@ function updateUrlWithParameters(version, source, settings) {
     linkbox.innerHTML = "<pre>REPORT LINK:</pre> <a href=" + newUrl + ">" + newUrl + "</a>";
 }
 
+ 
 
 // handle the file loading operation
 function loadFile(version, source, settings) {
@@ -615,7 +624,8 @@ function loadFile(version, source, settings) {
     document.getElementById("headline").innerHTML = title;
 
     let request = new XMLHttpRequest();
-    let filePath = `./benchmarks/${version}/${source}/${settings}/`;
+    const domain = window.location.origin;
+    let filePath = `${domain}/benchmarks/${version}/${source}/${settings}/`;
 
     let csvFileName = benchmarkFiles[version][source][settings];
 
@@ -640,10 +650,10 @@ function loadFile(version, source, settings) {
     let imageFilePromise = loadImage(filePath + pngFileName);
 
 
-
     // Wait for both promises to complete before creating the download button
     Promise.all([textFilePromise, imageFilePromise]).then(() => {
         createDownloadButton(filePath + csvFileName);
+        
         });     
 }
 
