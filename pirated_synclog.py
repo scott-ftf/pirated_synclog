@@ -371,13 +371,13 @@ def dataCollectionLoop(start_time, data_file):
             for process in psutil.process_iter(['pid', 'name', 'memory_info', 'cpu_percent']):
                 if process.info['name'] == 'pirated':                    
                     # Memory utilization in gigabytes for the process
-                    memory_gb = process.info['memory_info'].rss / (1024 ** 3)
+                    memory_gb = round(process.info['memory_info'].rss / (1024 ** 3), 1)
                    
                     # CPU utilization for the process (measured over 1 second)
-                    cpu_percent = process.cpu_percent(interval=1)
+                    cpu_percent = round(process.cpu_percent(interval=1))
                     
             memory = "{: >4.1f}".format(memory_gb)
-            cpu = "{: >5.1f}".format(cpu_percent)
+            cpu = "{: >4d}".format(round(cpu_percent))
             
             # Run du command to get blocks directory size in gigabytes
             try:
@@ -483,7 +483,7 @@ def dataCollectionLoop(start_time, data_file):
 
         with open(data_file, 'a') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([minutes, blocks, memory, cpu, load1, blockchain_size, block_diff, peers, rescan_block, bootstrap_progress, witnessCache])
+            writer.writerow([minutes, blocks, memory_gb, cpu_percent, load1, blockchain_size, block_diff, peers, rescan_block, bootstrap_progress, witnessCache])
 
         sleep_for_interval(start_time)
 
@@ -727,8 +727,8 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
             write_and_print(f, "\nSYNC PROCESSES:")  
-            write_and_print(f, f"\tTotal sync time: {readable_time}")
             write_and_print(f, f"\tBlock download source: {download_method}")
+            write_and_print(f, f"\tTotal sync time: {readable_time}")            
             write_and_print(f, f"\tStartup sequence: {startup_time}")            
             if download_method == "Bootstrap":      
                 write_and_print(f, f"\tBootstrap download: {bootstrap_download_time}")   
