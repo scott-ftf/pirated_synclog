@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pirate Daemon Sync Logger</title>
+    <title>Pirate Sync Logger</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Pirated Sync Logger" id="ogTitle">
@@ -566,7 +566,6 @@ function createDownloadButton(filePath) {
     document.getElementById("extra_data").appendChild(btn);
 }
 
-
 // Handles the file input operation
 function handleFile() {
     const fileInput = document.getElementById('csvFile');            
@@ -588,10 +587,8 @@ function handleFile() {
     reader.readAsText(file);
 }
 
-// run function on page load
 checkUrlAndLoadFile();
 
-// if params in url, load that benchmark
 function checkUrlAndLoadFile() {
     const params = new URLSearchParams(window.location.search);
     const version = params.get('version');
@@ -602,7 +599,6 @@ function checkUrlAndLoadFile() {
     }
 }
 
-// add benchmark params to url to support link sharing
 function updateUrlWithParameters(version, source, settings) {
     const params = new URLSearchParams();
     params.set('version', version);
@@ -616,19 +612,15 @@ function updateUrlWithParameters(version, source, settings) {
     linkbox.innerHTML = "<pre>REPORT LINK:</pre> <a href=" + newUrl + ">" + newUrl + "</a>";
 }
 
- 
-
 // handle the file loading operation
 function loadFile(version, source, settings) {
     var title = version + " " + source + " sync (" + settings + ")" 
     document.getElementById("headline").innerHTML = title;
 
     let request = new XMLHttpRequest();
-    const domain = window.location.origin;
-    let filePath = `${domain}/benchmarks/${version}/${source}/${settings}/`;
+    let filePath = `./benchmarks/${version}/${source}/${settings}/`;
 
     let csvFileName = benchmarkFiles[version][source][settings];
-
 
     request.open("GET", filePath + csvFileName, true);
     request.onload = function(e) {
@@ -649,11 +641,9 @@ function loadFile(version, source, settings) {
     let pngFileName = csvFileName.replace('.csv', '.png');
     let imageFilePromise = loadImage(filePath + pngFileName);
 
-
     // Wait for both promises to complete before creating the download button
     Promise.all([textFilePromise, imageFilePromise]).then(() => {
         createDownloadButton(filePath + csvFileName);
-        
         });     
 }
 
@@ -965,8 +955,6 @@ function loadMainPage() {
     window.history.pushState({}, '', baseUrl);
     window.location.reload();  // This will refresh the page
 }
-
-
     </script>
 </body>
 </html>
