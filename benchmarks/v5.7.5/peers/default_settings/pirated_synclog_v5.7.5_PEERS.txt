@@ -1,24 +1,34 @@
 
-Pirate Network Sync - Summary Report
-Saturday, 19 August 2023, 14:56:45 UTC+0000
+PIRATE NETWORK SYNC - Summary Report
+
+
+SYNCHRONIZATION TIME:
+	1 day 0 hour 22 minutes
+	Monday, 16 October 2023, 02:41:19 UTC+0000
 
 ENVIRONMENT:
-	pirated: v5.7.5-f971474f6
+	Pirate daemon version: v5.7.5-f971474f6
 	OS: Ubuntu 22.04.3 LTS
-	Platform: Linux-5.15.0-79-generic-x86_64-with-glibc2.35
+	Platform: Linux-5.15.0-86-generic-x86_64-with-glibc2.35
+	File system: ext4
+	Disk space free: 13504.25 GB of 14782.98 GB
+	Read speed test: 5407.96 MB/s
+	Write speed test: 617.98 MB/s
 	MEM: 94.31 GB
-	CPU: 1598.09Mhz x86_64
+	CPU: 1434.57Mhz x86_64
 	Cores: 24 logical | 12 physical
 
-NETWORK SYNC DETAILS:
-	Syncing took 18 hours 49 minutes
-	Blocks synced: 2531508 (25.24GB)
-	Peers: 38 avg
-	MEM: 5.50GB avg (5.92GB peak)
-	CPU: 10.82% avg (97.20% peak)
-	Load: 3.01 avg (22.09 peak)
+TELEMETRY SUMMARY:
+	Blocks synced: 2612418
+	Blockchain size: 26.11GB
+	Max disk used: 27.81GB
+	Peers: 33 avg (47 peak)
+	Pirated MEM: 2.41GB avg (2.80GB peak)
+	Pirated CPU: 307% avg (2310% peak)
+	Machine load: 3.51 avg (22.73 peak)
 
-DAEMON PROCESSES:
-	Block Download Source: Network Peers
-	Startup sequence took 0h 0m 30s
-	Building Witness Cache: 25 minutes
+SYNC PROCESSES:
+	Total sync time: 1 day 0 hour 22 minutes
+	Block download source: Network Peers
+	Startup sequence: 0h 0m 41s
+	Building witness cache: 34 minutes
