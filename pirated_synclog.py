@@ -25,7 +25,7 @@ except ImportError:
 ### USER CONFIGURATION ###
 home = os.path.expanduser("~")
 datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
-CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate_cli
+CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate-cli
 sample_rate = 1                                     # how many minutes between data collection loops
 test_file_size = 100                                # size of file in mb for testing i/o speed
 debug_mode = True                                   # logs more messages to the debug.log
@@ -371,12 +371,12 @@ def dataCollectionLoop(start_time, data_file):
             for process in psutil.process_iter(['pid', 'name', 'memory_info', 'cpu_percent']):
                 if process.info['name'] == 'pirated':                    
                     # Memory utilization in gigabytes for the process
-                    memory_gb = round(process.info['memory_info'].rss / (1024 ** 3), 1)
+                    memory_gb = round(process.info['memory_info'].rss / (1024 ** 3), 2)
                    
                     # CPU utilization for the process (measured over 1 second)
                     cpu_percent = round(process.cpu_percent(interval=1))
                     
-            memory = "{: >4.1f}".format(memory_gb)
+            memory = "{: >4.2f}".format(memory_gb)
             cpu = "{: >4d}".format(round(cpu_percent))
             
             # Run du command to get blocks directory size in gigabytes
