@@ -386,7 +386,7 @@ def dataCollectionLoop(start_time, data_file):
                 prev_du_output = du_output  # update previous du_output value only if current command succeeds
             except subprocess.CalledProcessError:
                 # If it fails, log an error and use the previous output
-                err("Error running du command.")
+                err("Error running du command. Using previous value and continuing.")
                 if prev_du_output is not None:
                     du_output = prev_du_output
                 else:
