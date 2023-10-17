@@ -144,32 +144,47 @@
             padding: 0px;
         }
         #benchmarkTree li.version::before {
-            content: "├ ";
+            content: "├\00a0";
             font-size: 26px;
-            color: #be9b424f;
+            color: #5e4c20;
+            display: inline-block;
+            box-sizing: content-box;
+            margin-top: -1px;
         }
         #benchmarkTree li.version:last-of-type::before {
-            content: "└ ";
+            content: "└\00a0";
+            display: inline-block;
+            box-sizing: content-box;
         }
         #benchmarkTree .level2 > li::before {
-            content: "│    ├ ";
+            content: "│\00a0\00a0\00a0\00a0├\00a0";
             font-size: 26px;
-            color: #be9b424f;
+            color: #5e4c20;
             margin-left: 0px;
+            margin-top:-1px;
             list-style: none;
+            display: inline-block;
+            box-sizing: content-box;
         }
         #benchmarkTree .level2 > li:last-of-type::before  {
-            content: "│    └ ";
+            content: "│\00a0\00a0\00a0\00a0└\00a0";
+            display: inline-block;
+            box-sizing: content-box;
         }
         #benchmarkTree .level3 > li::before {
-            content: "↪";   
-            margin-right: 8px;
-            color: #be9b42;
+            content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0↪\00a0";   
+            font-size: 26px;
+            color: #5e4c20;
+            position: relative;
+            left: -2px;
+            list-style: none;
+            display: inline-block;
+            box-sizing: content-box;            
         }
         #benchmarkTree .level3 > li {
-            margin-left: 60px;
+            margin-left: 0px;
             color: #be9b42;
-            margin-top: 6px;
+            margin-top: 0px;
         }
         #benchmarkTree .level2 {
             list-style: none;
