@@ -28,7 +28,7 @@ datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon dat
 CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate-cli
 sample_rate = 1                                     # how many minutes between data collection loops
 test_file_size = 100                                # size of file in mb for testing i/o speed
-debug_mode = True                                   # logs more messages to the debug.log
+debug_mode = False                                   # logs more messages to the debug.log
 
 
 # prepare some flags
@@ -751,9 +751,9 @@ def cleanup():
     # Move output_file into outputdir
     try:
         if os.path.isfile(output_file):
-            shutil.move(output_file, outputdir)
+            shutil.copy2(output_file, outputdir)
     except Exception as e:
-        err(f"An error occurred while moving {output_file} to {outputdir}: {e}")
+        err(f"An error occurred while copying {output_file} to {outputdir}: {e}")
 
     # If debug_file exists and is empty, delete it
     try:
