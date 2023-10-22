@@ -27,9 +27,8 @@ home = os.path.expanduser("~")
 datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
 CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate-cli
 sample_rate = 1                                     # how many minutes between data collection loops
-test_file_size = 100                                # size of file in mb for testing i/o speed
-debug_mode = False                                   # logs more messages to the debug.log
-
+test_file_size = 100                                # size (mb) of file in mb for testing i/o speed
+debug_mode = False                                  # logs more messages to the debug.log
 
 # prepare some flags
 startup_data = {
@@ -641,6 +640,26 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         avg_peers = int(computed_values["Peers_avg"])
         max_peers = int(computed_values["Peers_max"])
 
+        # Get some wallet info after sync
+        sapling_txs = json.loads(subprocess.check_output([CLI, "zs_listtransactions"]).decode('utf-8'))
+        sapling_unspent = json.loads(subprocess.check_output([CLI, "z_listunspent"]).decode('utf-8'))
+        sapling_addresses = json.loads(subprocess.check_output([CLI, "z_listaddresses"]).decode('utf-8'))
+        txs = json.loads(subprocess.check_output([CLI, "listtransactions"]).decode('utf-8'))
+        unspent = json.loads(subprocess.check_output([CLI, "listunspent"]).decode('utf-8'))
+        walletinfo = json.loads(subprocess.check_output([CLI, "getwalletinfo"]).decode('utf-8'))
+        networkinfo = json.loads(subprocess.check_output([CLI, "getnetworkinfo"]).decode('utf-8'))
+        
+        # Initialize lists for active and inactive networks
+        reachable = []
+        unreachable = []
+
+        # Iterate through each network in networkinfo["networks"]
+        for network in networkinfo["networks"]:
+            if network["reachable"] and network["name"]:
+                reachable.append(network["name"])
+            elif network["name"]:  # We only want to list named networks
+                unreachable.append(network["name"])
+
         # define some other environment details
         utc_now = datetime.now(timezone.utc)
         report_date = utc_now.strftime("%A, %d %B %Y, %H:%M:%S %Z%z")
@@ -705,7 +724,6 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\t{report_date}")
 
             write_and_print(f, "\nENVIRONMENT:")
-            write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tOS: {os_info}")
             write_and_print(f, f"\tPlatform: {platform_version}") 
             write_and_print(f, f"\tFile system: {root_type}")
@@ -716,7 +734,16 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\nTELEMETRY SUMMARY:")    
+            write_and_print(f, "\PIRATE WALLET:")
+            write_and_print(f, f"\tPirate daemon version: {pirate_version}")
+            write_and_print(f, f"\tTransactions: {len(sapling_txs)} sapling | {len(txs)} transparent")
+            write_and_print(f, f"\tUnspent: {len(sapling_unspent)} sapling | {len(unspent)} transparent")
+            write_and_print(f, f"\tSapling adresses: {len(sapling_unspent)}")      
+            write_and_print(f, f"\tReachable networks: {len(reachable)}" + (f" ({', '.join(reachable)})" if reachable else ""))
+            write_and_print(f, f"\tUnreachable networks: {len(unreachable)}" + (f" ({', '.join(unreachable)})" if unreachable else ""))            
+
+            write_and_print(f, "\nTELEMETRY SUMMARY:")   
+            write_and_print(f, f"\tBlock download source: {download_method}") 
             write_and_print(f, f"\tBlocks synced: {blocks_synced}")
             write_and_print(f, f"\tBlockchain size: {blockchain_size_gb:.2f}GB")            
             write_and_print(f, f"\tMax disk used: {blockchain_size_max:.2f}GB")
@@ -727,7 +754,6 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
             write_and_print(f, "\nSYNC PROCESSES:")  
-            write_and_print(f, f"\tBlock download source: {download_method}")
             write_and_print(f, f"\tTotal sync time: {readable_time}")            
             write_and_print(f, f"\tStartup sequence: {startup_time}")            
             if download_method == "Bootstrap":      
