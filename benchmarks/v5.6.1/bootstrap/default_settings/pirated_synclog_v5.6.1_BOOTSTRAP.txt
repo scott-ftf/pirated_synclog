@@ -1,25 +1,41 @@
 
-Pirate Network Sync - Summary Report
+PIRATE NETWORK SYNC - Summary Report
 
+
+SYNCHRONIZATION TIME:
+	3 hours 32 minutes
+	August 19th, 2023 UTC+0000
+	
 ENVIRONMENT:
-	pirated: v5.6.1-b0323f18b
 	OS: Ubuntu 22.04.2 LTS
 	Platform: Linux-5.15.0-76-generic-x86_64-with-glibc2.35
+	File system: ext4
+	Disk space free: 13505.09 GB of 14782.98 GB
+	Read speed test: 6338.10 MB/s
+	Write speed test: 827.79 MB/s
 	MEM: 94.31 GB
-	CPU: 1409.78Mhz x86_64
+	CPU: 1427.69Mhz x86_64
 	Cores: 24 logical | 12 physical
 
-NETWORK SYNC DETAILS:
+NODE DETAILS:
+	pirated: v5.6.1-b0323f18b
+	Transactions: 101 sapling | 10 transparent
+	Unspent: 4 sapling | 0 transparent
+	Sapling addresses: 4
+	Reachable networks: 2 (ipv4, ipv6)
+	Unreachable networks: 2 (onion, i2p)
+
+TELEMETRY SUMMARY:
+	Block Download Method: Bootstrap
 	Syncing took 3 hours 32 minutes
 	Blocks synced: 2458636 (20.60GB)
 	Peers: 1 avg
 	CPU: 7.56% avg (11.70% peak)
 	MEM: 5.26GB avg (6.03GB peak)
 
-DAEMON STARTUP:
-	Block Download Method: Bootstrap
-	Startup Sequence Took 3 hours 24 minutes
-	Bootstrap Download 0h 18m 50s
-	Bootstrap Extraction 0h 1m 49s
-	Rescan 2h 27m 36s
-	Building Witness 0h 34m 0s
+SYNC PROCESSES:	
+	Total sync time: 3 hours 24 minutes
+	Bootstrap Download: 0h 18m 50s
+	Bootstrap Extraction: 0h 1m 49s
+	Rescan: 2h 27m 36s
+	Building Witness: 0h 34m 0s

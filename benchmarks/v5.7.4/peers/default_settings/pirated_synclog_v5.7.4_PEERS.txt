@@ -7,7 +7,6 @@ SYNCHRONIZATION TIME:
 	Wednesday, 18 October 2023, 03:57:24 UTC+0000
 
 ENVIRONMENT:
-	Pirate daemon version: v5.7.4-f30af0123
 	OS: Ubuntu 22.04.3 LTS
 	Platform: Linux-5.15.0-86-generic-x86_64-with-glibc2.35
 	File system: ext4
@@ -18,6 +17,14 @@ ENVIRONMENT:
 	CPU: 1478.32Mhz x86_64
 	Cores: 24 logical | 12 physical
 
+NODE DETAILS:
+	Pirate daemon version: v5.7.4-f30af0123
+	Transactions: 101 sapling | 10 transparent
+	Unspent: 4 sapling | 0 transparent
+	Sapling addresses: 4
+	Reachable networks: 2 (ipv4, ipv6)
+	Unreachable networks: 2 (onion, i2p)
+	
 TELEMETRY SUMMARY:
 	Blocks synced: 2614590
 	Blockchain size: 26.18GB

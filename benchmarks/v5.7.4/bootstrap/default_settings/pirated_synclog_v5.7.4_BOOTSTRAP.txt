@@ -1,27 +1,43 @@
 
-Pirate Network Sync - Summary Report
-Monday, 10 July 2023, 23:49:45 UTC+0000
+PIRATE NETWORK SYNC - Summary Report
+
+
+SYNCHRONIZATION TIME:
+	17 hours 22 minutes
+	Monday, 23 October 2023, 12:48:49 UTC+0000
 
 ENVIRONMENT:
-	pirated: v5.7.4-f30af0123
-	OS: Ubuntu 22.04.2 LTS
-	Platform: Linux-5.15.0-76-generic-x86_64-with-glibc2.35
+	OS: Ubuntu 22.04.3 LTS
+	Platform: Linux-5.15.0-86-generic-x86_64-with-glibc2.35
+	File system: ext4
+	Disk space free: 13505.09 GB of 14782.98 GB
+	Read speed test: 6338.10 MB/s
+	Write speed test: 827.79 MB/s
 	MEM: 94.31 GB
-	CPU: 1350.86Mhz x86_64
+	CPU: 1427.69Mhz x86_64
 	Cores: 24 logical | 12 physical
 
-NETWORK SYNC DETAILS:
-	Syncing took 3 hours 46 minutes
-	Blocks synced: 2474097 (34.94GB)
-	Peers: 0 avg
-	MEM: 2.43GB avg (3.02GB peak)
-	CPU: 9.75% avg (33.90% peak)
-	Load: 2.86 avg (13.70 peak)
+NODE DETAILS:
+	Pirate daemon version: v5.7.4-f30af0123
+	Transactions: 101 sapling | 10 transparent
+	Unspent: 4 sapling | 0 transparent
+	Sapling addresses: 4
+	Reachable networks: 2 (ipv4, ipv6)
+	Unreachable networks: 2 (onion, i2p)
 
-DAEMON PROCESSES:
-	Block Download Source: Bootstrap
-	Startup sequence took 3 hours 33 minutes
-	Bootstrap Download 0h 24m 10s
-	Block Extraction 0h 1m 51s
-	Rescan 2h 41m 57s
-	Building Witness Cache: 0h 24m 9s
+TELEMETRY SUMMARY:
+	Block download source: Bootstrap
+	Blocks synced: 2622874
+	Blockchain size: 26.18GB
+	Max disk used: 37.60GB
+	Pirated MEM: 3.65GB avg (3.96GB peak)
+	Pirated CPU: 140% avg (859% peak)
+	Machine load: 1.60 avg (13.55 peak)
+
+SYNC PROCESSES:
+	Total sync time: 17 hours 22 minutes
+	Startup sequence: 3h 45m 23s
+	Bootstrap download: 0h 22m 23s
+	Block extraction: 0h 1m 59s
+	Rescan: 2h 54m 37s
+	Building witness cache: 0h 24m 28s

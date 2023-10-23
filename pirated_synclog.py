@@ -734,11 +734,11 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\PIRATE WALLET:")
+            write_and_print(f, "\n\nNODE DETAILS:")
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tTransactions: {len(sapling_txs)} sapling | {len(txs)} transparent")
             write_and_print(f, f"\tUnspent: {len(sapling_unspent)} sapling | {len(unspent)} transparent")
-            write_and_print(f, f"\tSapling adresses: {len(sapling_unspent)}")      
+            write_and_print(f, f"\tSapling addresses: {len(sapling_unspent)}")      
             write_and_print(f, f"\tReachable networks: {len(reachable)}" + (f" ({', '.join(reachable)})" if reachable else ""))
             write_and_print(f, f"\tUnreachable networks: {len(unreachable)}" + (f" ({', '.join(unreachable)})" if unreachable else ""))            
 
