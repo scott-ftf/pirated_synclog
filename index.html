@@ -271,27 +271,6 @@
             display: block;
             margin: 68px auto 60px;
         }
-        #extra_data_linkbox {
-            width: 100%;
-            display: block;
-            text-align: left;
-            margin-top: 40px;
-        }
-        #extra_data_linkbox a {
-            color: #be9b42;
-            margin-bottom: 20px;
-            display: block;
-            font-size: 12px;
-            white-space: pre-wrap; /* CSS3 */    
-            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-            white-space: -pre-wrap; /* Opera 4-6 */    
-            white-space: -o-pre-wrap; /* Opera 7 */    
-            word-wrap: break-word; /* Internet Explorer 5.5+ */
-        }
-        #extra_data_linkbox a:hover {
-            color: #e3ca7f;
-            cursor: pointer;
-        }
         #extra_data_imgbox img {
             width: 100%;
         }
@@ -351,7 +330,6 @@
             <h2 id="headline"></h2>
             <div id="extra_data_imgbox"></div>
             <pre id="extra_data_textbox"></pre>
-            <div id="extra_data_linkbox"></div>
         </div>     
     </div>    
     <a title="Readme" class="readme" id="readme" href="https://github.com/scott-ftf/pirated_synclog" target="_blank" rel="noopener" >
@@ -639,9 +617,6 @@ function updateUrlWithParameters(version, source, settings) {
 
     const newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
     window.history.pushState({}, '', newUrl);
-
-    let linkbox = document.getElementById("extra_data_linkbox"); 
-    linkbox.innerHTML = "<pre>REPORT LINK:</pre> <a href=" + newUrl + ">" + newUrl + "</a>";
 }
 
 // handle the file loading operation
