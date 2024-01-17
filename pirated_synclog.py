@@ -732,7 +732,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\n\nNODE DETAILS:")
+            write_and_print(f, "\nNODE DETAILS:")
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tTransactions: {len(sapling_txs)} sapling | {len(txs)} transparent")
             write_and_print(f, f"\tUnspent: {len(sapling_unspent)} sapling | {len(unspent)} transparent")
