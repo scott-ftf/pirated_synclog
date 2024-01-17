@@ -514,8 +514,6 @@ def get_storage_info(path):
         return total_storage, available_storage
     except Exception as e:
         return "?", "?"
-import os
-import time
 
 # Test disk write speed
 def measure_write_speed():
