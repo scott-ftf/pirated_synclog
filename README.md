@@ -6,7 +6,11 @@ A simple python3 script for logging and visualizing the network sync process for
 
 This script runs in the background while the daemon syncs with the network. It collects telemetry, provides a live output, then returns reports and exits when the daemon becomes in sync with the network. Upload the data.csv for an interactive chart of the resources utilized while sync'ing. 
 
-This has not been tested in an environment other than Ubuntu LTS
+Note: This has not been tested in an environment other than Ubuntu LTS
+
+View precompiled benchmark charts and summarys here:
+
+### [https://scott-ftf.github.io/pirated_synclog/](https://scott-ftf.github.io/pirated_synclog/)
 
 ---
 
@@ -86,20 +90,7 @@ Once the daemon is in sync with the network, the script will generate a text sum
 
 upload the CSV here for a interactive chart of the logged data:
 
-## [https://scott-ftf.github.io/pirated_synclog/](https://scott-ftf.github.io/pirated_synclog/)
+[https://scott-ftf.github.io/pirated_synclog/](https://scott-ftf.github.io/pirated_synclog/)
 
-<br />
-OPTIONAL: Run the chart HTML locally
-
-
-```bash
-# fetch the HTML
-wget https://raw.githubusercontent.com/scott-ftf/pirated_synclog/main/index.html
-
-# serve locally
-python3 -m http.server --bind 127.0.0.1 7777
-```
-
----
 
 <img src="https://raw.githubusercontent.com/PirateNetwork/mediakit/main/Wordmark/SVG/Pirate_Logo_Wordmark_Gold.svg" style="width:150px;margin:40px auto;display:block;">
