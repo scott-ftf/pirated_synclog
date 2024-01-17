@@ -27,8 +27,9 @@ function loadBenchmarkFiles() {
     fetch('./benchmarkFiles.json')
     .then(response => response.json())
     .then(data => {
-        benchmarkFiles = data;
+        benchmarkFiles = data;        
         populateVersions();
+        checkUrlAndLoadFile();
     })
     .catch(error => console.error('Error loading benchmark files:', error));
 }
@@ -54,10 +55,12 @@ function populateSources() {
     let sourceDiv = document.getElementById('sourceDiv');
     let benchmarkSelect = document.getElementById('benchmarkSelect');
     let benchmarkDiv = document.getElementById('benchmarkDiv');
+    let uploader = document.getElementById('uploader');
 
     if (version === '') {
         sourceDiv.style.display = 'none';
         benchmarkDiv.style.display = 'none';
+        uploader.style.display = 'block';
         sourceSelect.innerHTML = '';
         benchmarkSelect.innerHTML = '';
     } else {
@@ -70,6 +73,7 @@ function populateSources() {
             sourceSelect.appendChild(option);
         }
         sourceDiv.style.display = 'flex';
+        uploader.style.display = "none";
     }
     updateBenchmarkButtonVisibility(); 
 }
@@ -236,8 +240,6 @@ function handleFile() {
     reader.readAsText(file);
 }
 
-checkUrlAndLoadFile();
-
 function checkUrlAndLoadFile() {
     const params = new URLSearchParams(window.location.search);
     const version = params.get('version');
@@ -264,6 +266,7 @@ function loadFile(version, source, benchmark) {
     document.getElementById("headline").innerHTML = title;
 
     let request = new XMLHttpRequest();
+
     let filePath = `./benchmarks/${version}/${source}/${benchmark}/`;
 
     let csvFileName = benchmarkFiles[version][source][benchmark];
@@ -600,5 +603,5 @@ function renderChart(data, fileName) {
 function loadMainPage() {
     const baseUrl = window.location.origin + window.location.pathname;
     window.history.pushState({}, '', baseUrl);
-    window.location.reload();  // This will refresh the page
+    window.location.reload(); 
 }

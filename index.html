@@ -37,28 +37,33 @@
         <!-- logo -->
         <img id="logo" src="assets/img/Pirate_Logo_Stacked_WG.svg" />
 
-        <!-- Input field to accept CSV files -->
-        <input type="file" id="csvFile" accept=".csv" onchange="handleFile()" />
+        
 
         <!-- Benchmark files -->
         <div class="select_benchmark">
-            <p>-or-</p>
+            
             <span class="load">Load Benchmark</span>
 
-        <div class="form-group">
-            <select id="versionSelect" onchange="populateSources()"></select>
+            <div class="form-group">
+                <select id="versionSelect" onchange="populateSources()"></select>
+            </div>
+
+            <div class="form-group" id="sourceDiv">
+                <select id="sourceSelect" onchange="populateBenchmarks()"></select>
+            </div>
+
+            <div class="form-group" id="benchmarkDiv" onchange="updateBenchmarkButtonVisibility()">
+                <select id="benchmarkSelect"></select>
+            </div>
+
+            <button id="benchmarkBtn" onclick="loadSelectedFile()">Load Benchmark</button>            
         </div>
 
-        <div class="form-group" id="sourceDiv">
-            <select id="sourceSelect" onchange="populateBenchmarks()"></select>
-        </div>
-
-        <div class="form-group" id="benchmarkDiv" onchange="updateBenchmarkButtonVisibility()">
-            <select id="benchmarkSelect"></select>
-        </div>
-
-        <button id="benchmarkBtn" onclick="loadSelectedFile()">Load Benchmark</button>
-
+        <div id="uploader">
+            <p>-or-</p>
+            
+            <!-- Input field to accept CSV files -->
+            <input type="file" id="csvFile" accept=".csv" onchange="handleFile()" />
         </div>
     </div>
 

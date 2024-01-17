@@ -22,7 +22,7 @@ body, html {
   max-width: fit-content;
   margin: auto;
 }
-.select_benchmark .load {
+.select_benchmark .load, #uploader .upload {
   color: #be9b42;
   font-weight: 100;
   display: block;
@@ -49,12 +49,31 @@ body, html {
 #benchmarkDiv, #sourceDiv, #benchmarkBtn {
   display: none;
 }
-#benchmarkBtn {
+#benchmarkBtn, #downloadButton {
   margin: auto;
-  margin-top: 20px;
-}
-#benchmarkBtn:hover {
+  margin-top: 40px;
+  border: 1px solid #be9b42;
+  background-color: #3a3a3a; 
+  color: #be9b42; 
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  box-shadow: 8px 8px 10px #00000075;
+  text-decoration: none;
+}
+#benchmarkBtn:hover, #downloadButton:hover {
+  cursor: pointer;
+  border-color: #ffb909;
+  color: #ffb909;
+}
+#benchmarkBtn:focus, #downloadButton:focus {
+  outline: none;
+  border-color: #ffb909;
+}
+#uploader {
+  text-align: center;
 }
 #controls {
   margin: 0px auto;
@@ -116,7 +135,7 @@ input {
 }
 .readme {
   display: block;
-  margin: 40px auto 40px;
+  margin: 60px auto 40px;
   width: 34px;
   height: 34px;
   text-align: center;
@@ -149,23 +168,9 @@ input {
 }
 #downloadButton {
   display: inline-block;
-  padding: 5px 9px;
-  background-color: #be9b42;
-  color: #333;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 60px auto 40px;
-  box-shadow: 8px 8px 6px #00000025;
+  margin: 60px auto 40px;  
 }
-#downloadButton:hover {
-  opacity: 1.0;
-  background-color: #ffbd30;
-}
+
 a:hover {
   color: #fff;
 }
