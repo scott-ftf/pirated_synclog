@@ -24,7 +24,7 @@ window.onload = function() {
 };
 
 function loadBenchmarkFiles() {
-    fetch('../../benchmarkFiles.json')
+    fetch('./benchmarkFiles.json')
     .then(response => response.json())
     .then(data => {
         benchmarkFiles = data;
