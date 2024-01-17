@@ -26,8 +26,7 @@
     <link rel="icon" href="assets/img/Pirate_Logo_P_White.svg">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0"></script>   
 
 </head>
 <body>
@@ -46,25 +45,22 @@
             <p>-or-</p>
             <span class="load">Load Benchmark</span>
 
-    <div class="form-group">
-        <select id="versionSelect" onchange="populateSources()"></select>
-    </div>
+        <div class="form-group">
+            <select id="versionSelect" onchange="populateSources()"></select>
+        </div>
 
-    <div class="form-group" id="sourceDiv">
-        <select id="sourceSelect" onchange="populateBenchmarks()"></select>
-    </div>
+        <div class="form-group" id="sourceDiv">
+            <select id="sourceSelect" onchange="populateBenchmarks()"></select>
+        </div>
 
-    <div class="form-group" id="benchmarkDiv" onchange="updateBenchmarkButtonVisibility()">
-        <select id="benchmarkSelect"></select>
-    </div>
+        <div class="form-group" id="benchmarkDiv" onchange="updateBenchmarkButtonVisibility()">
+            <select id="benchmarkSelect"></select>
+        </div>
 
-    <button id="benchmarkBtn" onclick="loadSelectedFile()">Load Benchmark</button>
-
-    
+        <button id="benchmarkBtn" onclick="loadSelectedFile()">Load Benchmark</button>
 
         </div>
     </div>
-
 
     <a href="" id="reloadButton" onclick="loadMainPage(); return false;">x</a>
 

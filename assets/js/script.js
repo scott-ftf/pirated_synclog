@@ -16,61 +16,22 @@ const colorMapping = {
     "BuildingWitnessCache": "#ee9836"
 };
 
-// Array to store the names of the benchmark files
-let benchmarkFiles = {
-    "v5.6.1": {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.6.1_PEERS.csv", 
-        },
-        "bootstrap":{
-            "default_settings": "pirated_synclog_v5.6.1_BOOTSTRAP.csv"
-        }
-    },
-    "v5.7.1":  {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.7.1_PEERS.csv"
-        },
-        "bootstrap":{
-            "default_settings": "pirated_synclog_v5.7.1_BOOTSTRAP.csv"
-        }
-    },
-    "v5.7.2":  {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.7.2_PEERS.csv"
-        },
-        "bootstrap":{
-            "default_settings": "pirated_synclog_v5.7.2_BOOTSTRAP.csv"
-        }
-    },
-    "v5.7.4":  {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.7.4_PEERS.csv",
-            "checkpoints_disabled": "pirated_synclog_v5.7.4_PEERS_ckeckpoints_disabled.csv"
-        },
-        "bootstrap":{
-            "default_settings": "pirated_synclog_v5.7.4_BOOTSTRAP.csv"
-        }
-    },
-    "v5.7.5":  {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.7.5_PEERS.csv",
-            "checkpoints_disabled": "pirated_synclog_v5.7.5_PEERS_checkpoints_disabled.csv"
-        },
-        "bootstrap":{
-            "default_settings": "pirated_synclog_v5.7.5_BOOTSTRAP.csv"
-        }
-    },
-    "v5.8.0-rc1":  {
-        "peers": {
-            "default_settings": "pirated_synclog_v5.8.0-rc1_PEERS.csv",
-            "9k_wallet": "pirated_synclog_v5.8.0-rc1_PEERS_9k-wallet.csv"
-        }
-    },
-};
+// Load array to store the names of the benchmark files
+let benchmarkFiles = {};
 
 window.onload = function() {
-    populateVersions();
+    loadBenchmarkFiles();
 };
+
+function loadBenchmarkFiles() {
+    fetch('../../benchmarkFiles.json')
+    .then(response => response.json())
+    .then(data => {
+        benchmarkFiles = data;
+        populateVersions();
+    })
+    .catch(error => console.error('Error loading benchmark files:', error));
+}
 
 // populate the versions dropdown with all posible versions
 function populateVersions() {
