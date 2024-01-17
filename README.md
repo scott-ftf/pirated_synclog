@@ -13,8 +13,7 @@ This has not been tested in an environment other than Ubuntu LTS
 ## Get Started 
 
 - Install/build the Pirate Chain daemon (or stop if already running)
-- Delete the blocks and chainstate folders 
-    - Optionaly delete peers.dat 
+- Delete the blocksfolder, chainstate folder, and peers.dat 
 
 Download the script
 ```bash
