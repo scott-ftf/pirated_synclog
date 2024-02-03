@@ -35,12 +35,13 @@
   "v5.7.5":  {
       "peers": {
           "default_settings": "pirated_synclog_v5.7.5_PEERS.csv",
-          "checkpoints_disabled": "pirated_synclog_v5.7.5_PEERS_checkpoints_disabled.csv"
+          "checkpoints_disabled": "pirated_synclog_v5.7.5_PEERS_checkpoints_disabled.csv",
+          "9k_wallet": "pirated_synclog_v5.7.5_PEERS_9k-wallet.csv"
       },
       "bootstrap":{
           "default_settings": "pirated_synclog_v5.7.5_BOOTSTRAP.csv"
       }
-  },
+  },  
   "v5.8.0-rc1":  {
       "peers": {
           "default_settings": "pirated_synclog_v5.8.0-rc1_PEERS.csv",
