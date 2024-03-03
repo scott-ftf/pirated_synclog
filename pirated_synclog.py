@@ -514,6 +514,8 @@ def get_storage_info(path):
         return total_storage, available_storage
     except Exception as e:
         return "?", "?"
+import os
+import time
 
 # Test disk write speed
 def measure_write_speed():
@@ -639,24 +641,32 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         max_peers = int(computed_values["Peers_max"])
 
         # Get some wallet info after sync
-        sapling_txs = json.loads(subprocess.check_output([CLI, "zs_listtransactions"]).decode('utf-8'))
-        sapling_unspent = json.loads(subprocess.check_output([CLI, "z_listunspent"]).decode('utf-8'))
-        sapling_addresses = json.loads(subprocess.check_output([CLI, "z_listaddresses"]).decode('utf-8'))
-        txs = json.loads(subprocess.check_output([CLI, "listtransactions"]).decode('utf-8'))
-        unspent = json.loads(subprocess.check_output([CLI, "listunspent"]).decode('utf-8'))
-        walletinfo = json.loads(subprocess.check_output([CLI, "getwalletinfo"]).decode('utf-8'))
-        networkinfo = json.loads(subprocess.check_output([CLI, "getnetworkinfo"]).decode('utf-8'))
+        def safe_subprocess_call(command):
+            try:
+                output = subprocess.check_output(command, stderr=subprocess.STDOUT).decode('utf-8')
+                return json.loads(output)
+            except (subprocess.CalledProcessError, json.JSONDecodeError) as e:
+                return "unknown"
+
+        sapling_txs = safe_subprocess_call([CLI, "zs_listtransactions"])
+        sapling_unspent = safe_subprocess_call([CLI, "z_listunspent"])
+        sapling_addresses = safe_subprocess_call([CLI, "z_listaddresses"])
+        txs = safe_subprocess_call([CLI, "listtransactions"])
+        unspent = safe_subprocess_call([CLI, "listunspent"])
+        # walletinfo = safe_subprocess_call([CLI, "getwalletinfo"]) 
+        networkinfo = safe_subprocess_call([CLI, "getnetworkinfo"])
         
         # Initialize lists for active and inactive networks
         reachable = []
         unreachable = []
 
         # Iterate through each network in networkinfo["networks"]
-        for network in networkinfo["networks"]:
-            if network["reachable"] and network["name"]:
-                reachable.append(network["name"])
-            elif network["name"]:  # We only want to list named networks
-                unreachable.append(network["name"])
+        if isinstance(networkinfo, dict) and "networks" in networkinfo:
+            for network in networkinfo["networks"]:
+                if network["reachable"] and network["name"]:
+                    reachable.append(network["name"])
+                elif network["name"]:  # We only want to list named networks
+                    unreachable.append(network["name"])
 
         # define some other environment details
         utc_now = datetime.now(timezone.utc)
@@ -732,11 +742,11 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
             write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\nNODE DETAILS:")
+            write_and_print(f, "\n\nNODE DETAILS:")
             write_and_print(f, f"\tPirate daemon version: {pirate_version}")
             write_and_print(f, f"\tTransactions: {len(sapling_txs)} sapling | {len(txs)} transparent")
             write_and_print(f, f"\tUnspent: {len(sapling_unspent)} sapling | {len(unspent)} transparent")
-            write_and_print(f, f"\tSapling addresses: {len(sapling_unspent)}")      
+            write_and_print(f, f"\tSapling addresses: {len(sapling_addresses)}")      
             write_and_print(f, f"\tReachable networks: {len(reachable)}" + (f" ({', '.join(reachable)})" if reachable else ""))
             write_and_print(f, f"\tUnreachable networks: {len(unreachable)}" + (f" ({', '.join(unreachable)})" if unreachable else ""))            
 
@@ -836,7 +846,9 @@ def run():
 
     # If we are here, Loop finished, pirated in sync with network. Lets finish and get out of here
     total_time = int((time.time() - start_time) / 60)
-    msg(f"pirated finished sync'ing with the network. Took {minutes_to_readable_time(total_time)}")
+    msg(f"pirated syncronized with the network.")
+    msg(f"Took {minutes_to_readable_time(total_time)}")
+    msg(f"preparing report...")
 
     # Load data from CSV to make a chart and summary
     generateReports(data_file, summary_file, plot_file, startup_data['bootstrap_used'])

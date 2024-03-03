@@ -1,0 +1,42 @@
+
+PIRATE NETWORK SYNC - Summary Report
+
+
+SYNCHRONIZATION TIME:
+	2 days 2 hours 9 minutes
+	Friday, 01 March 2024, 01:56:15 UTC+0000
+
+ENVIRONMENT:
+	OS: Ubuntu 22.04.3 LTS
+	Platform: Linux-5.15.0-97-generic-x86_64-with-glibc2.35
+	File system: ext4
+	Disk space free: 13498.15 GB of 14782.98 GB
+	Read speed test: 6129.78 MB/s
+	Write speed test: 1074.54 MB/s
+	MEM: 94.31 GB
+	CPU: 1540.20Mhz x86_64
+	Cores: 24 logical | 12 physical
+
+
+NODE DETAILS:
+	Pirate daemon version: v5.8.0-rc1-575f667b6
+	Test wallet: spam
+	Total Transactions: 7688
+	Total Received Payments: 761112
+	Average Payments per Transaction: 99.0
+	Reachable networks: 2 (ipv4, ipv6)
+	Unreachable networks: 2 (onion, i2p)
+
+TELEMETRY SUMMARY:
+	Block download source: Network Peers
+	Blocks synced: 2808637
+	Blockchain size: 27.64GB
+	Max disk used: 33.19GB
+	Peers: 30 avg (45 peak)
+	Pirated MEM: 5.66GB avg (6.68GB peak)
+	Pirated CPU: 207% avg (2311% peak)
+	Machine load: 2.46 avg (24.36 peak)
+
+SYNC PROCESSES:
+	Total sync time: 2 days 2 hours 9 minutes
+	Startup sequence: 0h 1m 4s
