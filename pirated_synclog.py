@@ -781,10 +781,9 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\tRead speed test:        {read_speed}")
             write_and_print(f, f"\tWrite speed test:       {write_speed}")
             write_and_print(f, f"\tMemory:                 {total_mem:.2f} GB")
-            write_and_print(f, f"\tProcessor Name:         {processor_name}")  
+            write_and_print(f, f"\tProcessor Name:         {processor_name} (x{num_physical_cpus})")  
             write_and_print(f, f"\tArchitecture:           {cpu_info}")
             write_and_print(f, f"\tFrequency:              {cpu_freq.max:.2f}Mhz")   
-            write_and_print(f, f"\tPhysical CPUs:          {num_physical_cpus}")
             write_and_print(f, f"\tCores:                  {logical_cores} logical | {physical_cores} physical")
 
             write_and_print(f, "\nNODE DETAILS:")
