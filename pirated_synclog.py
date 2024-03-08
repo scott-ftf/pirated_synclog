@@ -33,6 +33,7 @@ debug_mode = False                                  # logs more messages to the 
 # prepare some flags
 startup_data = {
     'rescanning': False,
+    'validating_note_position': False,
     'starting': False,
     'downloading_bootstrap': False,
     'extracting_blocks': False,
@@ -259,6 +260,12 @@ def message_worker(queue, startup_start_time):
             message = line.split("init message:", 1)[-1].strip()
             debug(f"{message}")
 
+        # if validating note positions, record it
+        if "Validating Note Postions..." in line:
+            startup_data["validating_note_position"] = True
+            startup_data["validating_note_position_progress"] = round(float(line.split('=')[-1]) * 100, 2)
+            debug(f'validating note position progress {startup_data["validating_note_position_progress"]}%')
+
         # if rescanning, collect data
         if "Still rescanning" in line and startup_data['rescanning']:
             startup_data["rescan_current_block"] = int(line.split('block')[1].split('.')[0])
@@ -333,7 +340,7 @@ def createDataFile():
     data_file = os.path.join(outputdir, fileName)
     with open(data_file, 'w') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Minutes","Blocks","Memory(GB)","CPU(%)","MachineLoadAvg(1min)","BlockchainSize(GB)","BlocksAdded","Peers","Rescan(Height)","BootstrapDownload(%)","BuildingWitnessCache"])
+        writer.writerow(["Minutes","Blocks","Memory(GB)","CPU(%)","MachineLoadAvg(1min)","BlockchainSize(GB)","BlocksAdded","Peers","Rescan(Height)","ValidateNotePosition","BootstrapDownload(%)","BuildingWitnessCache"])
     msg(f"Output directory: {outputdir}")
     msg(f"CSV file created: {fileName}")
     return data_file
@@ -347,7 +354,7 @@ def dataCollectionLoop(start_time, data_file):
     # Data Collection loop
     while True:
         # initialize the vars so the write always has something
-        blocks = memory = cpu = blockchain_size = block_diff = peers = rescan_block = bootstrap_progress = witnessCache = ''
+        blocks = memory = cpu = blockchain_size = block_diff = peers = rescan_block = validating_note_position = bootstrap_progress = witnessCache = ''
 
         # How many minutes since start
         minutes = round((time.time() - start_time) / 60)
@@ -399,7 +406,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f"  │  pirated: MEM {memory}GB  CPU {cpu}%  │  machine: load {load1}  disk {blockchain_size}GB"
+            message += f" │ pirated: MEM {memory}GB  CPU {cpu}% │ machine: load {load1}  disk {blockchain_size}GB"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
@@ -424,8 +431,7 @@ def dataCollectionLoop(start_time, data_file):
                     
                     # Update prev_blocks with current blocks
                     prev_blocks = blocks
-
-                    message += f"  │  peers {peers}  sync {percent_complete}%  blocks {blocks} (+{block_diff})"
+                    message += f" │ peers {peers}  sync {percent_complete}%  blocks {blocks} (+{block_diff})"
 
                     # Check if synced is true
                     synced = getinfo_output['synced']
@@ -435,10 +441,10 @@ def dataCollectionLoop(start_time, data_file):
                 # if we have an error, log it, but could be not responding while building witnesses
                 except subprocess.CalledProcessError as e:
                     if e.returncode == 32:
-                        message += f"  │  building witness cache"
+                        message += f" │ building witness cache"
                         witnessCache = 1
                     else:
-                        message += f"  │  getinfo did not respond (may be busy)"
+                        message += f" │ getinfo did not respond (may be busy)"
                         err(f"Command '{e.cmd}' returned non-zero exit status {e.returncode}.")
 
             else:
@@ -455,11 +461,14 @@ def dataCollectionLoop(start_time, data_file):
                     if startup_data.get("building_witness_progress") and startup_data.get("building_witness_block"):
                         current_operation += f' {"{:.2f}".format(startup_data["building_witness_progress"])}% @ block {startup_data["building_witness_block"]}'
 
+                elif startup_data["validating_note_position"]:
+                    current_operation = f'Validating Note Position: {"{:.2f}".format(startup_data["validating_note_position_progress"])}%'
+
                 elif startup_data["rescanning"]:
                     current_operation = f'Rescanning {"{:.2f}".format(startup_data["rescan_progress"])}% @ block {startup_data["rescan_current_block"]}'
 
                 # display the message
-                message += f"  │  {current_operation}"
+                message += f" │ {current_operation}"
 
         except Exception as e:
             err(f"Error occurred with machine telemetry: {str(e)}")
@@ -467,6 +476,10 @@ def dataCollectionLoop(start_time, data_file):
 
         # print a summary of telemetry each loop
         msg(message)
+
+        if startup_data["validating_note_position"]:
+            validating_note_position = startup_data["validating_note_position_progress"]
+            startup_data["validating_note_position"] = False
 
         if startup_data['rescanning'] and "rescan_current_block" in startup_data:
             rescan_block = startup_data["rescan_current_block"] 
@@ -480,10 +493,12 @@ def dataCollectionLoop(start_time, data_file):
             else:
                 witnessCache = 1
 
+        # write to the output csv each loop
         with open(data_file, 'a') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([minutes, blocks, memory_gb, cpu_percent, load1, blockchain_size, block_diff, peers, rescan_block, bootstrap_progress, witnessCache])
+            writer.writerow([minutes, blocks, memory_gb, cpu_percent, load1, blockchain_size, block_diff, peers, rescan_block, validating_note_position, bootstrap_progress, witnessCache])
 
+        # wait for the remainder of the loop time
         sleep_for_interval(start_time)
 
 # detimine building witness time from log
@@ -716,6 +731,11 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         else:
             rescan_time = "N/A"
 
+        # detimine time spend validating note position
+        note_position_row_count = df['ValidateNotePosition'].notnull().sum()
+        validating_note_position_mins = sample_rate * note_position_row_count
+        validating_note_position_time = hms(validating_note_position_mins * 60)
+
         # see if we can get distro
         try:
             os_info = os.popen('lsb_release -ds').read().strip()
@@ -768,7 +788,8 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
                 write_and_print(f, f"\tBootstrap download: {bootstrap_download_time}")   
                 write_and_print(f, f"\tBlock extraction: {bootstrap_extraction_time}")
                 write_and_print(f, f"\tRescan: {rescan_time}")   
-            write_and_print(f, f"\tBuilding witness cache: {building_witness_time}")                  
+            write_and_print(f, f"\tBuilding witness cache: {building_witness_time}")   
+            write_and_print(f, f"\tValidating note position: {validating_note_position_time}")              
 
         # mark the exit
         msg(f"\nThe sync summary, data CSV, error logs, and chart saved in '{outputdir}'")

@@ -11,6 +11,7 @@ const colorMapping = {
     "BlocksAdded": '#329542',
     "Peers": '#c9ff75',
     "Rescan(Height)": '#d13278',
+    "ValidateNotePosition": '#024dfc',
     "BootstrapDownload(%)": '#499bf7',
     "MachineLoadAvg(1min)": "#ffffff",
     "BuildingWitnessCache": "#ee9836"
@@ -399,11 +400,13 @@ function createDataset(header, values, color, fileName) {
     };
 
     if (header === 'Blocks') {
-        dataset = setSpecialPropertiesForBlocks(dataset);
+        dataset = blocksfill(dataset);
     } else if (header === "Rescan(Height)" || header === "BootstrapDownload(%)") {
-        dataset = setSpecialPropertiesForRescanBootstrap(dataset, color);
+        dataset = fillwithborder(dataset, color, 2);
     } else if (header === "BuildingWitnessCache") {
-        dataset = setSpecialPropertiesWitness(dataset, color);
+        dataset = borderlesswithfill(dataset, color, 3);
+    } else if (header === "ValidateNotePosition") {
+        dataset = borderlesswithfill(dataset, color, 3);
     }
 
     return dataset;
@@ -419,7 +422,7 @@ function isHeaderHidden(header, fileName) {
 }
 
 //  set special properties for 'Blocks' dataset
-function setSpecialPropertiesForBlocks(dataset) {
+function blocksfill(dataset) {
     dataset.pointRadius = 30;
     dataset.pointHoverRadius = 16;
     dataset.pointStyle = 'rect';
@@ -436,26 +439,26 @@ function setSpecialPropertiesForBlocks(dataset) {
 }
 
 // set special properties for 'Rescan(Height)' and 'BootstrapDownload(%)' datasets
-function setSpecialPropertiesForRescanBootstrap(dataset, color) {
+function fillwithborder(dataset, color, order) {
     dataset.borderColor = `rgba(${color.r}, ${color.g}, ${color.b})`;
     dataset.backgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, 0.04)`;
     dataset.pointBorderColor = `rgba(${color.r}, ${color.g}, ${color.b})`;
     dataset.pointBackgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, 0.01)`;
     dataset.fill = 'origin';
     dataset.tension = 0.4;
-    dataset.order = 2;
+    dataset.order = order;
 
     return dataset;
 }
 
-function setSpecialPropertiesWitness(dataset, color) {
+function borderlesswithfill(dataset, color, order) {
     dataset.borderColor = 'rgba(0, 0, 0, 0)';
     dataset.backgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, 0.1)`;
     dataset.pointBorderColor = 'rgba(0, 0, 0, 0)';
     dataset.pointBackgroundColor = 'rgba(0, 0, 0, 0)';
     dataset.fill = 'origin';
     dataset.tension = 0.4;
-    dataset.order = 3;
+    dataset.order = order;
 
     return dataset;
 }
