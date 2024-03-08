@@ -19,7 +19,6 @@ from threading import Thread, Event, active_count
 try:
     import pandas as pd
     import matplotlib.pyplot as plt
-    import cpuinfo
 except ImportError:
     print("The pandas and matplotlib modules are required.\nInstall them with 'sudo apt install py-cpuinfo python3-pandas python3-matplotlib'")
     exit()
