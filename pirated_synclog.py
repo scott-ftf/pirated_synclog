@@ -408,7 +408,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f" │ pirated: MEM {memory}GB  CPU {cpu}% │ machine: load {load1}  disk {blockchain_size}GB"
+            message += f" │ pirated: {memory}GB MEM  {cpu}% CPU │ machine: {load1} load  {blockchain_size}GB hdd"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
