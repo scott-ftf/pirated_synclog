@@ -280,25 +280,24 @@ def message_worker(queue, startup_start_time):
             startup_data["rescan_time"] = time.time() - startup_data['rescan_start_time']
             debug(f"Rescan Complete {hms(startup_data['rescan_time'])}")
 
-        # Building Witness Cache
-        #  TODO: checking rescan progress is a hacky way to prevent the first "setBestChain()" message
-        #  from triggering this function, which may or may not appear before the rescan        
-        if "SetBestChain()" in line and startup_data["bootstrap_used"] and startup_data["rescan_progress"] > 90: 
-            if not startup_data["building_witness"]:
+        # Initiate building Witness Cache    
+        if "Building Witness" in line and not startup_data["building_witness"]: 
                 startup_data["building_witness"] = True
                 startup_data["building_witness_start_time"] = time.time() 
                 debug(f"Starting Building Witness")
-            else:
-                startup_data["building_witness"] = False
-                startup_data["building_witness_time"] = time.time() - startup_data['building_witness_start_time']
-                debug(f"Building Witness Complete {hms(startup_data['building_witness_time'])}")
+
           
         # log building witness progress
-        if "Building Witness" in line and startup_data["building_witness"] and startup_data["bootstrap_used"]:
+        if "Building Witness" in line and startup_data["building_witness"]:
             if "Building Witnesses for block" in line:
                 startup_data["building_witness_block"] = int(line.split('block')[1].split('.')[0])    
                 startup_data["building_witness_progress"] = round(float(line.split('=')[-1]) * 100, 2)
-                debug(f'rescan progress {startup_data["building_witness_progress"]}% (block {startup_data["building_witness_block"]})')      
+                debug(f'Building Witness progress {startup_data["building_witness_progress"]}% (block {startup_data["building_witness_block"]})')      
+
+            else:
+                startup_data["building_witness"] = False
+                startup_data["building_witness_time"] = startup_data.get("building_witness_time", 0) + time.time() - startup_data['building_witness_start_time']
+                debug(f"Building Witness Complete {hms(startup_data['building_witness_time'])}")
 
     # log in the debug   
     debug("message worker exiting")
