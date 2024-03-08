@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 import signal
 import csv
 import time
@@ -273,13 +274,14 @@ def message_worker(queue, startup_start_time):
             debug(f'rescan progress {startup_data["rescan_progress"]}% (block {startup_data["rescan_current_block"]})')
 
         # rescanning complete
-        if "init message: Activating best chain" in line and startup_data['rescanning']:
+        rescan_trigger = re.compile(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}  rescan\s+\d+ms')
+        if rescan_trigger.search(line) and startup_data['rescanning']:
             startup_data['rescanning'] = False 
             startup_data["rescan_time"] = time.time() - startup_data['rescan_start_time']
             debug(f"Rescan Complete {hms(startup_data['rescan_time'])}")
 
         # Building Witness Cache
-        #  TODO: checking rescan is mostly complete is a hacky way to prevent the first "setBestChain()" message
+        #  TODO: checking rescan progress is a hacky way to prevent the first "setBestChain()" message
         #  from triggering this function, which may or may not appear before the rescan        
         if "SetBestChain()" in line and startup_data["bootstrap_used"] and startup_data["rescan_progress"] > 90: 
             if not startup_data["building_witness"]:
@@ -662,20 +664,24 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
                 return json.loads(output)
             except (subprocess.CalledProcessError, json.JSONDecodeError) as e:
                 return "unknown"
-
-        sapling_txs = safe_subprocess_call([CLI, "zs_listtransactions"])
-        sapling_unspent = safe_subprocess_call([CLI, "z_listunspent"])
-        sapling_addresses = safe_subprocess_call([CLI, "z_listaddresses"])
-        txs = safe_subprocess_call([CLI, "listtransactions"])
-        unspent = safe_subprocess_call([CLI, "listunspent"])
-        # walletinfo = safe_subprocess_call([CLI, "getwalletinfo"]) 
+            
+        walletinfo = safe_subprocess_call([CLI, "getwalletinfo"]) 
         networkinfo = safe_subprocess_call([CLI, "getnetworkinfo"])
+
+        # evaluate wallet data
+        txcount = walletinfo["txcount"]
+        saplingnotes = walletinfo["saplingnotes"]
+        arctxcount = walletinfo["arctxcount"]
+        arcsaplingnotes = walletinfo["arcsaplingnotes"]
+        saplingaddresses = walletinfo["saplingaddresses"]
+        saplingspendingkeys = walletinfo["saplingspendingkeys"]
+        saplingfullviewingkeys = walletinfo["saplingfullviewingkeys"]
+        keypoololdest = datetime.utcfromtimestamp(walletinfo["keypoololdest"])
+        keypoolsize = walletinfo["keypoolsize"]
         
-        # Initialize lists for active and inactive networks
+        # Evaluate teh enetwork infos
         reachable = []
         unreachable = []
-
-        # Iterate through each network in networkinfo["networks"]
         if isinstance(networkinfo, dict) and "networks" in networkinfo:
             for network in networkinfo["networks"]:
                 if network["reachable"] and network["name"]:
@@ -752,44 +758,50 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\t{report_date}")
 
             write_and_print(f, "\nENVIRONMENT:")
-            write_and_print(f, f"\tOS: {os_info}")
-            write_and_print(f, f"\tPlatform: {platform_version}") 
-            write_and_print(f, f"\tFile system: {root_type}")
-            write_and_print(f, f"\tDisk space free: {available_storage:.2f} GB of {total_storage:.2f} GB")
-            write_and_print(f, f"\tRead speed test: {read_speed}")
-            write_and_print(f, f"\tWrite speed test: {write_speed}")
-            write_and_print(f, f"\tMEM: {total_mem:.2f} GB")
-            write_and_print(f, f"\tCPU: {cpu_freq.current:.2f}Mhz {cpu_info}")
-            write_and_print(f, f"\tCores: {logical_cores} logical | {physical_cores} physical")
+            write_and_print(f, f"\tOS:                     {os_info}")
+            write_and_print(f, f"\tPlatform:               {platform_version}") 
+            write_and_print(f, f"\tFile system:            {root_type}")
+            write_and_print(f, f"\tDisk space free:        {available_storage:.2f} GB of {total_storage:.2f} GB")
+            write_and_print(f, f"\tRead speed test:        {read_speed}")
+            write_and_print(f, f"\tWrite speed test:       {write_speed}")
+            write_and_print(f, f"\tMEM:                    {total_mem:.2f} GB")
+            write_and_print(f, f"\tCPU:                    {cpu_freq.current:.2f}Mhz {cpu_info}")
+            write_and_print(f, f"\tCores:                  {logical_cores} logical | {physical_cores} physical")
 
-            write_and_print(f, "\n\nNODE DETAILS:")
-            write_and_print(f, f"\tPirate daemon version: {pirate_version}")
-            write_and_print(f, f"\tTransactions: {len(sapling_txs)} sapling | {len(txs)} transparent")
-            write_and_print(f, f"\tUnspent: {len(sapling_unspent)} sapling | {len(unspent)} transparent")
-            write_and_print(f, f"\tSapling addresses: {len(sapling_addresses)}")      
-            write_and_print(f, f"\tReachable networks: {len(reachable)}" + (f" ({', '.join(reachable)})" if reachable else ""))
-            write_and_print(f, f"\tUnreachable networks: {len(unreachable)}" + (f" ({', '.join(unreachable)})" if unreachable else ""))            
+            write_and_print(f, "\nNODE DETAILS:")
+            write_and_print(f, f"\tPirate daemon version:  {pirate_version}")            
+            write_and_print(f, f"\tReachable networks:     {len(reachable)}" + (f" ({', '.join(reachable)})" if reachable else ""))
+            write_and_print(f, f"\tUnreachable networks:   {len(unreachable)}" + (f" ({', '.join(unreachable)})" if unreachable else ""))
+            write_and_print(f, f"\tTx count:               {txcount}")  
+            write_and_print(f, f"\tSapling notes:          {saplingnotes}")
+            write_and_print(f, f"\tArchived tx count:      {arctxcount}")
+            write_and_print(f, f"\tArchived sapling notes: {arcsaplingnotes}")
+            write_and_print(f, f"\tSapling addresses:      {saplingaddresses}")
+            write_and_print(f, f"\tSapling spending keys:  {saplingspendingkeys}")
+            write_and_print(f, f"\tSapling full view keys: {saplingfullviewingkeys}")
+            write_and_print(f, f"\tKey pool oldest:        {keypoololdest}")
+            write_and_print(f, f"\tKey pool size:          {keypoolsize}")       
 
             write_and_print(f, "\nTELEMETRY SUMMARY:")   
-            write_and_print(f, f"\tBlock download source: {download_method}") 
-            write_and_print(f, f"\tBlocks synced: {blocks_synced}")
-            write_and_print(f, f"\tBlockchain size: {blockchain_size_gb:.2f}GB")            
-            write_and_print(f, f"\tMax disk used: {blockchain_size_max:.2f}GB")
+            write_and_print(f, f"\tBlock download source:  {download_method}") 
+            write_and_print(f, f"\tBlocks synced:          {blocks_synced}")
+            write_and_print(f, f"\tBlockchain size:        {blockchain_size_gb:.2f}GB")            
+            write_and_print(f, f"\tMax disk used:          {blockchain_size_max:.2f}GB")
             if download_method != "Bootstrap": 
-                write_and_print(f, f"\tPeers: {avg_peers} avg ({max_peers} peak)")   
-            write_and_print(f, f"\tPirated MEM: {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
-            write_and_print(f, f"\tPirated CPU: {round(cpu_avg):d}% avg ({round(cpu_max):d}% peak)")
-            write_and_print(f, f"\tMachine load: {load_avg:.2f} avg ({load_max:.2f} peak)")           
+                write_and_print(f, f"\tPeers:                  {avg_peers} avg ({max_peers} peak)")   
+            write_and_print(f, f"\tPirated MEM:            {memory_avg:.2f}GB avg ({memory_max:.2f}GB peak)")  
+            write_and_print(f, f"\tPirated CPU:            {round(cpu_avg):d}% avg ({round(cpu_max):d}% peak)")
+            write_and_print(f, f"\tMachine load:           {load_avg:.2f} avg ({load_max:.2f} peak)")           
 
             write_and_print(f, "\nSYNC PROCESSES:")  
-            write_and_print(f, f"\tTotal sync time: {readable_time}")            
-            write_and_print(f, f"\tStartup sequence: {startup_time}")            
+            write_and_print(f, f"\tTotal sync time:        {readable_time}")            
+            write_and_print(f, f"\tStartup sequence:       {startup_time}")            
             if download_method == "Bootstrap":      
-                write_and_print(f, f"\tBootstrap download: {bootstrap_download_time}")   
-                write_and_print(f, f"\tBlock extraction: {bootstrap_extraction_time}")
-                write_and_print(f, f"\tRescan: {rescan_time}")   
+                write_and_print(f, f"\tBootstrap download:     {bootstrap_download_time}")   
+                write_and_print(f, f"\tBlock extraction:       {bootstrap_extraction_time}")
+                write_and_print(f, f"\tRescan:                 {rescan_time}")   
             write_and_print(f, f"\tBuilding witness cache: {building_witness_time}")   
-            write_and_print(f, f"\tValidating note position: {validating_note_position_time}")              
+            write_and_print(f, f"\tValidate note position: {validating_note_position_time}")              
 
         # mark the exit
         msg(f"\nThe sync summary, data CSV, error logs, and chart saved in '{outputdir}'")
