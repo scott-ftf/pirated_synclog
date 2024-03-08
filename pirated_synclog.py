@@ -9,8 +9,8 @@ import json
 import logging
 import platform
 from datetime import datetime, timedelta, timezone
-import psutil
 import shutil
+import psutil
 import queue
 import traceback
 from threading import Thread, Event, active_count
@@ -19,8 +19,9 @@ from threading import Thread, Event, active_count
 try:
     import pandas as pd
     import matplotlib.pyplot as plt
+    import cpuinfo
 except ImportError:
-    print("The pandas and matplotlib modules are required.\nInstall them with 'sudo apt install python3-pandas python3-matplotlib'")
+    print("The pandas and matplotlib modules are required.\nInstall them with 'sudo apt install py-cpuinfo python3-pandas python3-matplotlib'")
     exit()
 
 ### USER CONFIGURATION ###
@@ -450,7 +451,7 @@ def dataCollectionLoop(start_time, data_file):
 
             else:
                 # handle the cases when getinfo would be blocked
-                current_operation = "Daemon starting"
+                current_operation = "Waiting for daemon to complete task..."
                 if startup_data["downloading_bootstrap"]:
                     current_operation = f'Downloading Bootstrap ({startup_data["bootstrap_progress"]:.2f}%)'
 
@@ -581,6 +582,21 @@ def measure_read_speed():
 
     except:
         return "unknown"
+    
+def get_cpu_name_linux():
+    with open('/proc/cpuinfo') as f:
+        for line in f:
+            if 'model name' in line:
+                return line.partition(':')[2].strip()
+    return "Unknown"
+
+def get_physical_cpus_linux():
+    result = subprocess.run(['lscpu'], stdout=subprocess.PIPE, text=True)
+    output = result.stdout
+    for line in output.splitlines():
+        if 'Socket(s):' in line:
+            return int(line.split(':')[1].strip())
+    return 0
 
 # print the summary to the sync.log and a summary txt file
 def write_and_print(f, message):
@@ -678,7 +694,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         keypoololdest = datetime.utcfromtimestamp(walletinfo["keypoololdest"])
         keypoolsize = walletinfo["keypoolsize"]
         
-        # Evaluate teh enetwork infos
+        # Evaluate the network infos
         reachable = []
         unreachable = []
         if isinstance(networkinfo, dict) and "networks" in networkinfo:
@@ -695,12 +711,14 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         sync_time = hms(total_minutes * 60)
         pirate_version = startup_data['PIRATEversion'] if startup_data.get('PIRATEversion') else "unknown"
         root_type = os.popen(f'df -T {datadir} | awk \'NR==2 {{print $2}}\'').read().strip() or "Unknown"
-        total_mem = psutil.virtual_memory().total / (1024 ** 3) 
-        cpu_info = platform.processor() 
+        total_mem = psutil.virtual_memory().total / (1024 ** 3)        
         platform_version = platform.platform()
         logical_cores = psutil.cpu_count(logical=True)  # Includes hyper-threading cores
-        physical_cores = psutil.cpu_count(logical=False) 
-        cpu_freq = psutil.cpu_freq()      
+        physical_cores = psutil.cpu_count(logical=False)
+        cpu_freq = psutil.cpu_freq()
+        cpu_info = platform.processor() 
+        processor_name = get_cpu_name_linux()  
+        num_physical_cpus = get_physical_cpus_linux()
         total_storage, available_storage = get_storage_info(datadir) 
         write_speed = measure_write_speed()
         read_speed = measure_read_speed()
@@ -757,14 +775,17 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             write_and_print(f, f"\t{report_date}")
 
             write_and_print(f, "\nENVIRONMENT:")
-            write_and_print(f, f"\tOS:                     {os_info}")
+            write_and_print(f, f"\tOperating system:       {os_info}")
             write_and_print(f, f"\tPlatform:               {platform_version}") 
             write_and_print(f, f"\tFile system:            {root_type}")
             write_and_print(f, f"\tDisk space free:        {available_storage:.2f} GB of {total_storage:.2f} GB")
             write_and_print(f, f"\tRead speed test:        {read_speed}")
             write_and_print(f, f"\tWrite speed test:       {write_speed}")
-            write_and_print(f, f"\tMEM:                    {total_mem:.2f} GB")
-            write_and_print(f, f"\tCPU:                    {cpu_freq.current:.2f}Mhz {cpu_info}")
+            write_and_print(f, f"\tMemory:                 {total_mem:.2f} GB")
+            write_and_print(f, f"\tProcessor Name:         {processor_name}")  
+            write_and_print(f, f"\tArchitecture:           {cpu_info}")
+            write_and_print(f, f"\tFrequency:              {cpu_freq.max:.2f}Mhz")   
+            write_and_print(f, f"\tPhysical CPUs:          {num_physical_cpus}")
             write_and_print(f, f"\tCores:                  {logical_cores} logical | {physical_cores} physical")
 
             write_and_print(f, "\nNODE DETAILS:")
