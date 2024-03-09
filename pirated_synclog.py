@@ -263,9 +263,21 @@ def message_worker(queue, startup_start_time):
 
         # if validating note positions, record it
         if "Validating Note Postions..." in line:
-            startup_data["validating_note_position"] = True
-            startup_data["validating_note_position_progress"] = round(float(line.split('=')[-1]) * 100, 2)
+            if not startup_data["validating_note_position"]:
+                startup_data["validating_note_position"] = True
+                startup_data["validating_note_position_start_time"] = time.time()
+
+            # TODO: This is temporary to use 100 instead of progress since only 0.00 is returned currently
+            startup_data["validating_note_position_progress"] = 100    
+            #startup_data["validating_note_position_progress"] = round(float(line.split('=')[-1]) * 100, 2)
+
             debug(f'validating note position progress {startup_data["validating_note_position_progress"]}%')
+
+        # TODO: find more reliable way to mark the end of teh note postion validation 
+        if "Blocktemplate large tx throttle enabled" in line and startup_data["validating_note_position"]:
+            startup_data["validating_note_position"] = False
+            startup_data["validating_note_position_time"] = time.time() - startup_data['validating_note_position_start_time']
+            debug(f"Validating note postion complete {hms(startup_data['validating_note_position_time'])}")           
 
         # if rescanning, collect data
         if "Still rescanning" in line and startup_data['rescanning']:
@@ -480,7 +492,6 @@ def dataCollectionLoop(start_time, data_file):
 
         if startup_data["validating_note_position"]:
             validating_note_position = startup_data["validating_note_position_progress"]
-            startup_data["validating_note_position"] = False
 
         if startup_data['rescanning'] and "rescan_current_block" in startup_data:
             rescan_block = startup_data["rescan_current_block"] 
@@ -581,7 +592,8 @@ def measure_read_speed():
 
     except:
         return "unknown"
-    
+
+# Get a human readable name for the CPU    
 def get_cpu_name_linux():
     with open('/proc/cpuinfo') as f:
         for line in f:
@@ -589,6 +601,7 @@ def get_cpu_name_linux():
                 return line.partition(':')[2].strip()
     return "Unknown"
 
+# count how many actual physical CPU's there are
 def get_physical_cpus_linux():
     result = subprocess.run(['lscpu'], stdout=subprocess.PIPE, text=True)
     output = result.stdout
@@ -690,7 +703,7 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         saplingaddresses = walletinfo["saplingaddresses"]
         saplingspendingkeys = walletinfo["saplingspendingkeys"]
         saplingfullviewingkeys = walletinfo["saplingfullviewingkeys"]
-        keypoololdest = datetime.utcfromtimestamp(walletinfo["keypoololdest"])
+        keypoololdest = datetime.utcfromtimestamp(walletinfo["keypoololdest"]).date()
         keypoolsize = walletinfo["keypoolsize"]
         
         # Evaluate the network infos
