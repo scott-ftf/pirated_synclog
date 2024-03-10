@@ -406,7 +406,7 @@ function createDataset(header, values, color, fileName) {
     } else if (header === "BuildingWitnessCache") {
         dataset = borderlesswithfill(dataset, color, 3);
     } else if (header === "ValidateNotePosition") {
-        dataset = borderlesswithfill(dataset, color, 3);
+        dataset = fillwithborder(dataset, color, 3);
     }
 
     return dataset;
