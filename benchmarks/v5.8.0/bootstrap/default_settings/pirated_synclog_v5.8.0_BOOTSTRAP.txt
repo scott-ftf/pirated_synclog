@@ -1,0 +1,51 @@
+
+PIRATE NETWORK SYNC - Summary Report
+
+
+SYNCHRONIZATION TIME:
+	4 hours 36 minutes
+	Sunday, 10 March 2024, 02:54:45 UTC+0000
+
+ENVIRONMENT:
+	Operating system:       Ubuntu 22.04.4 LTS
+	Platform:               Linux-5.15.0-97-generic-x86_64-with-glibc2.35
+	File system:            ext4
+	Disk space free:        13494.81 GB of 14782.98 GB
+	Read speed test:        6163.11 MB/s
+	Write speed test:       801.12 MB/s
+	Memory:                 94.31 GB
+	Processor Name:         Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz (x2)
+	Architecture:           x86_64
+	Frequency:              2700.00Mhz
+	Cores:                  24 logical | 12 physical
+
+NODE DETAILS:
+	Pirate daemon version:  v5.8.0-a0f0bba2f
+	Reachable networks:     2 (ipv4, ipv6)
+	Unreachable networks:   2 (onion, i2p)
+	Tx count:               101
+	Sapling notes:          1239
+	Archived tx count:      101
+	Archived sapling notes: 319066
+	Sapling addresses:      808
+	Sapling spending keys:  3
+	Sapling full view keys: 0
+	Key pool oldest:        2021-05-13
+	Key pool size:          94
+
+TELEMETRY SUMMARY:
+	Block download source:  Bootstrap
+	Blocks synced:          2821458
+	Blockchain size:        28.05GB
+	Max disk used:          56.61GB
+	Pirated MEM:            3.89GB avg (5.23GB peak)
+	Pirated CPU:            226% avg (765% peak)
+	Machine load:           2.68 avg (8.21 peak)
+
+SYNC PROCESSES:
+	Total sync time:        4 hours 36 minutes
+	Startup sequence:       4h 24m 35s
+	Bootstrap download:     0h 41m 29s
+	Block extraction:       0h 2m 32s
+	Rescan:                 3h 24m 3s
+	Validate note position: 0h 07m 0s
