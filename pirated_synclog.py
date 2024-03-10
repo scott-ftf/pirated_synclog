@@ -1,3 +1,23 @@
+#!/usr/bin/env python
+# 
+#   ░█▀█░▀█▀░█▀▄░█▀█░▀█▀░█▀▀
+#   ░█▀▀░░█░░█▀▄░█▀█░░█░░█▀▀
+#   ░▀░░░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀                                                    
+# 
+#   PIRATE DAEMON SYNC LOGGER
+#   
+#   This script logs synchronization events and machine telemetry
+#   while the pirate daemon synchronizes with the network
+#
+#   https://github.com/scott-ftf/pirated_synclog
+#   
+#   Arrr! ⚓
+#   
+#   commands:
+#       python3 pirated_synclog.py start 
+#       python3 pirated_synclog.py stop
+#       python3 pirated_synclog.py report <csv filename> <bootstrap bool>
+#
 import os
 import sys
 import re
@@ -23,13 +43,23 @@ except ImportError:
     print("The pandas and matplotlib modules are required.\nInstall them with 'sudo apt install python3-pandas python3-matplotlib'")
     exit()
 
+
+###--------------------###
 ### USER CONFIGURATION ###
-home = os.path.expanduser("~")
-datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (typically /home/$USER/.komodo/PIRATE)
-CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate-cli
+###--------------------###
+
+home = os.path.expanduser("~")                      # define home path (e.g., /home/$USER)
+datadir = os.path.join(home, '.komodo/PIRATE')      # location of the daemon datadir (e.g., /home/$USER/.komodo/PIRATE)
+CLI =  os.path.join(home, 'pirate/pirate-cli')      # location of pirate-cli (e.g., /home/$USER/pirate/pirate-cli)
 sample_rate = 1                                     # how many minutes between data collection loops
-test_file_size = 100                                # size (mb) of file in mb for testing i/o speed
+test_file_size = 100                                # size (mb) of file for testing i/o speed
 debug_mode = False                                  # logs more messages to the debug.log
+
+###--------------------###
+
+
+# declare the PID of this process
+p = psutil.Process(os.getpid())
 
 # prepare some flags
 startup_data = {
@@ -157,9 +187,6 @@ debug_file = os.path.join(outputdir,'debug.log')
 summary_file = os.path.join(outputdir, f'summary_{today}.txt')
 plot_file = os.path.join(outputdir, f'plot_{today}.png')
 output_file = 'sync.log'
-
-# declare the PID of this process
-p = psutil.Process(os.getpid())
 
 # Check pirate-cli path is correct
 def checkCLIexists(CLI):
@@ -419,7 +446,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f" │ pirated: {memory}GB MEM  {cpu}% CPU │ machine: {load1} load  {blockchain_size}GB hdd"
+            message += f" │ pirated: {memory}GB MEM {cpu}% CPU │ machine: {load1} load  {blockchain_size}GB hdd"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
@@ -462,7 +489,7 @@ def dataCollectionLoop(start_time, data_file):
 
             else:
                 # handle the cases when getinfo would be blocked
-                current_operation = "Waiting for daemon to complete task..."
+                current_operation = "waiting: daemon executing task..."
                 if startup_data["downloading_bootstrap"]:
                     current_operation = f'Downloading Bootstrap ({startup_data["bootstrap_progress"]:.2f}%)'
 
@@ -720,7 +747,6 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         utc_now = datetime.now(timezone.utc)
         report_date = utc_now.strftime("%A, %d %B %Y, %H:%M:%S %Z%z")
         readable_time = minutes_to_readable_time(total_minutes)
-        sync_time = hms(total_minutes * 60)
         pirate_version = startup_data['PIRATEversion'] if startup_data.get('PIRATEversion') else "unknown"
         root_type = os.popen(f'df -T {datadir} | awk \'NR==2 {{print $2}}\'').read().strip() or "Unknown"
         total_mem = psutil.virtual_memory().total / (1024 ** 3)        
@@ -733,12 +759,13 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
         num_physical_cpus = get_physical_cpus_linux()
         total_storage, available_storage = get_storage_info(datadir) 
         write_speed = measure_write_speed()
-        read_speed = measure_read_speed()
+        read_speed = measure_read_speed()        
 
         # set some times
         download_method = "Bootstrap" if bootstrapUsed else "Network Peers"
         bootstrap_download_time = hms(startup_data["bootstrap_download_time"]) if startup_data.get('bootstrap_download_time') else "N/A"
         bootstrap_extraction_time = hms(startup_data["bootstrap_extraction_time"]) if startup_data.get('bootstrap_extraction_time') else "N/A"
+        validating_note_position_time = hms(startup_data["validating_note_position_time"])
         
         # Get final blockchain size
         du_output = subprocess.check_output(['du', '-sb', datadir + "/blocks"]).decode('utf-8').strip()
@@ -765,11 +792,6 @@ def generateReports(file_path, summary_file, plot_file, bootstrapUsed=startup_da
             rescan_time = hms(startup_data["rescan_time"])
         else:
             rescan_time = "N/A"
-
-        # detimine time spend validating note position
-        note_position_row_count = df['ValidateNotePosition'].notnull().sum()
-        validating_note_position_mins = sample_rate * note_position_row_count
-        validating_note_position_time = hms(validating_note_position_mins * 60)
 
         # see if we can get distro
         try:
