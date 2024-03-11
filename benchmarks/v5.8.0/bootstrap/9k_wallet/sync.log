@@ -1,0 +1,1082 @@
+
+ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+ ┃ Pirate Daemon Sync Logger ┃
+ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+Output directory: output/date_2024-03-10_time_0616-47Z
+CSV file created: pirated_synclog_2024-03-10.csv
+Listening for node startup
+Please start Pirate Daemon now
+Starting data collection (1 minute samples)
+
+   0 min │ pirated: 0.02GB MEM   99% CPU │ machine:  0.21 load   2.355GB hdd │ waiting: daemon executing task...
+   1 min │ pirated: 1.22GB MEM   11% CPU │ machine:  0.33 load   2.918GB hdd │ Downloading Bootstrap (2.18%)
+   2 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.15 load   3.812GB hdd │ Downloading Bootstrap (5.70%)
+   3 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.31 load   4.682GB hdd │ Downloading Bootstrap (9.15%)
+   4 min │ pirated: 1.22GB MEM   13% CPU │ machine:  0.22 load   5.526GB hdd │ Downloading Bootstrap (12.54%)
+   5 min │ pirated: 1.22GB MEM   15% CPU │ machine:  0.30 load   6.417GB hdd │ Downloading Bootstrap (16.07%)
+   6 min │ pirated: 1.22GB MEM   18% CPU │ machine:  0.29 load   7.328GB hdd │ Downloading Bootstrap (19.67%)
+   7 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.42 load   8.187GB hdd │ Downloading Bootstrap (23.08%)
+   8 min │ pirated: 1.22GB MEM   13% CPU │ machine:  0.29 load   8.896GB hdd │ Downloading Bootstrap (25.92%)
+   9 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.15 load   9.754GB hdd │ Downloading Bootstrap (29.31%)
+  10 min │ pirated: 1.22GB MEM   14% CPU │ machine:  0.12 load  10.407GB hdd │ Downloading Bootstrap (31.92%)
+  11 min │ pirated: 1.22GB MEM   18% CPU │ machine:  0.17 load  11.297GB hdd │ Downloading Bootstrap (35.44%)
+  12 min │ pirated: 1.22GB MEM   18% CPU │ machine:  0.19 load  12.153GB hdd │ Downloading Bootstrap (38.86%)
+  13 min │ pirated: 1.22GB MEM   15% CPU │ machine:  0.17 load  13.038GB hdd │ Downloading Bootstrap (42.37%)
+  14 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.32 load  13.919GB hdd │ Downloading Bootstrap (45.86%)
+  15 min │ pirated: 1.22GB MEM    9% CPU │ machine:  0.24 load  14.792GB hdd │ Downloading Bootstrap (49.37%)
+  16 min │ pirated: 1.22GB MEM   18% CPU │ machine:  0.24 load  15.694GB hdd │ Downloading Bootstrap (52.92%)
+  17 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.13 load  16.583GB hdd │ Downloading Bootstrap (56.48%)
+  18 min │ pirated: 1.22GB MEM   16% CPU │ machine:  0.22 load  17.434GB hdd │ Downloading Bootstrap (59.84%)
+  19 min │ pirated: 1.22GB MEM   14% CPU │ machine:  0.29 load  18.345GB hdd │ Downloading Bootstrap (63.47%)
+  20 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.28 load  19.198GB hdd │ Downloading Bootstrap (66.84%)
+  21 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.35 load  20.092GB hdd │ Downloading Bootstrap (70.39%)
+  22 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.32 load  20.921GB hdd │ Downloading Bootstrap (73.68%)
+  23 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.22 load  21.794GB hdd │ Downloading Bootstrap (77.16%)
+  24 min │ pirated: 1.22GB MEM   11% CPU │ machine:  0.30 load  22.661GB hdd │ Downloading Bootstrap (80.64%)
+  25 min │ pirated: 1.22GB MEM   20% CPU │ machine:  0.18 load  23.523GB hdd │ Downloading Bootstrap (84.04%)
+  26 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.17 load  24.369GB hdd │ Downloading Bootstrap (87.39%)
+  27 min │ pirated: 1.22GB MEM   19% CPU │ machine:  0.13 load  25.226GB hdd │ Downloading Bootstrap (90.79%)
+  28 min │ pirated: 1.22GB MEM   10% CPU │ machine:  0.24 load  26.082GB hdd │ Downloading Bootstrap (94.23%)
+  29 min │ pirated: 1.22GB MEM   14% CPU │ machine:  0.29 load  26.919GB hdd │ Downloading Bootstrap (97.55%)
+  30 min │ pirated: 1.22GB MEM   99% CPU │ machine:  0.49 load  32.664GB hdd │ Extracting blocks
+  31 min │ pirated: 1.22GB MEM  100% CPU │ machine:  1.34 load  46.211GB hdd │ Extracting blocks
+  32 min │ pirated: 1.22GB MEM  100% CPU │ machine:  1.76 load  56.765GB hdd │ Extracting blocks
+  33 min │ pirated: 3.90GB MEM  111% CPU │ machine:  2.60 load  33.044GB hdd │ waiting: daemon executing task...
+  34 min │ pirated: 4.10GB MEM  100% CPU │ machine:  2.46 load  32.772GB hdd │ waiting: daemon executing task...
+  35 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.63 load  32.772GB hdd │ waiting: daemon executing task...
+  36 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.23 load  32.772GB hdd │ waiting: daemon executing task...
+  37 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.08 load  32.772GB hdd │ waiting: daemon executing task...
+  38 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.03 load  32.772GB hdd │ waiting: daemon executing task...
+  39 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.01 load  32.772GB hdd │ waiting: daemon executing task...
+  40 min │ pirated: 4.10GB MEM  101% CPU │ machine:  1.00 load  32.772GB hdd │ waiting: daemon executing task...
+  41 min │ pirated: 4.10GB MEM  100% CPU │ machine:  1.00 load  32.772GB hdd │ waiting: daemon executing task...
+  42 min │ pirated: 4.09GB MEM 1169% CPU │ machine:  4.97 load  32.780GB hdd │ Rescanning 0.00% @ block 0
+  43 min │ pirated: 4.10GB MEM 1368% CPU │ machine: 10.61 load  32.786GB hdd │ Rescanning 4.08% @ block 155264
+  44 min │ pirated: 4.10GB MEM 1293% CPU │ machine: 15.30 load  32.772GB hdd │ Rescanning 4.25% @ block 158884
+  45 min │ pirated: 4.10GB MEM 1189% CPU │ machine: 15.08 load  32.772GB hdd │ Rescanning 4.45% @ block 161849
+  46 min │ pirated: 4.09GB MEM 1196% CPU │ machine: 14.25 load  32.772GB hdd │ Rescanning 4.67% @ block 164129
+  47 min │ pirated: 4.10GB MEM 1039% CPU │ machine: 16.38 load  32.772GB hdd │ Rescanning 4.85% @ block 166916
+  48 min │ pirated: 4.09GB MEM 1132% CPU │ machine: 13.08 load  32.772GB hdd │ Rescanning 5.04% @ block 169888
+  49 min │ pirated: 4.09GB MEM 1145% CPU │ machine: 11.68 load  32.772GB hdd │ Rescanning 5.20% @ block 173147
+  50 min │ pirated: 4.10GB MEM 1008% CPU │ machine: 13.10 load  32.772GB hdd │ Rescanning 5.35% @ block 176571
+  51 min │ pirated: 4.10GB MEM 1176% CPU │ machine: 15.45 load  32.772GB hdd │ Rescanning 5.51% @ block 180815
+  52 min │ pirated: 4.09GB MEM 1041% CPU │ machine: 14.60 load  32.772GB hdd │ Rescanning 5.65% @ block 184813
+  53 min │ pirated: 4.10GB MEM 1157% CPU │ machine: 15.37 load  32.772GB hdd │ Rescanning 5.79% @ block 188831
+  54 min │ pirated: 4.10GB MEM 1106% CPU │ machine: 13.07 load  32.772GB hdd │ Rescanning 6.01% @ block 194853
+  55 min │ pirated: 4.10GB MEM  911% CPU │ machine: 15.93 load  32.772GB hdd │ Rescanning 6.22% @ block 202357
+  56 min │ pirated: 4.10GB MEM 1171% CPU │ machine: 14.45 load  32.778GB hdd │ Rescanning 6.44% @ block 208604
+  57 min │ pirated: 4.11GB MEM 1300% CPU │ machine: 13.88 load  32.778GB hdd │ Rescanning 6.66% @ block 215864
+  58 min │ pirated: 4.11GB MEM  917% CPU │ machine: 11.05 load  32.778GB hdd │ Rescanning 6.91% @ block 224108
+  59 min │ pirated: 4.12GB MEM  881% CPU │ machine: 12.51 load  32.778GB hdd │ Rescanning 7.14% @ block 232266
+  60 min │ pirated: 4.12GB MEM 1175% CPU │ machine: 11.65 load  32.778GB hdd │ Rescanning 7.37% @ block 239528
+  61 min │ pirated: 4.13GB MEM  873% CPU │ machine: 12.35 load  32.778GB hdd │ Rescanning 7.60% @ block 247449
+  62 min │ pirated: 4.13GB MEM 1125% CPU │ machine: 14.30 load  32.778GB hdd │ Rescanning 7.85% @ block 256627
+  63 min │ pirated: 4.14GB MEM  917% CPU │ machine: 11.18 load  32.778GB hdd │ Rescanning 8.08% @ block 265064
+  64 min │ pirated: 4.14GB MEM 1132% CPU │ machine: 11.75 load  32.778GB hdd │ Rescanning 8.28% @ block 271937
+  65 min │ pirated: 4.14GB MEM 1244% CPU │ machine: 12.55 load  32.778GB hdd │ Rescanning 8.46% @ block 276670
+  66 min │ pirated: 4.15GB MEM  865% CPU │ machine: 13.01 load  32.778GB hdd │ Rescanning 8.67% @ block 284194
+  67 min │ pirated: 4.15GB MEM  859% CPU │ machine: 12.32 load  32.778GB hdd │ Rescanning 8.89% @ block 292129
+  68 min │ pirated: 4.16GB MEM  938% CPU │ machine: 13.50 load  32.778GB hdd │ Rescanning 9.13% @ block 300361
+  69 min │ pirated: 4.16GB MEM 1170% CPU │ machine: 15.84 load  32.778GB hdd │ Rescanning 9.35% @ block 308135
+  70 min │ pirated: 4.17GB MEM 1089% CPU │ machine: 11.25 load  32.778GB hdd │ Rescanning 9.55% @ block 315077
+  71 min │ pirated: 4.17GB MEM  823% CPU │ machine: 11.94 load  32.778GB hdd │ Rescanning 9.77% @ block 322633
+  72 min │ pirated: 4.17GB MEM  993% CPU │ machine: 12.24 load  32.778GB hdd │ Rescanning 9.99% @ block 329815
+  73 min │ pirated: 4.18GB MEM  864% CPU │ machine: 12.64 load  32.778GB hdd │ Rescanning 10.19% @ block 336926
+  74 min │ pirated: 4.18GB MEM 1411% CPU │ machine: 12.75 load  32.778GB hdd │ Rescanning 10.38% @ block 343309
+  75 min │ pirated: 4.19GB MEM 1356% CPU │ machine: 14.25 load  32.778GB hdd │ Rescanning 10.57% @ block 349166
+  76 min │ pirated: 4.19GB MEM 1119% CPU │ machine: 11.37 load  32.778GB hdd │ Rescanning 10.75% @ block 354167
+  77 min │ pirated: 4.20GB MEM  828% CPU │ machine:  9.28 load  32.778GB hdd │ Rescanning 10.93% @ block 359827
+  78 min │ pirated: 4.20GB MEM  562% CPU │ machine:  9.98 load  32.778GB hdd │ Rescanning 11.12% @ block 365672
+  79 min │ pirated: 4.20GB MEM 1165% CPU │ machine: 10.56 load  32.778GB hdd │ Rescanning 11.30% @ block 371121
+  80 min │ pirated: 4.21GB MEM 1101% CPU │ machine: 10.33 load  32.778GB hdd │ Rescanning 11.49% @ block 376503
+  81 min │ pirated: 4.21GB MEM  953% CPU │ machine: 14.69 load  32.778GB hdd │ Rescanning 11.67% @ block 381225
+  82 min │ pirated: 4.22GB MEM  974% CPU │ machine: 12.50 load  32.778GB hdd │ Rescanning 11.85% @ block 385560
+  83 min │ pirated: 4.22GB MEM  925% CPU │ machine: 12.39 load  32.778GB hdd │ Rescanning 12.02% @ block 389358
+  84 min │ pirated: 4.22GB MEM  769% CPU │ machine:  9.88 load  32.778GB hdd │ Rescanning 12.18% @ block 393411
+  85 min │ pirated: 4.23GB MEM  945% CPU │ machine: 10.73 load  32.778GB hdd │ Rescanning 12.35% @ block 397515
+  86 min │ pirated: 4.24GB MEM  983% CPU │ machine: 11.73 load  32.778GB hdd │ Rescanning 12.50% @ block 401387
+  87 min │ pirated: 4.24GB MEM  950% CPU │ machine: 13.22 load  32.778GB hdd │ Rescanning 12.68% @ block 406566
+  88 min │ pirated: 4.24GB MEM 1148% CPU │ machine: 16.65 load  32.778GB hdd │ Rescanning 12.87% @ block 411961
+  89 min │ pirated: 4.24GB MEM 1156% CPU │ machine: 11.26 load  32.778GB hdd │ Rescanning 13.05% @ block 417008
+  90 min │ pirated: 4.25GB MEM 1126% CPU │ machine: 14.85 load  32.778GB hdd │ Rescanning 13.24% @ block 422414
+  91 min │ pirated: 4.25GB MEM 1091% CPU │ machine: 13.21 load  32.778GB hdd │ Rescanning 13.42% @ block 426493
+  92 min │ pirated: 4.25GB MEM 1208% CPU │ machine: 14.10 load  32.778GB hdd │ Rescanning 13.58% @ block 429466
+  93 min │ pirated: 4.26GB MEM 1129% CPU │ machine: 15.18 load  32.778GB hdd │ Rescanning 13.74% @ block 433003
+  94 min │ pirated: 4.26GB MEM  988% CPU │ machine: 13.37 load  32.778GB hdd │ Rescanning 13.93% @ block 438730
+  95 min │ pirated: 4.27GB MEM  922% CPU │ machine: 12.85 load  32.778GB hdd │ Rescanning 14.13% @ block 444612
+  96 min │ pirated: 4.27GB MEM 1286% CPU │ machine: 13.93 load  32.778GB hdd │ Rescanning 14.32% @ block 450355
+  97 min │ pirated: 4.28GB MEM 1102% CPU │ machine: 15.32 load  32.778GB hdd │ Rescanning 14.51% @ block 456259
+  98 min │ pirated: 4.28GB MEM  879% CPU │ machine: 15.41 load  32.778GB hdd │ Rescanning 14.68% @ block 461267
+  99 min │ pirated: 4.28GB MEM 1123% CPU │ machine: 17.07 load  32.778GB hdd │ Rescanning 14.86% @ block 466583
+ 100 min │ pirated: 4.28GB MEM 1064% CPU │ machine: 15.63 load  32.778GB hdd │ Rescanning 15.04% @ block 472097
+ 101 min │ pirated: 4.29GB MEM 1027% CPU │ machine: 15.89 load  32.778GB hdd │ Rescanning 15.23% @ block 477700
+ 102 min │ pirated: 4.29GB MEM  964% CPU │ machine: 19.73 load  32.778GB hdd │ Rescanning 15.42% @ block 483541
+ 103 min │ pirated: 4.32GB MEM  943% CPU │ machine: 15.03 load  32.778GB hdd │ Rescanning 15.61% @ block 489365
+ 104 min │ pirated: 4.32GB MEM 1070% CPU │ machine: 15.48 load  32.778GB hdd │ Rescanning 15.80% @ block 495381
+ 105 min │ pirated: 4.32GB MEM 1094% CPU │ machine: 14.49 load  32.778GB hdd │ Rescanning 16.00% @ block 501429
+ 106 min │ pirated: 4.32GB MEM 1140% CPU │ machine: 11.14 load  32.778GB hdd │ Rescanning 16.20% @ block 507783
+ 107 min │ pirated: 4.32GB MEM 1348% CPU │ machine: 10.71 load  32.778GB hdd │ Rescanning 16.40% @ block 514325
+ 108 min │ pirated: 4.32GB MEM 1052% CPU │ machine: 12.65 load  32.778GB hdd │ Rescanning 16.60% @ block 520648
+ 109 min │ pirated: 4.33GB MEM  974% CPU │ machine: 16.18 load  32.778GB hdd │ Rescanning 16.82% @ block 527641
+ 110 min │ pirated: 4.33GB MEM 1131% CPU │ machine: 18.53 load  32.778GB hdd │ Rescanning 17.02% @ block 534390
+ 111 min │ pirated: 4.34GB MEM 1119% CPU │ machine: 17.89 load  32.778GB hdd │ Rescanning 17.24% @ block 541337
+ 112 min │ pirated: 4.34GB MEM  547% CPU │ machine: 14.96 load  32.778GB hdd │ Rescanning 17.44% @ block 547736
+ 113 min │ pirated: 4.34GB MEM  916% CPU │ machine: 13.26 load  32.778GB hdd │ Rescanning 17.64% @ block 553784
+ 114 min │ pirated: 4.35GB MEM  816% CPU │ machine: 10.21 load  32.778GB hdd │ Rescanning 17.82% @ block 559534
+ 115 min │ pirated: 4.35GB MEM 1183% CPU │ machine:  9.32 load  32.778GB hdd │ Rescanning 18.02% @ block 564944
+ 116 min │ pirated: 4.36GB MEM 1034% CPU │ machine: 11.67 load  32.778GB hdd │ Rescanning 18.22% @ block 570596
+ 117 min │ pirated: 4.36GB MEM 1050% CPU │ machine: 14.36 load  32.778GB hdd │ Rescanning 18.44% @ block 577829
+ 118 min │ pirated: 4.37GB MEM 1067% CPU │ machine: 12.74 load  32.778GB hdd │ Rescanning 18.66% @ block 585333
+ 119 min │ pirated: 4.37GB MEM  970% CPU │ machine: 13.62 load  32.778GB hdd │ Rescanning 18.89% @ block 593014
+ 120 min │ pirated: 4.38GB MEM 1448% CPU │ machine: 12.99 load  32.778GB hdd │ Rescanning 19.12% @ block 600882
+ 121 min │ pirated: 4.38GB MEM 1090% CPU │ machine: 12.86 load  32.778GB hdd │ Rescanning 19.36% @ block 609122
+ 122 min │ pirated: 4.38GB MEM  993% CPU │ machine: 10.65 load  32.778GB hdd │ Rescanning 19.59% @ block 617237
+ 123 min │ pirated: 4.39GB MEM  989% CPU │ machine: 14.32 load  32.778GB hdd │ Rescanning 19.81% @ block 624828
+ 124 min │ pirated: 4.39GB MEM  929% CPU │ machine: 13.09 load  32.778GB hdd │ Rescanning 20.03% @ block 632244
+ 125 min │ pirated: 4.40GB MEM 1003% CPU │ machine: 12.84 load  32.778GB hdd │ Rescanning 20.26% @ block 640010
+ 126 min │ pirated: 4.40GB MEM 1017% CPU │ machine: 14.40 load  32.778GB hdd │ Rescanning 20.49% @ block 647680
+ 127 min │ pirated: 4.41GB MEM  983% CPU │ machine: 13.87 load  32.778GB hdd │ Rescanning 20.73% @ block 655579
+ 128 min │ pirated: 4.41GB MEM 1057% CPU │ machine: 15.38 load  32.778GB hdd │ Rescanning 20.96% @ block 663283
+ 129 min │ pirated: 4.42GB MEM  941% CPU │ machine: 14.25 load  32.778GB hdd │ Rescanning 21.20% @ block 671064
+ 130 min │ pirated: 4.42GB MEM 1016% CPU │ machine: 12.82 load  32.778GB hdd │ Rescanning 21.44% @ block 679092
+ 131 min │ pirated: 4.43GB MEM  928% CPU │ machine: 14.26 load  32.778GB hdd │ Rescanning 21.68% @ block 686965
+ 132 min │ pirated: 4.43GB MEM  975% CPU │ machine: 10.34 load  32.778GB hdd │ Rescanning 21.90% @ block 694465
+ 133 min │ pirated: 4.44GB MEM 1026% CPU │ machine: 11.67 load  32.778GB hdd │ Rescanning 22.14% @ block 702221
+ 134 min │ pirated: 4.44GB MEM  986% CPU │ machine: 13.23 load  32.778GB hdd │ Rescanning 22.38% @ block 710094
+ 135 min │ pirated: 4.45GB MEM  995% CPU │ machine: 11.88 load  32.778GB hdd │ Rescanning 22.61% @ block 717925
+ 136 min │ pirated: 4.45GB MEM 1134% CPU │ machine: 14.57 load  32.778GB hdd │ Rescanning 22.84% @ block 725469
+ 137 min │ pirated: 4.46GB MEM 1009% CPU │ machine: 16.84 load  32.778GB hdd │ Rescanning 23.07% @ block 733189
+ 138 min │ pirated: 4.46GB MEM  960% CPU │ machine: 13.44 load  32.778GB hdd │ Rescanning 23.30% @ block 740797
+ 139 min │ pirated: 4.47GB MEM 1058% CPU │ machine: 12.98 load  32.778GB hdd │ Rescanning 23.50% @ block 747176
+ 140 min │ pirated: 4.47GB MEM 1093% CPU │ machine: 11.89 load  32.778GB hdd │ Rescanning 23.69% @ block 753226
+ 141 min │ pirated: 4.47GB MEM  550% CPU │ machine: 12.73 load  32.778GB hdd │ Rescanning 23.89% @ block 758219
+ 142 min │ pirated: 4.48GB MEM 1016% CPU │ machine: 12.55 load  32.778GB hdd │ Rescanning 24.06% @ block 762697
+ 143 min │ pirated: 4.48GB MEM 1103% CPU │ machine: 12.14 load  32.778GB hdd │ Rescanning 24.24% @ block 768220
+ 144 min │ pirated: 4.49GB MEM 1352% CPU │ machine: 11.73 load  32.778GB hdd │ Rescanning 24.45% @ block 774965
+ 145 min │ pirated: 4.49GB MEM 1034% CPU │ machine: 15.22 load  32.778GB hdd │ Rescanning 24.66% @ block 781848
+ 146 min │ pirated: 4.50GB MEM 1065% CPU │ machine: 14.97 load  32.778GB hdd │ Rescanning 24.87% @ block 788376
+ 147 min │ pirated: 4.50GB MEM 1035% CPU │ machine: 17.10 load  32.778GB hdd │ Rescanning 25.09% @ block 795696
+ 148 min │ pirated: 4.51GB MEM 1034% CPU │ machine: 11.69 load  32.778GB hdd │ Rescanning 25.31% @ block 803127
+ 149 min │ pirated: 4.51GB MEM 1024% CPU │ machine: 10.04 load  32.778GB hdd │ Rescanning 25.54% @ block 811080
+ 150 min │ pirated: 4.52GB MEM  577% CPU │ machine:  9.66 load  32.778GB hdd │ Rescanning 25.77% @ block 819086
+ 151 min │ pirated: 4.52GB MEM  938% CPU │ machine: 13.89 load  32.778GB hdd │ Rescanning 25.99% @ block 826290
+ 152 min │ pirated: 4.53GB MEM  942% CPU │ machine: 12.63 load  32.778GB hdd │ Rescanning 26.22% @ block 834181
+ 153 min │ pirated: 4.53GB MEM  908% CPU │ machine: 13.16 load  32.778GB hdd │ Rescanning 26.45% @ block 841431
+ 154 min │ pirated: 4.54GB MEM  925% CPU │ machine: 12.84 load  32.778GB hdd │ Rescanning 26.68% @ block 848980
+ 155 min │ pirated: 4.54GB MEM  883% CPU │ machine: 10.41 load  32.778GB hdd │ Rescanning 26.89% @ block 855987
+ 156 min │ pirated: 4.55GB MEM 1063% CPU │ machine: 13.61 load  32.778GB hdd │ Rescanning 27.12% @ block 863618
+ 157 min │ pirated: 4.55GB MEM  976% CPU │ machine: 13.32 load  32.778GB hdd │ Rescanning 27.39% @ block 873107
+ 158 min │ pirated: 4.56GB MEM  936% CPU │ machine: 14.23 load  32.778GB hdd │ Rescanning 27.63% @ block 881570
+ 159 min │ pirated: 4.57GB MEM 1030% CPU │ machine: 15.35 load  32.778GB hdd │ Rescanning 27.91% @ block 891686
+ 160 min │ pirated: 4.57GB MEM 1032% CPU │ machine: 14.35 load  32.778GB hdd │ Rescanning 28.18% @ block 901528
+ 161 min │ pirated: 4.58GB MEM 1065% CPU │ machine: 15.16 load  32.778GB hdd │ Rescanning 28.42% @ block 910139
+ 162 min │ pirated: 4.58GB MEM 1058% CPU │ machine: 15.39 load  32.778GB hdd │ Rescanning 28.66% @ block 917998
+ 163 min │ pirated: 4.59GB MEM  991% CPU │ machine: 15.71 load  32.778GB hdd │ Rescanning 28.91% @ block 926759
+ 164 min │ pirated: 4.59GB MEM 1013% CPU │ machine: 13.45 load  32.778GB hdd │ Rescanning 29.17% @ block 936307
+ 165 min │ pirated: 4.60GB MEM  994% CPU │ machine: 10.97 load  32.778GB hdd │ Rescanning 29.42% @ block 945353
+ 166 min │ pirated: 4.60GB MEM  907% CPU │ machine: 15.11 load  32.778GB hdd │ Rescanning 29.68% @ block 954455
+ 167 min │ pirated: 4.61GB MEM  936% CPU │ machine: 13.30 load  32.778GB hdd │ Rescanning 29.94% @ block 963845
+ 168 min │ pirated: 4.61GB MEM  967% CPU │ machine: 11.06 load  32.778GB hdd │ Rescanning 30.20% @ block 972988
+ 169 min │ pirated: 4.62GB MEM  971% CPU │ machine: 12.35 load  32.778GB hdd │ Rescanning 30.44% @ block 981471
+ 170 min │ pirated: 4.62GB MEM  828% CPU │ machine: 14.02 load  32.778GB hdd │ Rescanning 30.66% @ block 989134
+ 171 min │ pirated: 4.63GB MEM  882% CPU │ machine: 11.45 load  32.778GB hdd │ Rescanning 30.94% @ block 999367
+ 172 min │ pirated: 4.63GB MEM  915% CPU │ machine:  9.09 load  32.778GB hdd │ Rescanning 31.23% @ block 1010112
+ 173 min │ pirated: 4.64GB MEM  932% CPU │ machine:  8.23 load  32.778GB hdd │ Rescanning 31.50% @ block 1020046
+ 174 min │ pirated: 4.64GB MEM  913% CPU │ machine: 10.55 load  32.778GB hdd │ Rescanning 31.74% @ block 1027903
+ 175 min │ pirated: 4.64GB MEM  913% CPU │ machine: 14.35 load  32.778GB hdd │ Rescanning 32.01% @ block 1037584
+ 176 min │ pirated: 4.65GB MEM  963% CPU │ machine: 12.42 load  32.778GB hdd │ Rescanning 32.19% @ block 1042386
+ 177 min │ pirated: 4.65GB MEM  927% CPU │ machine: 12.38 load  32.778GB hdd │ Rescanning 32.37% @ block 1047721
+ 178 min │ pirated: 4.66GB MEM  950% CPU │ machine: 16.23 load  32.778GB hdd │ Rescanning 32.56% @ block 1053660
+ 179 min │ pirated: 4.66GB MEM 1005% CPU │ machine: 13.74 load  32.778GB hdd │ Rescanning 32.73% @ block 1058989
+ 180 min │ pirated: 4.67GB MEM  885% CPU │ machine: 14.94 load  32.778GB hdd │ Rescanning 32.90% @ block 1064416
+ 181 min │ pirated: 4.67GB MEM  943% CPU │ machine: 13.75 load  32.778GB hdd │ Rescanning 33.16% @ block 1073264
+ 182 min │ pirated: 4.68GB MEM 1479% CPU │ machine: 12.25 load  32.778GB hdd │ Rescanning 33.43% @ block 1082841
+ 183 min │ pirated: 4.68GB MEM  906% CPU │ machine: 15.02 load  32.778GB hdd │ Rescanning 33.72% @ block 1093392
+ 184 min │ pirated: 4.69GB MEM  536% CPU │ machine: 14.94 load  32.778GB hdd │ Rescanning 33.99% @ block 1102934
+ 185 min │ pirated: 4.69GB MEM  953% CPU │ machine: 13.80 load  32.778GB hdd │ Rescanning 34.27% @ block 1113375
+ 186 min │ pirated: 4.70GB MEM 1022% CPU │ machine: 12.40 load  32.778GB hdd │ Rescanning 34.55% @ block 1123650
+ 187 min │ pirated: 4.70GB MEM  974% CPU │ machine: 13.14 load  32.778GB hdd │ Rescanning 34.82% @ block 1133308
+ 188 min │ pirated: 4.71GB MEM  963% CPU │ machine: 10.90 load  32.778GB hdd │ Rescanning 35.07% @ block 1142264
+ 189 min │ pirated: 4.71GB MEM 1011% CPU │ machine: 10.62 load  32.778GB hdd │ Rescanning 35.32% @ block 1151078
+ 190 min │ pirated: 4.71GB MEM  896% CPU │ machine:  9.06 load  32.778GB hdd │ Rescanning 35.58% @ block 1160195
+ 191 min │ pirated: 4.72GB MEM  942% CPU │ machine: 11.82 load  32.778GB hdd │ Rescanning 35.81% @ block 1167986
+ 192 min │ pirated: 4.72GB MEM  953% CPU │ machine: 10.87 load  32.778GB hdd │ Rescanning 36.08% @ block 1177881
+ 193 min │ pirated: 4.73GB MEM 1354% CPU │ machine: 14.72 load  32.778GB hdd │ Rescanning 36.37% @ block 1188247
+ 194 min │ pirated: 4.73GB MEM  826% CPU │ machine: 16.32 load  32.778GB hdd │ Rescanning 36.50% @ block 1192704
+ 195 min │ pirated: 4.73GB MEM 1574% CPU │ machine: 15.39 load  32.778GB hdd │ Rescanning 36.62% @ block 1196608
+ 196 min │ pirated: 4.73GB MEM  975% CPU │ machine: 18.38 load  32.778GB hdd │ Rescanning 36.67% @ block 1198175
+ 197 min │ pirated: 4.74GB MEM 1544% CPU │ machine: 14.48 load  32.778GB hdd │ Rescanning 36.80% @ block 1201955
+ 198 min │ pirated: 4.74GB MEM 1523% CPU │ machine: 18.04 load  32.778GB hdd │ Rescanning 36.90% @ block 1205125
+ 199 min │ pirated: 4.74GB MEM 1477% CPU │ machine: 15.68 load  32.778GB hdd │ Rescanning 36.95% @ block 1206870
+ 200 min │ pirated: 4.74GB MEM 1588% CPU │ machine: 13.59 load  32.778GB hdd │ Rescanning 37.00% @ block 1208593
+ 201 min │ pirated: 4.74GB MEM 1423% CPU │ machine: 15.63 load  32.778GB hdd │ Rescanning 37.06% @ block 1210254
+ 202 min │ pirated: 4.74GB MEM 1246% CPU │ machine: 16.48 load  32.778GB hdd │ Rescanning 37.11% @ block 1212125
+ 203 min │ pirated: 4.75GB MEM  876% CPU │ machine: 16.63 load  32.778GB hdd │ Rescanning 37.19% @ block 1214596
+ 204 min │ pirated: 4.75GB MEM  746% CPU │ machine: 14.99 load  32.778GB hdd │ Rescanning 37.33% @ block 1218607
+ 205 min │ pirated: 4.75GB MEM 1195% CPU │ machine: 14.49 load  32.778GB hdd │ Rescanning 37.45% @ block 1221477
+ 206 min │ pirated: 4.76GB MEM 1158% CPU │ machine: 13.96 load  32.778GB hdd │ Rescanning 37.58% @ block 1224886
+ 207 min │ pirated: 4.76GB MEM 1253% CPU │ machine: 12.71 load  32.778GB hdd │ Rescanning 37.71% @ block 1228723
+ 208 min │ pirated: 4.76GB MEM 1111% CPU │ machine: 11.57 load  32.778GB hdd │ Rescanning 37.84% @ block 1232099
+ 209 min │ pirated: 4.76GB MEM 1279% CPU │ machine: 14.90 load  32.778GB hdd │ Rescanning 37.96% @ block 1235218
+ 210 min │ pirated: 4.77GB MEM 1243% CPU │ machine: 14.85 load  32.778GB hdd │ Rescanning 38.08% @ block 1238013
+ 211 min │ pirated: 4.77GB MEM 1059% CPU │ machine: 15.02 load  32.778GB hdd │ Rescanning 38.20% @ block 1241087
+ 212 min │ pirated: 4.77GB MEM  937% CPU │ machine: 15.14 load  32.778GB hdd │ Rescanning 38.38% @ block 1246850
+ 213 min │ pirated: 4.78GB MEM 1164% CPU │ machine: 16.47 load  32.778GB hdd │ Rescanning 38.63% @ block 1255493
+ 214 min │ pirated: 4.78GB MEM 1305% CPU │ machine: 18.06 load  32.778GB hdd │ Rescanning 38.76% @ block 1259243
+ 215 min │ pirated: 4.79GB MEM 1219% CPU │ machine: 15.19 load  32.778GB hdd │ Rescanning 38.90% @ block 1262961
+ 216 min │ pirated: 4.79GB MEM  961% CPU │ machine: 14.39 load  32.778GB hdd │ Rescanning 39.11% @ block 1269990
+ 217 min │ pirated: 4.79GB MEM 1126% CPU │ machine: 13.18 load  32.778GB hdd │ Rescanning 39.25% @ block 1273723
+ 218 min │ pirated: 4.80GB MEM  527% CPU │ machine: 11.76 load  32.778GB hdd │ Rescanning 39.45% @ block 1280256
+ 219 min │ pirated: 4.80GB MEM  970% CPU │ machine: 13.16 load  32.778GB hdd │ Rescanning 39.76% @ block 1291451
+ 220 min │ pirated: 4.81GB MEM  967% CPU │ machine: 13.58 load  32.778GB hdd │ Rescanning 40.07% @ block 1302968
+ 221 min │ pirated: 4.81GB MEM  973% CPU │ machine: 14.07 load  32.778GB hdd │ Rescanning 40.24% @ block 1307301
+ 222 min │ pirated: 4.81GB MEM  949% CPU │ machine: 13.69 load  32.778GB hdd │ Rescanning 40.49% @ block 1315842
+ 223 min │ pirated: 4.82GB MEM  928% CPU │ machine: 15.71 load  32.778GB hdd │ Rescanning 40.79% @ block 1327025
+ 224 min │ pirated: 4.83GB MEM  668% CPU │ machine: 11.92 load  32.778GB hdd │ Rescanning 41.09% @ block 1338508
+ 225 min │ pirated: 4.83GB MEM  903% CPU │ machine: 14.83 load  32.778GB hdd │ Rescanning 41.26% @ block 1343796
+ 226 min │ pirated: 4.84GB MEM  921% CPU │ machine: 13.75 load  32.778GB hdd │ Rescanning 41.44% @ block 1348634
+ 227 min │ pirated: 4.84GB MEM  875% CPU │ machine: 14.58 load  32.778GB hdd │ Rescanning 41.60% @ block 1353241
+ 228 min │ pirated: 4.84GB MEM 1028% CPU │ machine: 16.41 load  32.778GB hdd │ Rescanning 41.75% @ block 1356753
+ 229 min │ pirated: 4.85GB MEM 1275% CPU │ machine:  8.15 load  32.778GB hdd │ Rescanning 41.88% @ block 1359084
+ 230 min │ pirated: 4.85GB MEM 1208% CPU │ machine: 11.73 load  32.778GB hdd │ Rescanning 41.99% @ block 1360734
+ 231 min │ pirated: 4.85GB MEM 1236% CPU │ machine: 14.30 load  32.778GB hdd │ Rescanning 42.12% @ block 1363088
+ 232 min │ pirated: 4.85GB MEM 1205% CPU │ machine: 10.69 load  32.778GB hdd │ Rescanning 42.24% @ block 1365635
+ 233 min │ pirated: 4.85GB MEM 1222% CPU │ machine: 14.02 load  32.778GB hdd │ Rescanning 42.36% @ block 1368558
+ 234 min │ pirated: 4.86GB MEM 1194% CPU │ machine: 15.96 load  32.778GB hdd │ Rescanning 42.50% @ block 1370838
+ 235 min │ pirated: 4.86GB MEM 1132% CPU │ machine: 15.08 load  32.778GB hdd │ Rescanning 42.65% @ block 1372517
+ 236 min │ pirated: 4.86GB MEM 1155% CPU │ machine: 17.79 load  32.778GB hdd │ Rescanning 42.79% @ block 1374742
+ 237 min │ pirated: 4.87GB MEM  878% CPU │ machine: 13.83 load  32.778GB hdd │ Rescanning 42.94% @ block 1378705
+ 238 min │ pirated: 4.87GB MEM  774% CPU │ machine: 16.05 load  32.778GB hdd │ Rescanning 43.06% @ block 1381462
+ 239 min │ pirated: 4.88GB MEM  541% CPU │ machine: 11.12 load  32.778GB hdd │ Rescanning 43.17% @ block 1383547
+ 240 min │ pirated: 4.88GB MEM  577% CPU │ machine: 11.56 load  32.778GB hdd │ Rescanning 43.30% @ block 1386349
+ 241 min │ pirated: 4.89GB MEM  757% CPU │ machine: 10.20 load  32.778GB hdd │ Rescanning 43.40% @ block 1388577
+ 242 min │ pirated: 4.89GB MEM  500% CPU │ machine: 11.15 load  32.778GB hdd │ Rescanning 43.55% @ block 1392949
+ 243 min │ pirated: 4.90GB MEM 1040% CPU │ machine:  9.41 load  32.778GB hdd │ Rescanning 43.67% @ block 1395979
+ 244 min │ pirated: 4.90GB MEM 1177% CPU │ machine: 14.15 load  32.778GB hdd │ Rescanning 43.77% @ block 1398524
+ 245 min │ pirated: 4.91GB MEM 1018% CPU │ machine: 11.22 load  32.778GB hdd │ Rescanning 43.93% @ block 1403009
+ 246 min │ pirated: 4.91GB MEM 1179% CPU │ machine: 12.73 load  32.779GB hdd │ Rescanning 44.07% @ block 1406257
+ 247 min │ pirated: 4.92GB MEM  932% CPU │ machine: 15.87 load  32.779GB hdd │ Rescanning 44.21% @ block 1410147
+ 248 min │ pirated: 4.92GB MEM 1011% CPU │ machine: 17.81 load  32.779GB hdd │ Rescanning 44.39% @ block 1415651
+ 249 min │ pirated: 4.93GB MEM 1090% CPU │ machine: 14.83 load  32.779GB hdd │ Rescanning 44.55% @ block 1420327
+ 250 min │ pirated: 4.93GB MEM 1038% CPU │ machine: 13.53 load  32.779GB hdd │ Rescanning 44.73% @ block 1425835
+ 251 min │ pirated: 4.94GB MEM  971% CPU │ machine: 14.65 load  32.779GB hdd │ Rescanning 44.87% @ block 1429788
+ 252 min │ pirated: 4.94GB MEM 1037% CPU │ machine: 12.17 load  32.779GB hdd │ Rescanning 45.04% @ block 1434673
+ 253 min │ pirated: 4.94GB MEM 1080% CPU │ machine: 15.31 load  32.779GB hdd │ Rescanning 45.21% @ block 1439878
+ 254 min │ pirated: 4.95GB MEM 1008% CPU │ machine: 14.60 load  32.779GB hdd │ Rescanning 45.36% @ block 1444053
+ 255 min │ pirated: 4.95GB MEM 1060% CPU │ machine: 12.48 load  32.779GB hdd │ Rescanning 45.53% @ block 1449028
+ 256 min │ pirated: 4.96GB MEM  933% CPU │ machine: 13.44 load  32.779GB hdd │ Rescanning 45.71% @ block 1454378
+ 257 min │ pirated: 4.96GB MEM  765% CPU │ machine: 15.01 load  32.779GB hdd │ Rescanning 45.89% @ block 1460069
+ 258 min │ pirated: 4.97GB MEM 1143% CPU │ machine: 15.27 load  32.779GB hdd │ Rescanning 46.08% @ block 1466067
+ 259 min │ pirated: 4.97GB MEM 1135% CPU │ machine: 18.21 load  32.779GB hdd │ Rescanning 46.26% @ block 1471742
+ 260 min │ pirated: 4.98GB MEM  977% CPU │ machine: 16.21 load  32.779GB hdd │ Rescanning 46.45% @ block 1477427
+ 261 min │ pirated: 4.98GB MEM 1005% CPU │ machine: 13.01 load  32.779GB hdd │ Rescanning 46.65% @ block 1483595
+ 262 min │ pirated: 4.99GB MEM 1046% CPU │ machine: 14.05 load  32.779GB hdd │ Rescanning 46.82% @ block 1488859
+ 263 min │ pirated: 4.99GB MEM  925% CPU │ machine: 13.08 load  32.779GB hdd │ Rescanning 47.00% @ block 1494457
+ 264 min │ pirated: 4.99GB MEM 1014% CPU │ machine: 14.26 load  32.779GB hdd │ Rescanning 47.17% @ block 1499328
+ 265 min │ pirated: 5.00GB MEM 1029% CPU │ machine: 13.16 load  32.779GB hdd │ Rescanning 47.35% @ block 1504952
+ 266 min │ pirated: 5.00GB MEM  700% CPU │ machine: 14.85 load  32.779GB hdd │ Rescanning 47.53% @ block 1510268
+ 267 min │ pirated: 5.01GB MEM 1052% CPU │ machine: 15.40 load  32.779GB hdd │ Rescanning 47.69% @ block 1515198
+ 268 min │ pirated: 5.01GB MEM 1065% CPU │ machine: 14.21 load  32.779GB hdd │ Rescanning 47.86% @ block 1520198
+ 269 min │ pirated: 5.02GB MEM 1060% CPU │ machine: 12.60 load  32.779GB hdd │ Rescanning 48.03% @ block 1525583
+ 270 min │ pirated: 5.02GB MEM 1085% CPU │ machine: 12.78 load  32.779GB hdd │ Rescanning 48.22% @ block 1531683
+ 271 min │ pirated: 5.03GB MEM 1072% CPU │ machine: 11.47 load  32.779GB hdd │ Rescanning 48.40% @ block 1537220
+ 272 min │ pirated: 5.03GB MEM 1025% CPU │ machine: 11.52 load  32.779GB hdd │ Rescanning 48.57% @ block 1542429
+ 273 min │ pirated: 5.03GB MEM 1134% CPU │ machine: 13.49 load  32.779GB hdd │ Rescanning 48.74% @ block 1547460
+ 274 min │ pirated: 5.04GB MEM  983% CPU │ machine: 11.86 load  32.779GB hdd │ Rescanning 48.92% @ block 1552665
+ 275 min │ pirated: 5.04GB MEM 1089% CPU │ machine: 12.18 load  32.779GB hdd │ Rescanning 49.08% @ block 1557581
+ 276 min │ pirated: 5.05GB MEM 1192% CPU │ machine:  9.92 load  32.779GB hdd │ Rescanning 49.24% @ block 1562546
+ 277 min │ pirated: 5.05GB MEM 1101% CPU │ machine: 10.54 load  32.779GB hdd │ Rescanning 49.42% @ block 1568164
+ 278 min │ pirated: 5.06GB MEM 1077% CPU │ machine: 12.16 load  32.779GB hdd │ Rescanning 49.60% @ block 1573664
+ 279 min │ pirated: 5.06GB MEM 1174% CPU │ machine: 11.29 load  32.779GB hdd │ Rescanning 49.79% @ block 1579588
+ 280 min │ pirated: 5.07GB MEM 1030% CPU │ machine: 14.93 load  32.779GB hdd │ Rescanning 49.98% @ block 1585677
+ 281 min │ pirated: 5.07GB MEM 1090% CPU │ machine: 13.35 load  32.779GB hdd │ Rescanning 50.17% @ block 1592045
+ 282 min │ pirated: 5.08GB MEM 1142% CPU │ machine: 12.06 load  32.779GB hdd │ Rescanning 50.35% @ block 1597304
+ 283 min │ pirated: 5.08GB MEM 1174% CPU │ machine: 12.85 load  32.779GB hdd │ Rescanning 50.52% @ block 1602474
+ 284 min │ pirated: 5.08GB MEM 1076% CPU │ machine: 11.72 load  32.779GB hdd │ Rescanning 50.68% @ block 1607007
+ 285 min │ pirated: 5.09GB MEM  934% CPU │ machine: 13.20 load  32.779GB hdd │ Rescanning 50.87% @ block 1613392
+ 286 min │ pirated: 5.09GB MEM  672% CPU │ machine: 12.00 load  32.779GB hdd │ Rescanning 51.07% @ block 1619623
+ 287 min │ pirated: 5.10GB MEM 1055% CPU │ machine: 11.86 load  32.779GB hdd │ Rescanning 51.22% @ block 1624131
+ 288 min │ pirated: 5.10GB MEM  904% CPU │ machine: 14.32 load  32.779GB hdd │ Rescanning 51.41% @ block 1630441
+ 289 min │ pirated: 5.11GB MEM 1047% CPU │ machine: 13.62 load  32.779GB hdd │ Rescanning 51.60% @ block 1636072
+ 290 min │ pirated: 5.11GB MEM 1034% CPU │ machine: 11.64 load  32.779GB hdd │ Rescanning 51.81% @ block 1642850
+ 291 min │ pirated: 5.12GB MEM 1068% CPU │ machine: 14.99 load  32.779GB hdd │ Rescanning 52.01% @ block 1649418
+ 292 min │ pirated: 5.12GB MEM 1053% CPU │ machine: 13.74 load  32.779GB hdd │ Rescanning 52.21% @ block 1655533
+ 293 min │ pirated: 5.13GB MEM 1185% CPU │ machine: 14.74 load  32.779GB hdd │ Rescanning 52.41% @ block 1661987
+ 294 min │ pirated: 5.14GB MEM  985% CPU │ machine: 14.71 load  32.779GB hdd │ Rescanning 52.62% @ block 1669009
+ 295 min │ pirated: 5.15GB MEM 1092% CPU │ machine: 11.02 load  32.779GB hdd │ Rescanning 52.82% @ block 1675731
+ 296 min │ pirated: 5.15GB MEM 1062% CPU │ machine: 12.67 load  32.779GB hdd │ Rescanning 53.02% @ block 1682283
+ 297 min │ pirated: 5.15GB MEM  992% CPU │ machine: 13.09 load  32.779GB hdd │ Rescanning 53.24% @ block 1689458
+ 298 min │ pirated: 5.16GB MEM  519% CPU │ machine: 13.16 load  32.779GB hdd │ Rescanning 53.45% @ block 1696068
+ 299 min │ pirated: 5.16GB MEM 1065% CPU │ machine: 14.26 load  32.779GB hdd │ Rescanning 53.64% @ block 1702337
+ 300 min │ pirated: 5.17GB MEM  968% CPU │ machine: 14.75 load  32.779GB hdd │ Rescanning 53.80% @ block 1705675
+ 301 min │ pirated: 5.17GB MEM 1167% CPU │ machine: 12.10 load  32.779GB hdd │ Rescanning 53.98% @ block 1709242
+ 302 min │ pirated: 5.17GB MEM  942% CPU │ machine: 10.99 load  32.779GB hdd │ Rescanning 54.14% @ block 1711713
+ 303 min │ pirated: 5.18GB MEM 1147% CPU │ machine: 14.82 load  32.779GB hdd │ Rescanning 54.29% @ block 1714243
+ 304 min │ pirated: 5.18GB MEM 1063% CPU │ machine: 15.47 load  32.779GB hdd │ Rescanning 54.45% @ block 1716825
+ 305 min │ pirated: 5.18GB MEM 1161% CPU │ machine: 15.21 load  32.779GB hdd │ Rescanning 54.61% @ block 1720040
+ 306 min │ pirated: 5.19GB MEM 1112% CPU │ machine: 16.75 load  32.779GB hdd │ Rescanning 54.77% @ block 1722887
+ 307 min │ pirated: 5.19GB MEM 1074% CPU │ machine: 12.94 load  32.779GB hdd │ Rescanning 54.93% @ block 1725573
+ 308 min │ pirated: 5.19GB MEM 1136% CPU │ machine: 16.20 load  32.779GB hdd │ Rescanning 55.09% @ block 1728401
+ 309 min │ pirated: 5.20GB MEM 1004% CPU │ machine: 13.67 load  32.779GB hdd │ Rescanning 55.24% @ block 1731057
+ 310 min │ pirated: 5.20GB MEM 1013% CPU │ machine: 15.57 load  32.779GB hdd │ Rescanning 55.39% @ block 1733583
+ 311 min │ pirated: 5.20GB MEM 1118% CPU │ machine: 14.52 load  32.779GB hdd │ Rescanning 55.55% @ block 1736264
+ 312 min │ pirated: 5.21GB MEM 1054% CPU │ machine: 18.08 load  32.779GB hdd │ Rescanning 55.71% @ block 1739031
+ 313 min │ pirated: 5.21GB MEM 1087% CPU │ machine: 14.56 load  32.779GB hdd │ Rescanning 55.86% @ block 1741800
+ 314 min │ pirated: 5.22GB MEM 1230% CPU │ machine: 17.11 load  32.779GB hdd │ Rescanning 56.02% @ block 1744571
+ 315 min │ pirated: 5.22GB MEM 1093% CPU │ machine: 14.27 load  32.779GB hdd │ Rescanning 56.18% @ block 1747395
+ 316 min │ pirated: 5.22GB MEM 1228% CPU │ machine: 15.38 load  32.779GB hdd │ Rescanning 56.34% @ block 1750319
+ 317 min │ pirated: 5.23GB MEM 1249% CPU │ machine: 14.06 load  32.779GB hdd │ Rescanning 56.50% @ block 1753246
+ 318 min │ pirated: 5.23GB MEM 1710% CPU │ machine: 13.66 load  32.779GB hdd │ Rescanning 56.66% @ block 1756038
+ 319 min │ pirated: 5.24GB MEM 1809% CPU │ machine: 12.79 load  32.779GB hdd │ Rescanning 56.82% @ block 1759011
+ 320 min │ pirated: 5.24GB MEM 1018% CPU │ machine: 15.37 load  32.779GB hdd │ Rescanning 56.93% @ block 1761034
+ 321 min │ pirated: 5.24GB MEM 1129% CPU │ machine: 14.46 load  32.779GB hdd │ Rescanning 57.09% @ block 1763911
+ 322 min │ pirated: 5.25GB MEM  997% CPU │ machine: 12.18 load  32.779GB hdd │ Rescanning 57.24% @ block 1766730
+ 323 min │ pirated: 5.25GB MEM 1023% CPU │ machine: 12.34 load  32.779GB hdd │ Rescanning 57.39% @ block 1769415
+ 324 min │ pirated: 5.25GB MEM  996% CPU │ machine: 13.33 load  32.779GB hdd │ Rescanning 57.55% @ block 1772182
+ 325 min │ pirated: 5.25GB MEM 1097% CPU │ machine: 11.85 load  32.779GB hdd │ Rescanning 57.70% @ block 1774914
+ 326 min │ pirated: 5.26GB MEM 1132% CPU │ machine: 13.77 load  32.779GB hdd │ Rescanning 57.86% @ block 1777766
+ 327 min │ pirated: 5.26GB MEM 1088% CPU │ machine: 14.06 load  32.779GB hdd │ Rescanning 58.02% @ block 1780566
+ 328 min │ pirated: 5.27GB MEM 1145% CPU │ machine: 15.78 load  32.779GB hdd │ Rescanning 58.18% @ block 1783468
+ 329 min │ pirated: 5.27GB MEM 1080% CPU │ machine: 14.54 load  32.779GB hdd │ Rescanning 58.35% @ block 1786560
+ 330 min │ pirated: 5.27GB MEM 1002% CPU │ machine: 15.63 load  32.779GB hdd │ Rescanning 58.51% @ block 1789519
+ 331 min │ pirated: 5.28GB MEM 1189% CPU │ machine: 13.37 load  32.779GB hdd │ Rescanning 58.67% @ block 1792394
+ 332 min │ pirated: 5.28GB MEM 1225% CPU │ machine: 12.40 load  32.779GB hdd │ Rescanning 58.83% @ block 1795345
+ 333 min │ pirated: 5.29GB MEM 1233% CPU │ machine: 11.09 load  32.779GB hdd │ Rescanning 59.00% @ block 1798319
+ 334 min │ pirated: 5.29GB MEM 1041% CPU │ machine: 11.09 load  32.779GB hdd │ Rescanning 59.15% @ block 1801255
+ 335 min │ pirated: 5.29GB MEM 1079% CPU │ machine: 12.61 load  32.779GB hdd │ Rescanning 59.31% @ block 1804243
+ 336 min │ pirated: 5.30GB MEM 1128% CPU │ machine: 12.27 load  32.779GB hdd │ Rescanning 59.48% @ block 1807429
+ 337 min │ pirated: 5.30GB MEM 1213% CPU │ machine: 14.74 load  32.779GB hdd │ Rescanning 59.64% @ block 1810325
+ 338 min │ pirated: 5.30GB MEM 1180% CPU │ machine: 16.43 load  32.779GB hdd │ Rescanning 59.80% @ block 1813344
+ 339 min │ pirated: 5.31GB MEM 1068% CPU │ machine: 14.85 load  32.779GB hdd │ Rescanning 59.97% @ block 1816367
+ 340 min │ pirated: 5.31GB MEM 1025% CPU │ machine: 12.49 load  32.779GB hdd │ Rescanning 60.13% @ block 1819315
+ 341 min │ pirated: 5.32GB MEM 1022% CPU │ machine: 11.98 load  32.779GB hdd │ Rescanning 60.30% @ block 1822291
+ 342 min │ pirated: 5.32GB MEM 1071% CPU │ machine: 13.69 load  32.779GB hdd │ Rescanning 60.46% @ block 1825321
+ 343 min │ pirated: 5.32GB MEM 1048% CPU │ machine: 14.22 load  32.779GB hdd │ Rescanning 60.62% @ block 1828225
+ 344 min │ pirated: 5.33GB MEM  896% CPU │ machine: 12.75 load  32.779GB hdd │ Rescanning 60.77% @ block 1830786
+ 345 min │ pirated: 5.33GB MEM 1064% CPU │ machine: 12.69 load  32.779GB hdd │ Rescanning 60.93% @ block 1833654
+ 346 min │ pirated: 5.34GB MEM  986% CPU │ machine: 13.57 load  32.779GB hdd │ Rescanning 61.09% @ block 1836491
+ 347 min │ pirated: 5.34GB MEM 1080% CPU │ machine: 12.82 load  32.779GB hdd │ Rescanning 61.25% @ block 1839491
+ 348 min │ pirated: 5.34GB MEM 1037% CPU │ machine: 12.89 load  32.779GB hdd │ Rescanning 61.41% @ block 1842546
+ 349 min │ pirated: 5.35GB MEM 1089% CPU │ machine: 14.20 load  32.779GB hdd │ Rescanning 61.57% @ block 1845644
+ 350 min │ pirated: 5.35GB MEM 1065% CPU │ machine: 13.64 load  32.779GB hdd │ Rescanning 61.73% @ block 1848533
+ 351 min │ pirated: 5.35GB MEM  988% CPU │ machine: 16.08 load  32.779GB hdd │ Rescanning 61.89% @ block 1851410
+ 352 min │ pirated: 5.36GB MEM 1179% CPU │ machine: 17.02 load  32.779GB hdd │ Rescanning 62.05% @ block 1854309
+ 353 min │ pirated: 5.36GB MEM  982% CPU │ machine: 16.61 load  32.779GB hdd │ Rescanning 62.21% @ block 1857268
+ 354 min │ pirated: 5.37GB MEM 1279% CPU │ machine: 14.91 load  32.779GB hdd │ Rescanning 62.37% @ block 1860289
+ 355 min │ pirated: 5.37GB MEM 1013% CPU │ machine: 15.37 load  32.779GB hdd │ Rescanning 62.53% @ block 1863412
+ 356 min │ pirated: 5.38GB MEM  992% CPU │ machine: 11.91 load  32.779GB hdd │ Rescanning 62.68% @ block 1866411
+ 357 min │ pirated: 5.38GB MEM 1210% CPU │ machine: 14.43 load  32.779GB hdd │ Rescanning 62.86% @ block 1870654
+ 358 min │ pirated: 5.38GB MEM 1167% CPU │ machine: 15.58 load  32.779GB hdd │ Rescanning 63.02% @ block 1873130
+ 359 min │ pirated: 5.39GB MEM 1134% CPU │ machine: 18.79 load  32.779GB hdd │ Rescanning 63.19% @ block 1875983
+ 360 min │ pirated: 5.39GB MEM 1031% CPU │ machine: 16.69 load  32.779GB hdd │ Rescanning 63.36% @ block 1879138
+ 361 min │ pirated: 5.39GB MEM 1099% CPU │ machine: 12.97 load  32.779GB hdd │ Rescanning 63.53% @ block 1882363
+ 362 min │ pirated: 5.40GB MEM 1058% CPU │ machine: 12.95 load  32.779GB hdd │ Rescanning 63.70% @ block 1885689
+ 363 min │ pirated: 5.40GB MEM 1156% CPU │ machine: 15.43 load  32.779GB hdd │ Rescanning 63.87% @ block 1889060
+ 364 min │ pirated: 5.41GB MEM  654% CPU │ machine: 15.88 load  32.779GB hdd │ Rescanning 64.04% @ block 1892606
+ 365 min │ pirated: 5.41GB MEM 1161% CPU │ machine: 14.40 load  32.779GB hdd │ Rescanning 64.18% @ block 1895513
+ 366 min │ pirated: 5.41GB MEM 1073% CPU │ machine: 13.99 load  32.779GB hdd │ Rescanning 64.35% @ block 1898785
+ 367 min │ pirated: 5.42GB MEM 1018% CPU │ machine: 15.32 load  32.779GB hdd │ Rescanning 64.52% @ block 1902324
+ 368 min │ pirated: 5.42GB MEM 1067% CPU │ machine: 16.28 load  32.779GB hdd │ Rescanning 64.70% @ block 1905955
+ 369 min │ pirated: 5.42GB MEM 1051% CPU │ machine: 15.25 load  32.779GB hdd │ Rescanning 64.87% @ block 1909455
+ 370 min │ pirated: 5.43GB MEM 1070% CPU │ machine: 14.81 load  32.779GB hdd │ Rescanning 65.05% @ block 1913093
+ 371 min │ pirated: 5.43GB MEM 1038% CPU │ machine: 12.39 load  32.779GB hdd │ Rescanning 65.23% @ block 1916665
+ 372 min │ pirated: 5.43GB MEM 1059% CPU │ machine: 14.99 load  32.779GB hdd │ Rescanning 65.40% @ block 1920339
+ 373 min │ pirated: 5.44GB MEM 1126% CPU │ machine: 14.71 load  32.779GB hdd │ Rescanning 65.58% @ block 1923989
+ 374 min │ pirated: 5.44GB MEM 1124% CPU │ machine: 11.93 load  32.779GB hdd │ Rescanning 65.76% @ block 1927733
+ 375 min │ pirated: 5.45GB MEM 1050% CPU │ machine: 15.18 load  32.779GB hdd │ Rescanning 65.93% @ block 1931321
+ 376 min │ pirated: 5.45GB MEM 1103% CPU │ machine: 18.43 load  32.779GB hdd │ Rescanning 66.10% @ block 1934818
+ 377 min │ pirated: 5.45GB MEM 1036% CPU │ machine: 12.10 load  32.779GB hdd │ Rescanning 66.28% @ block 1938516
+ 378 min │ pirated: 5.46GB MEM 1016% CPU │ machine: 14.81 load  32.779GB hdd │ Rescanning 66.46% @ block 1942196
+ 379 min │ pirated: 5.46GB MEM 1074% CPU │ machine: 11.40 load  32.779GB hdd │ Rescanning 66.63% @ block 1945662
+ 380 min │ pirated: 5.47GB MEM 1120% CPU │ machine: 11.85 load  32.779GB hdd │ Rescanning 66.80% @ block 1949266
+ 381 min │ pirated: 5.47GB MEM 1053% CPU │ machine: 11.45 load  32.779GB hdd │ Rescanning 66.97% @ block 1952892
+ 382 min │ pirated: 5.47GB MEM 1105% CPU │ machine: 11.81 load  32.779GB hdd │ Rescanning 67.15% @ block 1956634
+ 383 min │ pirated: 5.48GB MEM 1042% CPU │ machine: 13.27 load  32.779GB hdd │ Rescanning 67.35% @ block 1961612
+ 384 min │ pirated: 5.48GB MEM  999% CPU │ machine: 12.21 load  32.779GB hdd │ Rescanning 67.52% @ block 1964447
+ 385 min │ pirated: 5.49GB MEM  991% CPU │ machine: 14.10 load  32.779GB hdd │ Rescanning 67.68% @ block 1967432
+ 386 min │ pirated: 5.49GB MEM 1040% CPU │ machine: 14.99 load  32.779GB hdd │ Rescanning 67.84% @ block 1970592
+ 387 min │ pirated: 5.50GB MEM 1051% CPU │ machine: 13.14 load  32.779GB hdd │ Rescanning 68.00% @ block 1973766
+ 388 min │ pirated: 5.50GB MEM 1071% CPU │ machine: 15.22 load  32.779GB hdd │ Rescanning 68.17% @ block 1976958
+ 389 min │ pirated: 5.50GB MEM 1017% CPU │ machine: 15.31 load  32.779GB hdd │ Rescanning 68.34% @ block 1980202
+ 390 min │ pirated: 5.51GB MEM 1130% CPU │ machine: 14.00 load  32.779GB hdd │ Rescanning 68.50% @ block 1983251
+ 391 min │ pirated: 5.51GB MEM 1129% CPU │ machine: 14.00 load  32.779GB hdd │ Rescanning 68.67% @ block 1986539
+ 392 min │ pirated: 5.52GB MEM 1112% CPU │ machine: 16.63 load  32.779GB hdd │ Rescanning 68.84% @ block 1989921
+ 393 min │ pirated: 5.52GB MEM 1103% CPU │ machine: 14.09 load  32.779GB hdd │ Rescanning 69.01% @ block 1993144
+ 394 min │ pirated: 5.53GB MEM  976% CPU │ machine: 16.91 load  32.779GB hdd │ Rescanning 69.19% @ block 1996450
+ 395 min │ pirated: 5.53GB MEM 1012% CPU │ machine: 16.49 load  32.779GB hdd │ Rescanning 69.36% @ block 1999828
+ 396 min │ pirated: 5.54GB MEM 1128% CPU │ machine: 11.34 load  32.779GB hdd │ Rescanning 69.52% @ block 2002860
+ 397 min │ pirated: 5.54GB MEM 1002% CPU │ machine: 13.79 load  32.779GB hdd │ Rescanning 69.68% @ block 2005909
+ 398 min │ pirated: 5.54GB MEM 1023% CPU │ machine: 11.81 load  32.779GB hdd │ Rescanning 69.84% @ block 2009015
+ 399 min │ pirated: 5.55GB MEM 1029% CPU │ machine: 13.70 load  32.779GB hdd │ Rescanning 70.01% @ block 2012274
+ 400 min │ pirated: 5.55GB MEM  974% CPU │ machine: 15.41 load  32.779GB hdd │ Rescanning 70.18% @ block 2015518
+ 401 min │ pirated: 5.56GB MEM 1095% CPU │ machine: 12.52 load  32.779GB hdd │ Rescanning 70.36% @ block 2018858
+ 402 min │ pirated: 5.56GB MEM 1088% CPU │ machine: 14.88 load  32.779GB hdd │ Rescanning 70.53% @ block 2022217
+ 403 min │ pirated: 5.56GB MEM 1037% CPU │ machine: 14.45 load  32.779GB hdd │ Rescanning 70.70% @ block 2025555
+ 404 min │ pirated: 5.57GB MEM 1030% CPU │ machine: 14.24 load  32.779GB hdd │ Rescanning 70.88% @ block 2029051
+ 405 min │ pirated: 5.57GB MEM 1041% CPU │ machine: 15.33 load  32.779GB hdd │ Rescanning 71.06% @ block 2032348
+ 406 min │ pirated: 5.58GB MEM 1035% CPU │ machine: 14.32 load  32.779GB hdd │ Rescanning 71.24% @ block 2035712
+ 407 min │ pirated: 5.58GB MEM 1082% CPU │ machine: 15.10 load  32.779GB hdd │ Rescanning 71.41% @ block 2039174
+ 408 min │ pirated: 5.58GB MEM 1126% CPU │ machine: 12.83 load  32.779GB hdd │ Rescanning 71.59% @ block 2042481
+ 409 min │ pirated: 5.59GB MEM  978% CPU │ machine: 16.06 load  32.779GB hdd │ Rescanning 71.75% @ block 2045629
+ 410 min │ pirated: 5.59GB MEM 1087% CPU │ machine: 16.29 load  32.779GB hdd │ Rescanning 71.92% @ block 2049032
+ 411 min │ pirated: 5.59GB MEM 1247% CPU │ machine: 18.98 load  32.779GB hdd │ Rescanning 72.09% @ block 2052180
+ 412 min │ pirated: 5.60GB MEM 1138% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 72.27% @ block 2055447
+ 413 min │ pirated: 5.60GB MEM 1053% CPU │ machine: 13.91 load  32.779GB hdd │ Rescanning 72.45% @ block 2058714
+ 414 min │ pirated: 5.61GB MEM 1029% CPU │ machine: 12.75 load  32.779GB hdd │ Rescanning 72.62% @ block 2062007
+ 415 min │ pirated: 5.61GB MEM 1022% CPU │ machine: 12.54 load  32.779GB hdd │ Rescanning 72.80% @ block 2065386
+ 416 min │ pirated: 5.61GB MEM 1125% CPU │ machine: 11.92 load  32.779GB hdd │ Rescanning 72.97% @ block 2068878
+ 417 min │ pirated: 5.62GB MEM 1124% CPU │ machine: 13.36 load  32.779GB hdd │ Rescanning 73.15% @ block 2072293
+ 418 min │ pirated: 5.62GB MEM 1111% CPU │ machine: 13.47 load  32.779GB hdd │ Rescanning 73.33% @ block 2075733
+ 419 min │ pirated: 5.62GB MEM 1163% CPU │ machine: 15.46 load  32.779GB hdd │ Rescanning 73.51% @ block 2079134
+ 420 min │ pirated: 5.63GB MEM 1134% CPU │ machine: 14.12 load  32.779GB hdd │ Rescanning 73.69% @ block 2082568
+ 421 min │ pirated: 5.63GB MEM 1026% CPU │ machine: 16.78 load  32.779GB hdd │ Rescanning 73.86% @ block 2085952
+ 422 min │ pirated: 5.63GB MEM 1110% CPU │ machine: 15.53 load  32.779GB hdd │ Rescanning 74.05% @ block 2089569
+ 423 min │ pirated: 5.64GB MEM 1138% CPU │ machine: 14.39 load  32.779GB hdd │ Rescanning 74.23% @ block 2092842
+ 424 min │ pirated: 5.64GB MEM 1032% CPU │ machine: 15.40 load  32.779GB hdd │ Rescanning 74.41% @ block 2096420
+ 425 min │ pirated: 5.65GB MEM 1126% CPU │ machine: 13.58 load  32.779GB hdd │ Rescanning 74.59% @ block 2099896
+ 426 min │ pirated: 5.65GB MEM  868% CPU │ machine: 12.38 load  32.779GB hdd │ Rescanning 74.77% @ block 2103318
+ 427 min │ pirated: 5.66GB MEM 1083% CPU │ machine: 14.60 load  32.779GB hdd │ Rescanning 75.00% @ block 2110122
+ 428 min │ pirated: 5.66GB MEM  987% CPU │ machine: 13.28 load  32.779GB hdd │ Rescanning 75.21% @ block 2115300
+ 429 min │ pirated: 5.66GB MEM 1118% CPU │ machine: 12.75 load  32.779GB hdd │ Rescanning 75.39% @ block 2118208
+ 430 min │ pirated: 5.67GB MEM 1064% CPU │ machine: 14.66 load  32.779GB hdd │ Rescanning 75.57% @ block 2121531
+ 431 min │ pirated: 5.67GB MEM 1085% CPU │ machine: 11.09 load  32.779GB hdd │ Rescanning 75.75% @ block 2125018
+ 432 min │ pirated: 5.67GB MEM 1178% CPU │ machine: 10.56 load  32.779GB hdd │ Rescanning 75.93% @ block 2128630
+ 433 min │ pirated: 5.68GB MEM 1143% CPU │ machine: 14.97 load  32.779GB hdd │ Rescanning 76.11% @ block 2132223
+ 434 min │ pirated: 5.68GB MEM 1140% CPU │ machine: 15.05 load  32.779GB hdd │ Rescanning 76.30% @ block 2135943
+ 435 min │ pirated: 5.68GB MEM 1084% CPU │ machine: 13.15 load  32.779GB hdd │ Rescanning 76.48% @ block 2139609
+ 436 min │ pirated: 5.69GB MEM 1100% CPU │ machine: 12.85 load  32.779GB hdd │ Rescanning 76.67% @ block 2143271
+ 437 min │ pirated: 5.69GB MEM 1228% CPU │ machine: 12.18 load  32.779GB hdd │ Rescanning 76.85% @ block 2146941
+ 438 min │ pirated: 5.70GB MEM 1105% CPU │ machine: 12.30 load  32.779GB hdd │ Rescanning 77.04% @ block 2150393
+ 439 min │ pirated: 5.70GB MEM 1154% CPU │ machine: 10.54 load  32.779GB hdd │ Rescanning 77.21% @ block 2153859
+ 440 min │ pirated: 5.70GB MEM 1171% CPU │ machine: 14.09 load  32.779GB hdd │ Rescanning 77.39% @ block 2157261
+ 441 min │ pirated: 5.71GB MEM  962% CPU │ machine: 11.33 load  32.779GB hdd │ Rescanning 77.57% @ block 2160614
+ 442 min │ pirated: 5.71GB MEM  965% CPU │ machine: 14.37 load  32.779GB hdd │ Rescanning 77.72% @ block 2163567
+ 443 min │ pirated: 5.72GB MEM 1035% CPU │ machine: 12.10 load  32.779GB hdd │ Rescanning 77.89% @ block 2166953
+ 444 min │ pirated: 5.72GB MEM 1141% CPU │ machine: 11.07 load  32.779GB hdd │ Rescanning 78.07% @ block 2170318
+ 445 min │ pirated: 5.72GB MEM 1117% CPU │ machine: 14.25 load  32.779GB hdd │ Rescanning 78.25% @ block 2173768
+ 446 min │ pirated: 5.73GB MEM  994% CPU │ machine: 13.05 load  32.779GB hdd │ Rescanning 78.42% @ block 2177169
+ 447 min │ pirated: 5.73GB MEM 1089% CPU │ machine: 15.16 load  32.779GB hdd │ Rescanning 78.57% @ block 2179811
+ 448 min │ pirated: 5.74GB MEM 1114% CPU │ machine: 15.61 load  32.779GB hdd │ Rescanning 78.73% @ block 2182953
+ 449 min │ pirated: 5.74GB MEM 1033% CPU │ machine: 10.15 load  32.779GB hdd │ Rescanning 78.91% @ block 2186480
+ 450 min │ pirated: 5.74GB MEM 1141% CPU │ machine: 15.35 load  32.779GB hdd │ Rescanning 79.09% @ block 2189910
+ 451 min │ pirated: 5.75GB MEM 1132% CPU │ machine: 16.48 load  32.779GB hdd │ Rescanning 79.27% @ block 2193464
+ 452 min │ pirated: 5.75GB MEM 1124% CPU │ machine: 14.29 load  32.779GB hdd │ Rescanning 79.45% @ block 2196861
+ 453 min │ pirated: 5.76GB MEM 1113% CPU │ machine: 13.33 load  32.779GB hdd │ Rescanning 79.63% @ block 2200376
+ 454 min │ pirated: 5.76GB MEM 1115% CPU │ machine: 14.61 load  32.779GB hdd │ Rescanning 79.81% @ block 2203812
+ 455 min │ pirated: 5.76GB MEM 1023% CPU │ machine: 16.19 load  32.779GB hdd │ Rescanning 79.99% @ block 2207259
+ 456 min │ pirated: 5.77GB MEM 1011% CPU │ machine: 14.24 load  32.779GB hdd │ Rescanning 80.17% @ block 2210890
+ 457 min │ pirated: 5.77GB MEM 1097% CPU │ machine: 12.77 load  32.779GB hdd │ Rescanning 80.36% @ block 2214609
+ 458 min │ pirated: 5.77GB MEM 1105% CPU │ machine: 12.69 load  32.779GB hdd │ Rescanning 80.54% @ block 2218328
+ 459 min │ pirated: 5.78GB MEM 1041% CPU │ machine: 14.25 load  32.779GB hdd │ Rescanning 80.72% @ block 2221805
+ 460 min │ pirated: 5.78GB MEM 1087% CPU │ machine: 15.32 load  32.779GB hdd │ Rescanning 80.91% @ block 2225426
+ 461 min │ pirated: 5.79GB MEM 1129% CPU │ machine: 13.66 load  32.779GB hdd │ Rescanning 81.09% @ block 2229040
+ 462 min │ pirated: 5.79GB MEM 1140% CPU │ machine: 12.85 load  32.779GB hdd │ Rescanning 81.26% @ block 2232299
+ 463 min │ pirated: 5.80GB MEM 1128% CPU │ machine: 12.75 load  32.779GB hdd │ Rescanning 81.44% @ block 2235412
+ 464 min │ pirated: 5.80GB MEM  598% CPU │ machine: 12.25 load  32.779GB hdd │ Rescanning 81.62% @ block 2238673
+ 465 min │ pirated: 5.81GB MEM  936% CPU │ machine: 13.59 load  32.779GB hdd │ Rescanning 81.90% @ block 2247941
+ 466 min │ pirated: 5.81GB MEM  928% CPU │ machine: 13.63 load  32.779GB hdd │ Rescanning 82.21% @ block 2259377
+ 467 min │ pirated: 5.82GB MEM  967% CPU │ machine: 13.11 load  32.779GB hdd │ Rescanning 82.52% @ block 2270681
+ 468 min │ pirated: 5.82GB MEM  893% CPU │ machine: 13.43 load  32.779GB hdd │ Rescanning 82.82% @ block 2281459
+ 469 min │ pirated: 5.83GB MEM  889% CPU │ machine: 13.89 load  32.779GB hdd │ Rescanning 83.15% @ block 2293664
+ 470 min │ pirated: 5.83GB MEM  916% CPU │ machine: 16.55 load  32.779GB hdd │ Rescanning 83.46% @ block 2304931
+ 471 min │ pirated: 5.84GB MEM 1035% CPU │ machine: 14.62 load  32.779GB hdd │ Rescanning 83.78% @ block 2316563
+ 472 min │ pirated: 5.84GB MEM  883% CPU │ machine: 11.12 load  32.779GB hdd │ Rescanning 84.08% @ block 2327780
+ 473 min │ pirated: 5.85GB MEM  916% CPU │ machine: 11.81 load  32.779GB hdd │ Rescanning 84.40% @ block 2339643
+ 474 min │ pirated: 5.85GB MEM  904% CPU │ machine: 13.49 load  32.779GB hdd │ Rescanning 84.70% @ block 2350422
+ 475 min │ pirated: 5.86GB MEM  912% CPU │ machine: 14.38 load  32.779GB hdd │ Rescanning 85.03% @ block 2362367
+ 476 min │ pirated: 5.87GB MEM  984% CPU │ machine: 12.67 load  32.779GB hdd │ Rescanning 85.35% @ block 2373903
+ 477 min │ pirated: 5.87GB MEM  907% CPU │ machine: 10.48 load  32.779GB hdd │ Rescanning 85.69% @ block 2385855
+ 478 min │ pirated: 5.88GB MEM 1012% CPU │ machine: 13.67 load  32.779GB hdd │ Rescanning 86.01% @ block 2397580
+ 479 min │ pirated: 5.89GB MEM  971% CPU │ machine: 14.17 load  32.779GB hdd │ Rescanning 86.36% @ block 2410362
+ 480 min │ pirated: 5.94GB MEM 1964% CPU │ machine: 17.81 load  32.779GB hdd │ Rescanning 86.68% @ block 2422049
+ 481 min │ pirated: 5.92GB MEM  911% CPU │ machine: 17.79 load  32.779GB hdd │ Rescanning 86.69% @ block 2422397
+ 482 min │ pirated: 5.98GB MEM  327% CPU │ machine: 19.40 load  32.779GB hdd │ Rescanning 86.70% @ block 2422510
+ 483 min │ pirated: 5.97GB MEM  197% CPU │ machine: 19.88 load  32.779GB hdd │ Rescanning 86.71% @ block 2422558
+ 484 min │ pirated: 5.97GB MEM 2198% CPU │ machine: 20.93 load  32.779GB hdd │ Rescanning 86.71% @ block 2422666
+ 485 min │ pirated: 5.97GB MEM 2296% CPU │ machine: 18.09 load  32.779GB hdd │ Rescanning 86.72% @ block 2422673
+ 486 min │ pirated: 5.93GB MEM 2296% CPU │ machine: 15.94 load  32.779GB hdd │ Rescanning 86.72% @ block 2422730
+ 487 min │ pirated: 5.97GB MEM 2297% CPU │ machine: 17.79 load  32.779GB hdd │ Rescanning 86.73% @ block 2422849
+ 488 min │ pirated: 5.97GB MEM 2209% CPU │ machine: 18.12 load  32.779GB hdd │ Rescanning 86.73% @ block 2422849
+ 489 min │ pirated: 5.92GB MEM  100% CPU │ machine: 18.52 load  32.779GB hdd │ Rescanning 86.74% @ block 2422855
+ 490 min │ pirated: 5.92GB MEM 1813% CPU │ machine: 18.71 load  32.779GB hdd │ Rescanning 86.74% @ block 2422908
+ 491 min │ pirated: 5.92GB MEM  100% CPU │ machine: 18.87 load  32.779GB hdd │ Rescanning 86.75% @ block 2422951
+ 492 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 19.38 load  32.779GB hdd │ Rescanning 86.75% @ block 2423002
+ 493 min │ pirated: 5.97GB MEM 2106% CPU │ machine: 19.45 load  32.779GB hdd │ Rescanning 86.76% @ block 2423056
+ 494 min │ pirated: 5.92GB MEM  771% CPU │ machine: 18.28 load  32.779GB hdd │ Rescanning 86.76% @ block 2423062
+ 495 min │ pirated: 5.97GB MEM 2296% CPU │ machine: 21.05 load  32.779GB hdd │ Rescanning 86.77% @ block 2423158
+ 496 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 19.31 load  32.779GB hdd │ Rescanning 86.77% @ block 2423201
+ 497 min │ pirated: 5.98GB MEM 2207% CPU │ machine: 18.91 load  32.779GB hdd │ Rescanning 86.77% @ block 2423201
+ 498 min │ pirated: 5.92GB MEM   99% CPU │ machine: 17.64 load  32.779GB hdd │ Rescanning 86.78% @ block 2423243
+ 499 min │ pirated: 5.95GB MEM 2298% CPU │ machine: 17.05 load  32.779GB hdd │ Rescanning 86.79% @ block 2423295
+ 500 min │ pirated: 5.92GB MEM  100% CPU │ machine: 16.83 load  32.779GB hdd │ Rescanning 86.79% @ block 2423351
+ 501 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 19.14 load  32.779GB hdd │ Rescanning 86.80% @ block 2423403
+ 502 min │ pirated: 5.97GB MEM 2306% CPU │ machine: 17.60 load  32.779GB hdd │ Rescanning 86.80% @ block 2423461
+ 503 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 16.78 load  32.779GB hdd │ Rescanning 86.81% @ block 2423513
+ 504 min │ pirated: 5.92GB MEM  100% CPU │ machine: 18.69 load  32.779GB hdd │ Rescanning 86.81% @ block 2423600
+ 505 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 17.74 load  32.779GB hdd │ Rescanning 86.82% @ block 2423619
+ 506 min │ pirated: 5.95GB MEM 1120% CPU │ machine: 17.90 load  32.779GB hdd │ Rescanning 86.82% @ block 2423717
+ 507 min │ pirated: 5.92GB MEM  198% CPU │ machine: 16.91 load  32.779GB hdd │ Rescanning 86.83% @ block 2423724
+ 508 min │ pirated: 5.97GB MEM 2307% CPU │ machine: 18.83 load  32.779GB hdd │ Rescanning 86.83% @ block 2423724
+ 509 min │ pirated: 5.97GB MEM 2308% CPU │ machine: 18.54 load  32.779GB hdd │ Rescanning 86.84% @ block 2423770
+ 510 min │ pirated: 5.97GB MEM 2307% CPU │ machine: 20.36 load  32.779GB hdd │ Rescanning 86.84% @ block 2423823
+ 511 min │ pirated: 5.95GB MEM  206% CPU │ machine: 19.40 load  32.779GB hdd │ Rescanning 86.85% @ block 2423909
+ 512 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 19.99 load  32.779GB hdd │ Rescanning 86.85% @ block 2423963
+ 513 min │ pirated: 5.97GB MEM 1773% CPU │ machine: 18.37 load  32.779GB hdd │ Rescanning 86.86% @ block 2423970
+ 514 min │ pirated: 5.97GB MEM 2198% CPU │ machine: 17.98 load  32.779GB hdd │ Rescanning 86.86% @ block 2424048
+ 515 min │ pirated: 5.97GB MEM 2308% CPU │ machine: 18.09 load  32.779GB hdd │ Rescanning 86.87% @ block 2424145
+ 516 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 18.12 load  32.779GB hdd │ Rescanning 86.87% @ block 2424213
+ 517 min │ pirated: 5.98GB MEM 2155% CPU │ machine: 18.58 load  32.779GB hdd │ Rescanning 86.88% @ block 2424261
+ 518 min │ pirated: 5.98GB MEM 2017% CPU │ machine: 19.47 load  32.779GB hdd │ Rescanning 86.88% @ block 2424280
+ 519 min │ pirated: 5.98GB MEM  778% CPU │ machine: 17.16 load  32.779GB hdd │ Rescanning 86.89% @ block 2424378
+ 520 min │ pirated: 5.98GB MEM 2306% CPU │ machine: 18.01 load  32.779GB hdd │ Rescanning 86.89% @ block 2424378
+ 521 min │ pirated: 5.98GB MEM 2198% CPU │ machine: 18.73 load  32.779GB hdd │ Rescanning 86.90% @ block 2424386
+ 522 min │ pirated: 5.98GB MEM 2298% CPU │ machine: 17.94 load  32.779GB hdd │ Rescanning 86.90% @ block 2424426
+ 523 min │ pirated: 5.98GB MEM 2272% CPU │ machine: 20.75 load  32.779GB hdd │ Rescanning 86.91% @ block 2424464
+ 524 min │ pirated: 5.98GB MEM  157% CPU │ machine: 18.43 load  32.779GB hdd │ Rescanning 86.91% @ block 2424498
+ 525 min │ pirated: 5.98GB MEM 2296% CPU │ machine: 18.96 load  32.779GB hdd │ Rescanning 86.92% @ block 2424504
+ 526 min │ pirated: 5.98GB MEM 2244% CPU │ machine: 21.02 load  32.779GB hdd │ Rescanning 86.92% @ block 2424515
+ 527 min │ pirated: 5.98GB MEM 2298% CPU │ machine: 16.82 load  32.779GB hdd │ Rescanning 86.92% @ block 2424528
+ 528 min │ pirated: 5.98GB MEM 2296% CPU │ machine: 20.44 load  32.779GB hdd │ Rescanning 86.93% @ block 2424550
+ 529 min │ pirated: 5.98GB MEM 2200% CPU │ machine: 20.56 load  32.779GB hdd │ Rescanning 86.93% @ block 2424580
+ 530 min │ pirated: 5.98GB MEM 1745% CPU │ machine: 21.99 load  32.779GB hdd │ Rescanning 86.94% @ block 2424603
+ 531 min │ pirated: 5.98GB MEM 2292% CPU │ machine: 22.56 load  32.779GB hdd │ Rescanning 86.94% @ block 2424641
+ 532 min │ pirated: 5.98GB MEM 1403% CPU │ machine: 16.76 load  32.779GB hdd │ Rescanning 86.95% @ block 2424664
+ 533 min │ pirated: 5.98GB MEM 1614% CPU │ machine: 17.05 load  32.779GB hdd │ Rescanning 86.95% @ block 2424709
+ 534 min │ pirated: 5.93GB MEM 1750% CPU │ machine: 18.35 load  32.779GB hdd │ Rescanning 86.96% @ block 2424747
+ 535 min │ pirated: 5.95GB MEM 2186% CPU │ machine: 18.96 load  32.779GB hdd │ Rescanning 86.96% @ block 2424781
+ 536 min │ pirated: 5.95GB MEM 2307% CPU │ machine: 20.29 load  32.779GB hdd │ Rescanning 86.96% @ block 2424813
+ 537 min │ pirated: 5.95GB MEM 1535% CPU │ machine: 18.35 load  32.779GB hdd │ Rescanning 86.97% @ block 2424842
+ 538 min │ pirated: 5.95GB MEM 2306% CPU │ machine: 18.38 load  32.779GB hdd │ Rescanning 86.97% @ block 2424865
+ 539 min │ pirated: 5.95GB MEM 2198% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 86.98% @ block 2424883
+ 540 min │ pirated: 5.98GB MEM 2113% CPU │ machine: 18.41 load  32.779GB hdd │ Rescanning 86.98% @ block 2424917
+ 541 min │ pirated: 5.95GB MEM 2139% CPU │ machine: 20.72 load  32.779GB hdd │ Rescanning 86.99% @ block 2424938
+ 542 min │ pirated: 5.95GB MEM 2284% CPU │ machine: 22.02 load  32.779GB hdd │ Rescanning 87.01% @ block 2425687
+ 543 min │ pirated: 5.96GB MEM 1946% CPU │ machine: 22.15 load  32.779GB hdd │ Rescanning 87.01% @ block 2425711
+ 544 min │ pirated: 5.96GB MEM 1592% CPU │ machine: 19.74 load  32.779GB hdd │ Rescanning 87.02% @ block 2425733
+ 545 min │ pirated: 5.96GB MEM 1678% CPU │ machine: 16.13 load  32.779GB hdd │ Rescanning 87.02% @ block 2425766
+ 546 min │ pirated: 5.96GB MEM  924% CPU │ machine: 16.17 load  32.779GB hdd │ Rescanning 87.03% @ block 2425798
+ 547 min │ pirated: 5.98GB MEM 2309% CPU │ machine: 15.73 load  32.779GB hdd │ Rescanning 87.03% @ block 2425855
+ 548 min │ pirated: 5.95GB MEM 1618% CPU │ machine: 17.25 load  32.779GB hdd │ Rescanning 87.04% @ block 2425878
+ 549 min │ pirated: 5.95GB MEM 2308% CPU │ machine: 17.17 load  32.779GB hdd │ Rescanning 87.04% @ block 2425911
+ 550 min │ pirated: 5.95GB MEM 1284% CPU │ machine: 14.24 load  32.779GB hdd │ Rescanning 87.04% @ block 2425942
+ 551 min │ pirated: 5.95GB MEM 1360% CPU │ machine: 16.79 load  32.779GB hdd │ Rescanning 87.05% @ block 2425975
+ 552 min │ pirated: 5.96GB MEM 1881% CPU │ machine: 19.96 load  32.779GB hdd │ Rescanning 87.05% @ block 2426004
+ 553 min │ pirated: 5.92GB MEM  336% CPU │ machine: 21.68 load  32.779GB hdd │ Rescanning 87.06% @ block 2426027
+ 554 min │ pirated: 5.95GB MEM 2298% CPU │ machine: 19.94 load  32.779GB hdd │ Rescanning 87.06% @ block 2426027
+ 555 min │ pirated: 5.96GB MEM 1262% CPU │ machine: 20.83 load  32.779GB hdd │ Rescanning 87.06% @ block 2426067
+ 556 min │ pirated: 5.93GB MEM 2298% CPU │ machine: 20.66 load  32.779GB hdd │ Rescanning 87.07% @ block 2426097
+ 557 min │ pirated: 5.96GB MEM 2077% CPU │ machine: 20.41 load  32.779GB hdd │ Rescanning 87.07% @ block 2426138
+ 558 min │ pirated: 5.96GB MEM 1430% CPU │ machine: 19.28 load  32.779GB hdd │ Rescanning 87.08% @ block 2426168
+ 559 min │ pirated: 5.96GB MEM 2306% CPU │ machine: 19.61 load  32.779GB hdd │ Rescanning 87.08% @ block 2426207
+ 560 min │ pirated: 5.96GB MEM 1265% CPU │ machine: 16.96 load  32.779GB hdd │ Rescanning 87.09% @ block 2426232
+ 561 min │ pirated: 5.96GB MEM 2268% CPU │ machine: 19.91 load  32.779GB hdd │ Rescanning 87.09% @ block 2426269
+ 562 min │ pirated: 5.96GB MEM 2270% CPU │ machine: 19.71 load  32.779GB hdd │ Rescanning 87.10% @ block 2426301
+ 563 min │ pirated: 5.96GB MEM 1909% CPU │ machine: 20.13 load  32.779GB hdd │ Rescanning 87.10% @ block 2426343
+ 564 min │ pirated: 5.96GB MEM 2100% CPU │ machine: 18.76 load  32.779GB hdd │ Rescanning 87.10% @ block 2426381
+ 565 min │ pirated: 5.96GB MEM 2296% CPU │ machine: 18.06 load  32.779GB hdd │ Rescanning 87.11% @ block 2426413
+ 566 min │ pirated: 5.96GB MEM 1823% CPU │ machine: 18.39 load  32.779GB hdd │ Rescanning 87.11% @ block 2426456
+ 567 min │ pirated: 5.96GB MEM 2254% CPU │ machine: 19.12 load  32.779GB hdd │ Rescanning 87.12% @ block 2426476
+ 568 min │ pirated: 5.96GB MEM 1928% CPU │ machine: 20.35 load  32.779GB hdd │ Rescanning 87.12% @ block 2426525
+ 569 min │ pirated: 5.96GB MEM 1579% CPU │ machine: 17.30 load  32.779GB hdd │ Rescanning 87.13% @ block 2426554
+ 570 min │ pirated: 5.96GB MEM  887% CPU │ machine: 19.52 load  32.779GB hdd │ Rescanning 87.13% @ block 2426581
+ 571 min │ pirated: 5.96GB MEM 2306% CPU │ machine: 18.85 load  32.779GB hdd │ Rescanning 87.14% @ block 2426620
+ 572 min │ pirated: 5.93GB MEM 2307% CPU │ machine: 16.68 load  32.779GB hdd │ Rescanning 87.14% @ block 2426647
+ 573 min │ pirated: 5.93GB MEM 2070% CPU │ machine: 19.98 load  32.779GB hdd │ Rescanning 87.15% @ block 2426698
+ 574 min │ pirated: 5.95GB MEM 1774% CPU │ machine: 18.34 load  32.779GB hdd │ Rescanning 87.15% @ block 2426787
+ 575 min │ pirated: 5.95GB MEM 1781% CPU │ machine: 17.48 load  32.779GB hdd │ Rescanning 87.16% @ block 2426867
+ 576 min │ pirated: 5.95GB MEM 1136% CPU │ machine: 17.29 load  32.779GB hdd │ Rescanning 87.17% @ block 2426984
+ 577 min │ pirated: 5.95GB MEM 1572% CPU │ machine: 14.38 load  32.779GB hdd │ Rescanning 87.28% @ block 2431270
+ 578 min │ pirated: 5.95GB MEM 1855% CPU │ machine: 13.04 load  32.779GB hdd │ Rescanning 87.32% @ block 2432193
+ 579 min │ pirated: 5.95GB MEM 1342% CPU │ machine: 14.91 load  32.779GB hdd │ Rescanning 87.36% @ block 2433540
+ 580 min │ pirated: 5.95GB MEM  658% CPU │ machine: 17.74 load  32.779GB hdd │ Rescanning 87.39% @ block 2434564
+ 581 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 19.35 load  32.779GB hdd │ Rescanning 87.40% @ block 2434722
+ 582 min │ pirated: 5.94GB MEM 1840% CPU │ machine: 18.91 load  32.779GB hdd │ Rescanning 87.41% @ block 2434795
+ 583 min │ pirated: 5.98GB MEM 2307% CPU │ machine: 20.32 load  32.779GB hdd │ Rescanning 87.41% @ block 2434858
+ 584 min │ pirated: 5.93GB MEM 1265% CPU │ machine: 17.57 load  32.779GB hdd │ Rescanning 87.42% @ block 2434868
+ 585 min │ pirated: 5.99GB MEM 2198% CPU │ machine: 19.02 load  32.779GB hdd │ Rescanning 87.42% @ block 2434868
+ 586 min │ pirated: 5.94GB MEM 2174% CPU │ machine: 20.80 load  32.779GB hdd │ Rescanning 87.42% @ block 2434914
+ 587 min │ pirated: 5.96GB MEM 2307% CPU │ machine: 19.50 load  32.779GB hdd │ Rescanning 87.43% @ block 2434962
+ 588 min │ pirated: 5.98GB MEM 2196% CPU │ machine: 19.00 load  32.779GB hdd │ Rescanning 87.43% @ block 2435041
+ 589 min │ pirated: 5.99GB MEM 2308% CPU │ machine: 16.65 load  32.779GB hdd │ Rescanning 87.44% @ block 2435153
+ 590 min │ pirated: 5.93GB MEM 1841% CPU │ machine: 18.60 load  32.779GB hdd │ Rescanning 87.45% @ block 2435182
+ 591 min │ pirated: 5.98GB MEM 2298% CPU │ machine: 16.32 load  32.779GB hdd │ Rescanning 87.45% @ block 2435228
+ 592 min │ pirated: 5.97GB MEM 2307% CPU │ machine: 18.42 load  32.779GB hdd │ Rescanning 87.46% @ block 2435250
+ 593 min │ pirated: 5.99GB MEM 2296% CPU │ machine: 17.88 load  32.779GB hdd │ Rescanning 87.46% @ block 2435305
+ 594 min │ pirated: 5.99GB MEM 1757% CPU │ machine: 18.29 load  32.779GB hdd │ Rescanning 87.47% @ block 2435313
+ 595 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 20.72 load  32.779GB hdd │ Rescanning 87.47% @ block 2435360
+ 596 min │ pirated: 5.99GB MEM 1218% CPU │ machine: 19.90 load  32.779GB hdd │ Rescanning 87.48% @ block 2435506
+ 597 min │ pirated: 5.99GB MEM 2079% CPU │ machine: 18.60 load  32.779GB hdd │ Rescanning 87.48% @ block 2435567
+ 598 min │ pirated: 5.99GB MEM 2253% CPU │ machine: 19.32 load  32.779GB hdd │ Rescanning 87.49% @ block 2435584
+ 599 min │ pirated: 5.99GB MEM 1849% CPU │ machine: 19.44 load  32.779GB hdd │ Rescanning 87.49% @ block 2435647
+ 600 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 17.32 load  32.779GB hdd │ Rescanning 87.50% @ block 2435715
+ 601 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 19.46 load  32.779GB hdd │ Rescanning 87.50% @ block 2435725
+ 602 min │ pirated: 5.99GB MEM 1791% CPU │ machine: 18.34 load  32.779GB hdd │ Rescanning 87.51% @ block 2435736
+ 603 min │ pirated: 5.99GB MEM 2306% CPU │ machine: 20.09 load  32.779GB hdd │ Rescanning 87.51% @ block 2435799
+ 604 min │ pirated: 5.99GB MEM  875% CPU │ machine: 19.22 load  32.779GB hdd │ Rescanning 87.52% @ block 2435846
+ 605 min │ pirated: 5.96GB MEM 1495% CPU │ machine: 20.35 load  32.779GB hdd │ Rescanning 87.52% @ block 2435859
+ 606 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 17.98 load  32.779GB hdd │ Rescanning 87.53% @ block 2435941
+ 607 min │ pirated: 5.93GB MEM 1620% CPU │ machine: 18.71 load  32.779GB hdd │ Rescanning 87.55% @ block 2436459
+ 608 min │ pirated: 5.97GB MEM 1041% CPU │ machine: 19.80 load  32.779GB hdd │ Rescanning 87.55% @ block 2436488
+ 609 min │ pirated: 5.94GB MEM 1577% CPU │ machine: 20.44 load  32.779GB hdd │ Rescanning 87.56% @ block 2436551
+ 610 min │ pirated: 5.99GB MEM 2212% CPU │ machine: 20.13 load  32.779GB hdd │ Rescanning 87.56% @ block 2436551
+ 611 min │ pirated: 5.99GB MEM 1402% CPU │ machine: 18.94 load  32.779GB hdd │ Rescanning 87.56% @ block 2436657
+ 612 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 16.96 load  32.779GB hdd │ Rescanning 87.57% @ block 2436672
+ 613 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 17.03 load  32.779GB hdd │ Rescanning 87.57% @ block 2436739
+ 614 min │ pirated: 5.99GB MEM 1285% CPU │ machine: 16.98 load  32.779GB hdd │ Rescanning 87.58% @ block 2436801
+ 615 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 15.29 load  32.779GB hdd │ Rescanning 87.59% @ block 2436861
+ 616 min │ pirated: 5.94GB MEM 1059% CPU │ machine: 18.10 load  32.779GB hdd │ Rescanning 87.59% @ block 2436977
+ 617 min │ pirated: 5.96GB MEM  559% CPU │ machine: 16.10 load  32.779GB hdd │ Rescanning 87.60% @ block 2437055
+ 618 min │ pirated: 5.97GB MEM 2197% CPU │ machine: 18.28 load  32.779GB hdd │ Rescanning 87.60% @ block 2437126
+ 619 min │ pirated: 6.00GB MEM 1926% CPU │ machine: 18.77 load  32.779GB hdd │ Rescanning 87.61% @ block 2437168
+ 620 min │ pirated: 5.96GB MEM  345% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 87.61% @ block 2437222
+ 621 min │ pirated: 5.97GB MEM 2188% CPU │ machine: 18.98 load  32.779GB hdd │ Rescanning 87.62% @ block 2437301
+ 622 min │ pirated: 5.97GB MEM 2133% CPU │ machine: 17.97 load  32.779GB hdd │ Rescanning 87.63% @ block 2437390
+ 623 min │ pirated: 5.97GB MEM 2093% CPU │ machine: 19.37 load  32.779GB hdd │ Rescanning 87.63% @ block 2437494
+ 624 min │ pirated: 5.97GB MEM 2051% CPU │ machine: 17.32 load  32.779GB hdd │ Rescanning 87.64% @ block 2437538
+ 625 min │ pirated: 5.97GB MEM 2060% CPU │ machine: 17.60 load  32.779GB hdd │ Rescanning 87.64% @ block 2437651
+ 626 min │ pirated: 5.97GB MEM 2060% CPU │ machine: 19.71 load  32.779GB hdd │ Rescanning 87.65% @ block 2437739
+ 627 min │ pirated: 6.00GB MEM 2298% CPU │ machine: 17.54 load  32.779GB hdd │ Rescanning 87.67% @ block 2438433
+ 628 min │ pirated: 5.99GB MEM 2296% CPU │ machine: 18.97 load  32.779GB hdd │ Rescanning 87.68% @ block 2438500
+ 629 min │ pirated: 5.99GB MEM 2199% CPU │ machine: 19.19 load  32.779GB hdd │ Rescanning 87.68% @ block 2438524
+ 630 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 17.79 load  32.779GB hdd │ Rescanning 87.69% @ block 2438567
+ 631 min │ pirated: 5.96GB MEM 2296% CPU │ machine: 16.97 load  32.779GB hdd │ Rescanning 87.69% @ block 2438667
+ 632 min │ pirated: 5.97GB MEM  450% CPU │ machine: 19.40 load  32.779GB hdd │ Rescanning 87.70% @ block 2438709
+ 633 min │ pirated: 5.96GB MEM 1730% CPU │ machine: 19.51 load  32.779GB hdd │ Rescanning 87.70% @ block 2438822
+ 634 min │ pirated: 5.99GB MEM 1239% CPU │ machine: 19.44 load  32.779GB hdd │ Rescanning 87.71% @ block 2438869
+ 635 min │ pirated: 6.00GB MEM 2161% CPU │ machine: 18.66 load  32.779GB hdd │ Rescanning 87.72% @ block 2438967
+ 636 min │ pirated: 6.00GB MEM 2308% CPU │ machine: 19.12 load  32.779GB hdd │ Rescanning 87.72% @ block 2439077
+ 637 min │ pirated: 6.00GB MEM  259% CPU │ machine: 19.62 load  32.779GB hdd │ Rescanning 87.73% @ block 2439100
+ 638 min │ pirated: 6.00GB MEM 2307% CPU │ machine: 20.96 load  32.779GB hdd │ Rescanning 87.73% @ block 2439113
+ 639 min │ pirated: 6.00GB MEM 2296% CPU │ machine: 21.51 load  32.779GB hdd │ Rescanning 87.74% @ block 2439192
+ 640 min │ pirated: 6.00GB MEM 2099% CPU │ machine: 19.56 load  32.779GB hdd │ Rescanning 87.74% @ block 2439291
+ 641 min │ pirated: 6.00GB MEM 2296% CPU │ machine: 18.91 load  32.779GB hdd │ Rescanning 87.75% @ block 2439507
+ 642 min │ pirated: 6.00GB MEM 1763% CPU │ machine: 20.12 load  32.779GB hdd │ Rescanning 87.76% @ block 2439591
+ 643 min │ pirated: 6.00GB MEM  944% CPU │ machine: 17.06 load  32.779GB hdd │ Rescanning 87.76% @ block 2439660
+ 644 min │ pirated: 6.00GB MEM 1336% CPU │ machine: 17.69 load  32.779GB hdd │ Rescanning 87.76% @ block 2439660
+ 645 min │ pirated: 6.00GB MEM 2236% CPU │ machine: 18.06 load  32.779GB hdd │ Rescanning 87.77% @ block 2439732
+ 646 min │ pirated: 6.00GB MEM 2145% CPU │ machine: 19.17 load  32.779GB hdd │ Rescanning 87.77% @ block 2439779
+ 647 min │ pirated: 6.00GB MEM  782% CPU │ machine: 18.69 load  32.779GB hdd │ Rescanning 87.78% @ block 2439865
+ 648 min │ pirated: 6.00GB MEM 1458% CPU │ machine: 17.65 load  32.779GB hdd │ Rescanning 87.78% @ block 2439909
+ 649 min │ pirated: 6.00GB MEM 2016% CPU │ machine: 16.99 load  32.779GB hdd │ Rescanning 87.79% @ block 2440011
+ 650 min │ pirated: 5.97GB MEM 1748% CPU │ machine: 19.53 load  32.779GB hdd │ Rescanning 87.80% @ block 2440113
+ 651 min │ pirated: 5.97GB MEM 2298% CPU │ machine: 19.61 load  32.779GB hdd │ Rescanning 87.81% @ block 2440629
+ 652 min │ pirated: 5.96GB MEM 2211% CPU │ machine: 16.84 load  32.779GB hdd │ Rescanning 87.82% @ block 2440724
+ 653 min │ pirated: 5.97GB MEM 1227% CPU │ machine: 17.85 load  32.779GB hdd │ Rescanning 87.83% @ block 2440782
+ 654 min │ pirated: 5.97GB MEM 1789% CPU │ machine: 17.34 load  32.779GB hdd │ Rescanning 87.83% @ block 2440865
+ 655 min │ pirated: 5.96GB MEM  428% CPU │ machine: 16.58 load  32.779GB hdd │ Rescanning 87.84% @ block 2440939
+ 656 min │ pirated: 5.97GB MEM 2307% CPU │ machine: 16.73 load  32.779GB hdd │ Rescanning 87.84% @ block 2441006
+ 657 min │ pirated: 5.99GB MEM 1868% CPU │ machine: 18.34 load  32.779GB hdd │ Rescanning 87.85% @ block 2441117
+ 658 min │ pirated: 5.99GB MEM 2297% CPU │ machine: 18.39 load  32.779GB hdd │ Rescanning 87.86% @ block 2441210
+ 659 min │ pirated: 6.00GB MEM 2130% CPU │ machine: 19.35 load  32.779GB hdd │ Rescanning 87.87% @ block 2441393
+ 660 min │ pirated: 6.00GB MEM 2198% CPU │ machine: 19.58 load  32.779GB hdd │ Rescanning 87.87% @ block 2441461
+ 661 min │ pirated: 5.99GB MEM 2298% CPU │ machine: 20.03 load  32.779GB hdd │ Rescanning 87.88% @ block 2441518
+ 662 min │ pirated: 5.99GB MEM 1889% CPU │ machine: 19.75 load  32.779GB hdd │ Rescanning 87.88% @ block 2441518
+ 663 min │ pirated: 6.00GB MEM 2297% CPU │ machine: 14.81 load  32.779GB hdd │ Rescanning 87.88% @ block 2441614
+ 664 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 18.70 load  32.779GB hdd │ Rescanning 87.89% @ block 2441722
+ 665 min │ pirated: 6.00GB MEM 2154% CPU │ machine: 17.32 load  32.779GB hdd │ Rescanning 87.89% @ block 2441768
+ 666 min │ pirated: 5.97GB MEM 2297% CPU │ machine: 16.92 load  32.779GB hdd │ Rescanning 87.90% @ block 2441948
+ 667 min │ pirated: 5.99GB MEM  503% CPU │ machine: 13.81 load  32.779GB hdd │ Rescanning 87.91% @ block 2442064
+ 668 min │ pirated: 5.99GB MEM  343% CPU │ machine: 14.35 load  32.779GB hdd │ Rescanning 87.96% @ block 2443790
+ 669 min │ pirated: 5.99GB MEM 1963% CPU │ machine: 17.90 load  32.779GB hdd │ Rescanning 88.02% @ block 2445612
+ 670 min │ pirated: 5.99GB MEM 1613% CPU │ machine: 16.16 load  32.779GB hdd │ Rescanning 88.04% @ block 2446553
+ 671 min │ pirated: 5.99GB MEM  543% CPU │ machine: 18.33 load  32.779GB hdd │ Rescanning 88.10% @ block 2448510
+ 672 min │ pirated: 5.99GB MEM  486% CPU │ machine: 15.32 load  32.779GB hdd │ Rescanning 88.16% @ block 2450482
+ 673 min │ pirated: 5.99GB MEM 1941% CPU │ machine: 16.03 load  32.779GB hdd │ Rescanning 88.26% @ block 2454135
+ 674 min │ pirated: 5.99GB MEM  928% CPU │ machine: 12.07 load  32.779GB hdd │ Rescanning 88.37% @ block 2458346
+ 675 min │ pirated: 5.99GB MEM 1857% CPU │ machine: 12.60 load  32.779GB hdd │ Rescanning 88.71% @ block 2471538
+ 676 min │ pirated: 5.99GB MEM 1383% CPU │ machine: 16.57 load  32.779GB hdd │ Rescanning 88.80% @ block 2474695
+ 677 min │ pirated: 6.00GB MEM  910% CPU │ machine: 14.66 load  32.779GB hdd │ Rescanning 89.05% @ block 2484143
+ 678 min │ pirated: 6.00GB MEM  888% CPU │ machine: 11.17 load  32.779GB hdd │ Rescanning 89.36% @ block 2495819
+ 679 min │ pirated: 6.00GB MEM  966% CPU │ machine: 11.58 load  32.779GB hdd │ Rescanning 89.67% @ block 2506820
+ 680 min │ pirated: 6.01GB MEM 1559% CPU │ machine: 17.20 load  32.779GB hdd │ Rescanning 89.98% @ block 2518166
+ 681 min │ pirated: 6.03GB MEM 1934% CPU │ machine: 19.14 load  32.779GB hdd │ Rescanning 89.99% @ block 2518336
+ 682 min │ pirated: 5.99GB MEM 2274% CPU │ machine: 17.57 load  32.779GB hdd │ Rescanning 90.00% @ block 2518429
+ 683 min │ pirated: 6.04GB MEM 2135% CPU │ machine: 13.54 load  32.779GB hdd │ Rescanning 90.00% @ block 2518481
+ 684 min │ pirated: 6.04GB MEM 1499% CPU │ machine: 18.38 load  32.779GB hdd │ Rescanning 90.01% @ block 2518553
+ 685 min │ pirated: 6.04GB MEM 2306% CPU │ machine: 16.66 load  32.779GB hdd │ Rescanning 90.02% @ block 2518597
+ 686 min │ pirated: 6.04GB MEM 2286% CPU │ machine: 16.92 load  32.779GB hdd │ Rescanning 90.02% @ block 2518682
+ 687 min │ pirated: 6.01GB MEM 1634% CPU │ machine: 16.59 load  32.779GB hdd │ Rescanning 90.03% @ block 2518738
+ 688 min │ pirated: 6.04GB MEM 1898% CPU │ machine: 17.14 load  32.779GB hdd │ Rescanning 90.03% @ block 2518815
+ 689 min │ pirated: 6.00GB MEM 2252% CPU │ machine: 17.18 load  32.779GB hdd │ Rescanning 90.04% @ block 2518885
+ 690 min │ pirated: 6.01GB MEM 1989% CPU │ machine: 15.50 load  32.779GB hdd │ Rescanning 90.04% @ block 2518940
+ 691 min │ pirated: 6.04GB MEM 2307% CPU │ machine: 18.66 load  32.779GB hdd │ Rescanning 90.05% @ block 2518985
+ 692 min │ pirated: 6.00GB MEM 2254% CPU │ machine: 19.79 load  32.779GB hdd │ Rescanning 90.06% @ block 2519084
+ 693 min │ pirated: 6.04GB MEM 2097% CPU │ machine: 16.00 load  32.779GB hdd │ Rescanning 90.06% @ block 2519124
+ 694 min │ pirated: 5.99GB MEM 1430% CPU │ machine: 18.85 load  32.779GB hdd │ Rescanning 90.07% @ block 2519215
+ 695 min │ pirated: 6.02GB MEM 2307% CPU │ machine: 19.30 load  32.779GB hdd │ Rescanning 90.07% @ block 2519215
+ 696 min │ pirated: 6.01GB MEM  292% CPU │ machine: 19.64 load  32.779GB hdd │ Rescanning 90.07% @ block 2519262
+ 697 min │ pirated: 6.04GB MEM 1720% CPU │ machine: 20.64 load  32.779GB hdd │ Rescanning 90.08% @ block 2519340
+ 698 min │ pirated: 5.99GB MEM 2307% CPU │ machine: 19.38 load  32.779GB hdd │ Rescanning 90.09% @ block 2519421
+ 699 min │ pirated: 6.04GB MEM 1025% CPU │ machine: 20.00 load  32.779GB hdd │ Rescanning 90.09% @ block 2519490
+ 700 min │ pirated: 6.04GB MEM 2105% CPU │ machine: 21.60 load  32.779GB hdd │ Rescanning 90.10% @ block 2519565
+ 701 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 19.26 load  32.779GB hdd │ Rescanning 90.10% @ block 2519614
+ 702 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 16.74 load  32.779GB hdd │ Rescanning 90.11% @ block 2519704
+ 703 min │ pirated: 6.03GB MEM 2298% CPU │ machine: 18.41 load  32.779GB hdd │ Rescanning 90.11% @ block 2519774
+ 704 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 17.06 load  32.779GB hdd │ Rescanning 90.12% @ block 2519834
+ 705 min │ pirated: 6.01GB MEM 1926% CPU │ machine: 16.64 load  32.779GB hdd │ Rescanning 90.13% @ block 2519919
+ 706 min │ pirated: 6.02GB MEM 2298% CPU │ machine: 17.88 load  32.779GB hdd │ Rescanning 90.13% @ block 2519997
+ 707 min │ pirated: 6.04GB MEM 2113% CPU │ machine: 20.74 load  32.779GB hdd │ Rescanning 90.14% @ block 2520009
+ 708 min │ pirated: 6.01GB MEM 1567% CPU │ machine: 18.57 load  32.779GB hdd │ Rescanning 90.14% @ block 2520098
+ 709 min │ pirated: 5.99GB MEM 1312% CPU │ machine: 21.05 load  32.779GB hdd │ Rescanning 90.15% @ block 2520180
+ 710 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 19.97 load  32.779GB hdd │ Rescanning 90.16% @ block 2520249
+ 711 min │ pirated: 6.03GB MEM 1980% CPU │ machine: 17.13 load  32.779GB hdd │ Rescanning 90.16% @ block 2520326
+ 712 min │ pirated: 6.04GB MEM  743% CPU │ machine: 20.50 load  32.779GB hdd │ Rescanning 90.16% @ block 2520326
+ 713 min │ pirated: 6.02GB MEM 1847% CPU │ machine: 21.19 load  32.779GB hdd │ Rescanning 90.17% @ block 2520370
+ 714 min │ pirated: 6.01GB MEM 1460% CPU │ machine: 18.43 load  32.779GB hdd │ Rescanning 90.17% @ block 2520434
+ 715 min │ pirated: 6.02GB MEM 1530% CPU │ machine: 19.84 load  32.779GB hdd │ Rescanning 90.18% @ block 2520511
+ 716 min │ pirated: 6.02GB MEM  862% CPU │ machine: 19.35 load  32.779GB hdd │ Rescanning 90.19% @ block 2520606
+ 717 min │ pirated: 6.03GB MEM 2306% CPU │ machine: 19.47 load  32.779GB hdd │ Rescanning 90.19% @ block 2520665
+ 718 min │ pirated: 6.02GB MEM  919% CPU │ machine: 19.77 load  32.779GB hdd │ Rescanning 90.20% @ block 2520722
+ 719 min │ pirated: 6.04GB MEM 2306% CPU │ machine: 21.62 load  32.779GB hdd │ Rescanning 90.20% @ block 2520805
+ 720 min │ pirated: 6.02GB MEM 2081% CPU │ machine: 16.66 load  32.779GB hdd │ Rescanning 90.21% @ block 2520860
+ 721 min │ pirated: 6.01GB MEM 1697% CPU │ machine: 17.03 load  32.779GB hdd │ Rescanning 90.22% @ block 2520916
+ 722 min │ pirated: 6.00GB MEM 2297% CPU │ machine: 16.40 load  32.779GB hdd │ Rescanning 90.22% @ block 2520990
+ 723 min │ pirated: 6.02GB MEM  348% CPU │ machine: 17.15 load  32.779GB hdd │ Rescanning 90.23% @ block 2521033
+ 724 min │ pirated: 6.04GB MEM 1892% CPU │ machine: 16.75 load  32.779GB hdd │ Rescanning 90.23% @ block 2521113
+ 725 min │ pirated: 6.02GB MEM 2296% CPU │ machine: 20.35 load  32.779GB hdd │ Rescanning 90.24% @ block 2521181
+ 726 min │ pirated: 6.02GB MEM 2298% CPU │ machine: 20.69 load  32.779GB hdd │ Rescanning 90.24% @ block 2521231
+ 727 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 19.89 load  32.779GB hdd │ Rescanning 90.25% @ block 2521318
+ 728 min │ pirated: 6.00GB MEM 1129% CPU │ machine: 19.37 load  32.779GB hdd │ Rescanning 90.25% @ block 2521364
+ 729 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 18.89 load  32.779GB hdd │ Rescanning 90.26% @ block 2521441
+ 730 min │ pirated: 6.02GB MEM 2098% CPU │ machine: 20.75 load  32.779GB hdd │ Rescanning 90.27% @ block 2521486
+ 731 min │ pirated: 5.98GB MEM  571% CPU │ machine: 19.54 load  32.779GB hdd │ Rescanning 90.27% @ block 2521539
+ 732 min │ pirated: 6.02GB MEM 2298% CPU │ machine: 20.69 load  32.779GB hdd │ Rescanning 90.28% @ block 2521660
+ 733 min │ pirated: 6.04GB MEM 2166% CPU │ machine: 19.19 load  32.779GB hdd │ Rescanning 90.29% @ block 2521740
+ 734 min │ pirated: 6.00GB MEM 2308% CPU │ machine: 19.02 load  32.779GB hdd │ Rescanning 90.29% @ block 2521814
+ 735 min │ pirated: 5.98GB MEM 2296% CPU │ machine: 18.34 load  32.779GB hdd │ Rescanning 90.30% @ block 2521886
+ 736 min │ pirated: 6.02GB MEM 2298% CPU │ machine: 20.03 load  32.779GB hdd │ Rescanning 90.30% @ block 2521886
+ 737 min │ pirated: 6.04GB MEM 2198% CPU │ machine: 19.08 load  32.779GB hdd │ Rescanning 90.30% @ block 2521939
+ 738 min │ pirated: 6.02GB MEM 2296% CPU │ machine: 19.40 load  32.779GB hdd │ Rescanning 90.31% @ block 2522022
+ 739 min │ pirated: 5.99GB MEM 1444% CPU │ machine: 19.49 load  32.779GB hdd │ Rescanning 90.31% @ block 2522087
+ 740 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 19.07 load  32.779GB hdd │ Rescanning 90.32% @ block 2522224
+ 741 min │ pirated: 6.02GB MEM 2298% CPU │ machine: 19.43 load  32.779GB hdd │ Rescanning 90.33% @ block 2522286
+ 742 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 18.94 load  32.779GB hdd │ Rescanning 90.33% @ block 2522362
+ 743 min │ pirated: 6.02GB MEM 1452% CPU │ machine: 19.45 load  32.779GB hdd │ Rescanning 90.34% @ block 2522444
+ 744 min │ pirated: 6.02GB MEM  839% CPU │ machine: 20.34 load  32.779GB hdd │ Rescanning 90.34% @ block 2522465
+ 745 min │ pirated: 6.02GB MEM 2090% CPU │ machine: 16.17 load  32.779GB hdd │ Rescanning 90.35% @ block 2522555
+ 746 min │ pirated: 5.98GB MEM 2207% CPU │ machine: 20.14 load  32.779GB hdd │ Rescanning 90.36% @ block 2522615
+ 747 min │ pirated: 6.04GB MEM 2288% CPU │ machine: 21.66 load  32.779GB hdd │ Rescanning 90.36% @ block 2522672
+ 748 min │ pirated: 6.01GB MEM 1952% CPU │ machine: 19.90 load  32.779GB hdd │ Rescanning 90.37% @ block 2522761
+ 749 min │ pirated: 6.01GB MEM 1872% CPU │ machine: 20.89 load  32.779GB hdd │ Rescanning 90.37% @ block 2522806
+ 750 min │ pirated: 6.01GB MEM 2308% CPU │ machine: 18.56 load  32.779GB hdd │ Rescanning 90.38% @ block 2522901
+ 751 min │ pirated: 5.98GB MEM 1787% CPU │ machine: 18.08 load  32.779GB hdd │ Rescanning 90.39% @ block 2522958
+ 752 min │ pirated: 6.02GB MEM 1451% CPU │ machine: 19.93 load  32.779GB hdd │ Rescanning 90.39% @ block 2523022
+ 753 min │ pirated: 6.04GB MEM 2297% CPU │ machine: 19.11 load  32.779GB hdd │ Rescanning 90.40% @ block 2523098
+ 754 min │ pirated: 5.99GB MEM 2021% CPU │ machine: 19.33 load  32.779GB hdd │ Rescanning 90.40% @ block 2523148
+ 755 min │ pirated: 5.99GB MEM 2308% CPU │ machine: 17.23 load  32.779GB hdd │ Rescanning 90.41% @ block 2523242
+ 756 min │ pirated: 6.01GB MEM  346% CPU │ machine: 17.49 load  32.779GB hdd │ Rescanning 90.41% @ block 2523319
+ 757 min │ pirated: 6.01GB MEM 1540% CPU │ machine: 15.46 load  32.779GB hdd │ Rescanning 90.42% @ block 2523365
+ 758 min │ pirated: 6.04GB MEM 1446% CPU │ machine: 16.61 load  32.779GB hdd │ Rescanning 90.43% @ block 2523437
+ 759 min │ pirated: 6.04GB MEM 2194% CPU │ machine: 18.57 load  32.779GB hdd │ Rescanning 90.43% @ block 2523475
+ 760 min │ pirated: 5.99GB MEM  935% CPU │ machine: 15.99 load  32.779GB hdd │ Rescanning 90.44% @ block 2523562
+ 761 min │ pirated: 6.05GB MEM 2297% CPU │ machine: 15.62 load  32.779GB hdd │ Rescanning 90.44% @ block 2523562
+ 762 min │ pirated: 5.98GB MEM  974% CPU │ machine: 17.49 load  32.779GB hdd │ Rescanning 90.44% @ block 2523627
+ 763 min │ pirated: 6.01GB MEM 2186% CPU │ machine: 16.44 load  32.779GB hdd │ Rescanning 90.45% @ block 2523684
+ 764 min │ pirated: 6.02GB MEM  358% CPU │ machine: 17.03 load  32.779GB hdd │ Rescanning 90.45% @ block 2523757
+ 765 min │ pirated: 6.01GB MEM 1490% CPU │ machine: 18.54 load  32.779GB hdd │ Rescanning 90.46% @ block 2523814
+ 766 min │ pirated: 6.01GB MEM  922% CPU │ machine: 19.48 load  32.779GB hdd │ Rescanning 90.47% @ block 2523868
+ 767 min │ pirated: 6.01GB MEM 2298% CPU │ machine: 15.04 load  32.779GB hdd │ Rescanning 90.47% @ block 2523946
+ 768 min │ pirated: 6.02GB MEM 2022% CPU │ machine: 14.99 load  32.779GB hdd │ Rescanning 90.48% @ block 2524016
+ 769 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 16.48 load  32.779GB hdd │ Rescanning 90.48% @ block 2524089
+ 770 min │ pirated: 6.02GB MEM 2214% CPU │ machine: 18.44 load  32.779GB hdd │ Rescanning 90.49% @ block 2524132
+ 771 min │ pirated: 6.02GB MEM  881% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 90.49% @ block 2524185
+ 772 min │ pirated: 6.01GB MEM 2298% CPU │ machine: 18.77 load  32.779GB hdd │ Rescanning 90.50% @ block 2524265
+ 773 min │ pirated: 6.01GB MEM 2296% CPU │ machine: 19.96 load  32.779GB hdd │ Rescanning 90.51% @ block 2524338
+ 774 min │ pirated: 6.01GB MEM 2298% CPU │ machine: 17.94 load  32.779GB hdd │ Rescanning 90.51% @ block 2524395
+ 775 min │ pirated: 6.01GB MEM  771% CPU │ machine: 19.21 load  32.779GB hdd │ Rescanning 90.52% @ block 2524482
+ 776 min │ pirated: 6.01GB MEM 2116% CPU │ machine: 20.37 load  32.779GB hdd │ Rescanning 90.52% @ block 2524552
+ 777 min │ pirated: 6.03GB MEM  635% CPU │ machine: 20.20 load  32.779GB hdd │ Rescanning 90.52% @ block 2524552
+ 778 min │ pirated: 6.04GB MEM  304% CPU │ machine: 17.66 load  32.779GB hdd │ Rescanning 90.53% @ block 2524645
+ 779 min │ pirated: 6.02GB MEM 2094% CPU │ machine: 18.64 load  32.779GB hdd │ Rescanning 90.54% @ block 2524719
+ 780 min │ pirated: 6.01GB MEM 2153% CPU │ machine: 19.71 load  32.779GB hdd │ Rescanning 90.54% @ block 2524805
+ 781 min │ pirated: 6.01GB MEM  998% CPU │ machine: 16.97 load  32.779GB hdd │ Rescanning 90.55% @ block 2524859
+ 782 min │ pirated: 6.02GB MEM 1474% CPU │ machine: 16.88 load  32.779GB hdd │ Rescanning 90.55% @ block 2524935
+ 783 min │ pirated: 6.02GB MEM 2297% CPU │ machine: 14.74 load  32.779GB hdd │ Rescanning 90.56% @ block 2524986
+ 784 min │ pirated: 5.98GB MEM 1633% CPU │ machine: 16.58 load  32.779GB hdd │ Rescanning 90.57% @ block 2525064
+ 785 min │ pirated: 6.01GB MEM 2298% CPU │ machine: 16.51 load  32.779GB hdd │ Rescanning 90.57% @ block 2525123
+ 786 min │ pirated: 6.02GB MEM 1787% CPU │ machine: 18.01 load  32.779GB hdd │ Rescanning 90.58% @ block 2525193
+ 787 min │ pirated: 6.02GB MEM 2039% CPU │ machine: 19.95 load  32.779GB hdd │ Rescanning 90.58% @ block 2525258
+ 788 min │ pirated: 6.05GB MEM 2298% CPU │ machine: 18.88 load  32.779GB hdd │ Rescanning 90.59% @ block 2525312
+ 789 min │ pirated: 6.02GB MEM 2308% CPU │ machine: 18.79 load  32.779GB hdd │ Rescanning 90.59% @ block 2525383
+ 790 min │ pirated: 6.04GB MEM 1976% CPU │ machine: 18.65 load  32.779GB hdd │ Rescanning 90.60% @ block 2525455
+ 791 min │ pirated: 6.00GB MEM 2296% CPU │ machine: 15.78 load  32.779GB hdd │ Rescanning 90.61% @ block 2525546
+ 792 min │ pirated: 6.02GB MEM  947% CPU │ machine: 18.96 load  32.779GB hdd │ Rescanning 90.61% @ block 2525632
+ 793 min │ pirated: 6.01GB MEM 1231% CPU │ machine: 19.73 load  32.779GB hdd │ Rescanning 90.62% @ block 2525694
+ 794 min │ pirated: 6.02GB MEM  996% CPU │ machine: 19.13 load  32.779GB hdd │ Rescanning 90.63% @ block 2525780
+ 795 min │ pirated: 6.02GB MEM 2098% CPU │ machine: 18.03 load  32.779GB hdd │ Rescanning 90.63% @ block 2525828
+ 796 min │ pirated: 6.01GB MEM  576% CPU │ machine: 18.83 load  32.779GB hdd │ Rescanning 90.64% @ block 2525908
+ 797 min │ pirated: 6.02GB MEM 1534% CPU │ machine: 17.46 load  32.779GB hdd │ Rescanning 90.64% @ block 2526004
+ 798 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 14.75 load  32.779GB hdd │ Rescanning 90.65% @ block 2526079
+ 799 min │ pirated: 6.02GB MEM 1784% CPU │ machine: 15.07 load  32.779GB hdd │ Rescanning 90.66% @ block 2526158
+ 800 min │ pirated: 6.02GB MEM 1883% CPU │ machine: 16.95 load  32.779GB hdd │ Rescanning 90.66% @ block 2526215
+ 801 min │ pirated: 6.05GB MEM 2298% CPU │ machine: 16.69 load  32.779GB hdd │ Rescanning 90.67% @ block 2526268
+ 802 min │ pirated: 6.01GB MEM 1595% CPU │ machine: 17.21 load  32.779GB hdd │ Rescanning 90.67% @ block 2526364
+ 803 min │ pirated: 6.04GB MEM 2171% CPU │ machine: 19.06 load  32.779GB hdd │ Rescanning 90.68% @ block 2526411
+ 804 min │ pirated: 5.98GB MEM 1744% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 90.69% @ block 2526562
+ 805 min │ pirated: 6.04GB MEM  476% CPU │ machine: 17.75 load  32.779GB hdd │ Rescanning 90.70% @ block 2526951
+ 806 min │ pirated: 5.98GB MEM   99% CPU │ machine: 19.95 load  32.779GB hdd │ Rescanning 90.71% @ block 2527129
+ 807 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 16.25 load  32.779GB hdd │ Rescanning 90.73% @ block 2527420
+ 808 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 19.10 load  32.779GB hdd │ Rescanning 90.73% @ block 2527562
+ 809 min │ pirated: 6.04GB MEM 2298% CPU │ machine: 19.83 load  32.779GB hdd │ Rescanning 90.75% @ block 2527856
+ 810 min │ pirated: 5.98GB MEM 1548% CPU │ machine: 20.52 load  32.779GB hdd │ Rescanning 90.76% @ block 2528003
+ 811 min │ pirated: 6.04GB MEM 2307% CPU │ machine: 18.02 load  32.779GB hdd │ Rescanning 90.77% @ block 2528245
+ 812 min │ pirated: 5.98GB MEM 1710% CPU │ machine: 15.61 load  32.779GB hdd │ Rescanning 90.78% @ block 2528392
+ 813 min │ pirated: 5.99GB MEM 1668% CPU │ machine: 18.18 load  32.779GB hdd │ Rescanning 90.79% @ block 2528595
+ 814 min │ pirated: 6.00GB MEM 2272% CPU │ machine: 17.62 load  32.779GB hdd │ Rescanning 90.79% @ block 2528595
+ 815 min │ pirated: 6.04GB MEM  104% CPU │ machine: 18.68 load  32.779GB hdd │ Rescanning 90.80% @ block 2528861
+ 816 min │ pirated: 5.99GB MEM 1551% CPU │ machine: 16.61 load  32.779GB hdd │ Rescanning 90.81% @ block 2529109
+ 817 min │ pirated: 6.05GB MEM 1271% CPU │ machine: 18.48 load  32.779GB hdd │ Rescanning 90.82% @ block 2529316
+ 818 min │ pirated: 6.04GB MEM 2307% CPU │ machine: 18.86 load  32.779GB hdd │ Rescanning 90.84% @ block 2529578
+ 819 min │ pirated: 5.99GB MEM 2013% CPU │ machine: 19.76 load  32.779GB hdd │ Rescanning 90.85% @ block 2529839
+ 820 min │ pirated: 6.05GB MEM 2018% CPU │ machine: 20.12 load  32.779GB hdd │ Rescanning 90.86% @ block 2529975
+ 821 min │ pirated: 6.04GB MEM 2254% CPU │ machine: 19.42 load  32.779GB hdd │ Rescanning 90.87% @ block 2530143
+ 822 min │ pirated: 6.04GB MEM 2296% CPU │ machine: 16.89 load  32.779GB hdd │ Rescanning 90.88% @ block 2530392
+ 823 min │ pirated: 6.05GB MEM 2298% CPU │ machine: 15.67 load  32.779GB hdd │ Rescanning 90.89% @ block 2530594
+ 824 min │ pirated: 5.99GB MEM 1769% CPU │ machine: 14.74 load  32.779GB hdd │ Rescanning 90.90% @ block 2530741
+ 825 min │ pirated: 6.05GB MEM 2307% CPU │ machine: 15.20 load  32.779GB hdd │ Rescanning 90.92% @ block 2531133
+ 826 min │ pirated: 6.05GB MEM 1622% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 90.93% @ block 2531323
+ 827 min │ pirated: 6.05GB MEM 1593% CPU │ machine: 18.22 load  32.779GB hdd │ Rescanning 90.94% @ block 2531521
+ 828 min │ pirated: 6.05GB MEM 1580% CPU │ machine: 20.41 load  32.779GB hdd │ Rescanning 90.95% @ block 2531685
+ 829 min │ pirated: 6.05GB MEM  280% CPU │ machine: 19.01 load  32.779GB hdd │ Rescanning 90.96% @ block 2531858
+ 830 min │ pirated: 6.05GB MEM 2178% CPU │ machine: 19.03 load  32.779GB hdd │ Rescanning 90.97% @ block 2532041
+ 831 min │ pirated: 6.05GB MEM 2308% CPU │ machine: 19.15 load  32.779GB hdd │ Rescanning 90.98% @ block 2532225
+ 832 min │ pirated: 6.06GB MEM 2296% CPU │ machine: 16.91 load  32.779GB hdd │ Rescanning 90.99% @ block 2532570
+ 833 min │ pirated: 6.05GB MEM 1727% CPU │ machine: 16.12 load  32.779GB hdd │ Rescanning 91.00% @ block 2532813
+ 834 min │ pirated: 6.05GB MEM 2288% CPU │ machine: 16.48 load  32.779GB hdd │ Rescanning 91.01% @ block 2533012
+ 835 min │ pirated: 6.06GB MEM  194% CPU │ machine: 17.70 load  32.779GB hdd │ Rescanning 91.01% @ block 2533012
+ 836 min │ pirated: 6.06GB MEM 1804% CPU │ machine: 18.88 load  32.779GB hdd │ Rescanning 91.03% @ block 2533202
+ 837 min │ pirated: 6.06GB MEM 1774% CPU │ machine: 20.47 load  32.779GB hdd │ Rescanning 91.04% @ block 2533415
+ 838 min │ pirated: 6.06GB MEM 1682% CPU │ machine: 18.49 load  32.779GB hdd │ Rescanning 91.05% @ block 2533642
+ 839 min │ pirated: 6.06GB MEM 1754% CPU │ machine: 19.31 load  32.779GB hdd │ Rescanning 91.06% @ block 2533777
+ 840 min │ pirated: 6.06GB MEM 2298% CPU │ machine: 19.90 load  32.779GB hdd │ Rescanning 91.07% @ block 2534047
+ 841 min │ pirated: 6.06GB MEM 2298% CPU │ machine: 16.87 load  32.779GB hdd │ Rescanning 91.08% @ block 2534189
+ 842 min │ pirated: 6.06GB MEM 1595% CPU │ machine: 15.06 load  32.779GB hdd │ Rescanning 91.09% @ block 2534354
+ 843 min │ pirated: 6.06GB MEM 1648% CPU │ machine: 18.06 load  32.779GB hdd │ Rescanning 91.10% @ block 2534562
+ 844 min │ pirated: 6.06GB MEM  100% CPU │ machine: 17.82 load  32.779GB hdd │ Rescanning 91.11% @ block 2534749
+ 845 min │ pirated: 6.06GB MEM 1648% CPU │ machine: 15.61 load  32.779GB hdd │ Rescanning 91.13% @ block 2535215
+ 846 min │ pirated: 6.06GB MEM 1695% CPU │ machine: 16.47 load  32.779GB hdd │ Rescanning 91.15% @ block 2535862
+ 847 min │ pirated: 6.06GB MEM 1817% CPU │ machine: 18.30 load  32.779GB hdd │ Rescanning 91.17% @ block 2536556
+ 848 min │ pirated: 6.06GB MEM 1699% CPU │ machine: 17.09 load  32.779GB hdd │ Rescanning 91.19% @ block 2537120
+ 849 min │ pirated: 6.06GB MEM 1732% CPU │ machine: 17.23 load  32.779GB hdd │ Rescanning 91.21% @ block 2537792
+ 850 min │ pirated: 6.06GB MEM 1739% CPU │ machine: 20.41 load  32.779GB hdd │ Rescanning 91.24% @ block 2538461
+ 851 min │ pirated: 6.06GB MEM 1796% CPU │ machine: 20.97 load  32.779GB hdd │ Rescanning 91.26% @ block 2539245
+ 852 min │ pirated: 6.06GB MEM 1813% CPU │ machine: 20.62 load  32.779GB hdd │ Rescanning 91.28% @ block 2539801
+ 853 min │ pirated: 6.06GB MEM 1635% CPU │ machine: 19.58 load  32.779GB hdd │ Rescanning 91.30% @ block 2540297
+ 854 min │ pirated: 6.06GB MEM 1706% CPU │ machine: 18.08 load  32.779GB hdd │ Rescanning 91.31% @ block 2540790
+ 855 min │ pirated: 6.06GB MEM 1624% CPU │ machine: 20.03 load  32.779GB hdd │ Rescanning 91.34% @ block 2541476
+ 856 min │ pirated: 6.06GB MEM 1753% CPU │ machine: 19.16 load  32.779GB hdd │ Rescanning 91.36% @ block 2542016
+ 857 min │ pirated: 6.06GB MEM 1684% CPU │ machine: 19.69 load  32.779GB hdd │ Rescanning 91.41% @ block 2543805
+ 858 min │ pirated: 6.06GB MEM 1731% CPU │ machine: 17.34 load  32.779GB hdd │ Rescanning 91.42% @ block 2544335
+ 859 min │ pirated: 6.06GB MEM 1766% CPU │ machine: 18.85 load  32.779GB hdd │ Rescanning 91.45% @ block 2544926
+ 860 min │ pirated: 6.06GB MEM 1685% CPU │ machine: 19.53 load  32.779GB hdd │ Rescanning 91.47% @ block 2545502
+ 861 min │ pirated: 6.06GB MEM 1720% CPU │ machine: 15.79 load  32.779GB hdd │ Rescanning 91.49% @ block 2546114
+ 862 min │ pirated: 6.06GB MEM 1724% CPU │ machine: 17.38 load  32.779GB hdd │ Rescanning 91.51% @ block 2546747
+ 863 min │ pirated: 6.06GB MEM 1703% CPU │ machine: 18.62 load  32.779GB hdd │ Rescanning 91.53% @ block 2547362
+ 864 min │ pirated: 6.06GB MEM 1740% CPU │ machine: 16.86 load  32.779GB hdd │ Rescanning 91.55% @ block 2547865
+ 865 min │ pirated: 6.06GB MEM 1718% CPU │ machine: 15.92 load  32.779GB hdd │ Rescanning 91.57% @ block 2548470
+ 866 min │ pirated: 6.06GB MEM 1650% CPU │ machine: 16.58 load  32.779GB hdd │ Rescanning 91.59% @ block 2549031
+ 867 min │ pirated: 6.06GB MEM 1597% CPU │ machine: 18.61 load  32.779GB hdd │ Rescanning 91.61% @ block 2549650
+ 868 min │ pirated: 6.06GB MEM 1612% CPU │ machine: 17.51 load  32.779GB hdd │ Rescanning 91.63% @ block 2550246
+ 869 min │ pirated: 6.06GB MEM 1705% CPU │ machine: 18.33 load  32.779GB hdd │ Rescanning 91.65% @ block 2550852
+ 870 min │ pirated: 6.06GB MEM 1618% CPU │ machine: 20.00 load  32.779GB hdd │ Rescanning 91.67% @ block 2551457
+ 871 min │ pirated: 6.06GB MEM 1658% CPU │ machine: 18.98 load  32.779GB hdd │ Rescanning 91.69% @ block 2552031
+ 872 min │ pirated: 6.06GB MEM 1738% CPU │ machine: 19.93 load  32.779GB hdd │ Rescanning 91.71% @ block 2552601
+ 873 min │ pirated: 6.06GB MEM 1630% CPU │ machine: 17.53 load  32.779GB hdd │ Rescanning 91.73% @ block 2553176
+ 874 min │ pirated: 6.06GB MEM 1767% CPU │ machine: 16.08 load  32.779GB hdd │ Rescanning 91.75% @ block 2553813
+ 875 min │ pirated: 6.06GB MEM 1731% CPU │ machine: 14.93 load  32.779GB hdd │ Rescanning 91.77% @ block 2554455
+ 876 min │ pirated: 6.06GB MEM 1776% CPU │ machine: 15.87 load  32.779GB hdd │ Rescanning 91.79% @ block 2555087
+ 877 min │ pirated: 6.06GB MEM 1850% CPU │ machine: 17.04 load  32.779GB hdd │ Rescanning 91.81% @ block 2555707
+ 878 min │ pirated: 6.06GB MEM 1716% CPU │ machine: 17.55 load  32.779GB hdd │ Rescanning 91.83% @ block 2556354
+ 879 min │ pirated: 6.06GB MEM 1727% CPU │ machine: 16.93 load  32.779GB hdd │ Rescanning 91.85% @ block 2557022
+ 880 min │ pirated: 6.06GB MEM 1625% CPU │ machine: 15.04 load  32.779GB hdd │ Rescanning 91.87% @ block 2557642
+ 881 min │ pirated: 6.06GB MEM 1629% CPU │ machine: 17.02 load  32.779GB hdd │ Rescanning 91.90% @ block 2558317
+ 882 min │ pirated: 6.06GB MEM 1782% CPU │ machine: 16.67 load  32.779GB hdd │ Rescanning 91.92% @ block 2558992
+ 883 min │ pirated: 6.06GB MEM 1722% CPU │ machine: 17.31 load  32.779GB hdd │ Rescanning 91.94% @ block 2559679
+ 884 min │ pirated: 6.06GB MEM 1676% CPU │ machine: 16.52 load  32.779GB hdd │ Rescanning 91.97% @ block 2560388
+ 885 min │ pirated: 6.06GB MEM 1796% CPU │ machine: 16.40 load  32.779GB hdd │ Rescanning 91.99% @ block 2561065
+ 886 min │ pirated: 6.06GB MEM 1692% CPU │ machine: 17.24 load  32.779GB hdd │ Rescanning 92.01% @ block 2561707
+ 887 min │ pirated: 6.06GB MEM 1596% CPU │ machine: 17.38 load  32.779GB hdd │ Rescanning 92.03% @ block 2562441
+ 888 min │ pirated: 6.06GB MEM 1706% CPU │ machine: 20.65 load  32.779GB hdd │ Rescanning 92.06% @ block 2563175
+ 889 min │ pirated: 6.06GB MEM 1726% CPU │ machine: 17.10 load  32.779GB hdd │ Rescanning 92.08% @ block 2563986
+ 890 min │ pirated: 6.06GB MEM 1725% CPU │ machine: 18.99 load  32.779GB hdd │ Rescanning 92.11% @ block 2564738
+ 891 min │ pirated: 6.06GB MEM 1634% CPU │ machine: 18.37 load  32.779GB hdd │ Rescanning 92.13% @ block 2565510
+ 892 min │ pirated: 6.06GB MEM 1638% CPU │ machine: 18.67 load  32.779GB hdd │ Rescanning 92.15% @ block 2566272
+ 893 min │ pirated: 6.06GB MEM 1775% CPU │ machine: 20.93 load  32.779GB hdd │ Rescanning 92.18% @ block 2567059
+ 894 min │ pirated: 6.06GB MEM 1688% CPU │ machine: 21.80 load  32.779GB hdd │ Rescanning 92.21% @ block 2567968
+ 895 min │ pirated: 6.06GB MEM 1618% CPU │ machine: 14.45 load  32.779GB hdd │ Rescanning 92.23% @ block 2568804
+ 896 min │ pirated: 6.06GB MEM 1704% CPU │ machine: 15.78 load  32.779GB hdd │ Rescanning 92.30% @ block 2571207
+ 897 min │ pirated: 6.06GB MEM 1709% CPU │ machine: 19.08 load  32.779GB hdd │ Rescanning 92.32% @ block 2571959
+ 898 min │ pirated: 6.06GB MEM 1759% CPU │ machine: 18.97 load  32.779GB hdd │ Rescanning 92.34% @ block 2572563
+ 899 min │ pirated: 6.06GB MEM 1686% CPU │ machine: 19.55 load  32.779GB hdd │ Rescanning 92.36% @ block 2573213
+ 900 min │ pirated: 6.06GB MEM 1698% CPU │ machine: 16.41 load  32.779GB hdd │ Rescanning 92.38% @ block 2573826
+ 901 min │ pirated: 6.06GB MEM 1647% CPU │ machine: 17.90 load  32.779GB hdd │ Rescanning 92.40% @ block 2574458
+ 902 min │ pirated: 6.06GB MEM 1639% CPU │ machine: 18.50 load  32.779GB hdd │ Rescanning 92.42% @ block 2575065
+ 903 min │ pirated: 6.06GB MEM 1618% CPU │ machine: 15.70 load  32.779GB hdd │ Rescanning 92.44% @ block 2575712
+ 904 min │ pirated: 6.06GB MEM 1675% CPU │ machine: 17.99 load  32.779GB hdd │ Rescanning 92.46% @ block 2576342
+ 905 min │ pirated: 6.06GB MEM 1672% CPU │ machine: 19.02 load  32.779GB hdd │ Rescanning 92.48% @ block 2576939
+ 906 min │ pirated: 6.06GB MEM 1792% CPU │ machine: 18.23 load  32.779GB hdd │ Rescanning 92.50% @ block 2577525
+ 907 min │ pirated: 6.06GB MEM 1622% CPU │ machine: 19.60 load  32.779GB hdd │ Rescanning 92.52% @ block 2578119
+ 908 min │ pirated: 6.06GB MEM 1556% CPU │ machine: 19.85 load  32.779GB hdd │ Rescanning 92.54% @ block 2578786
+ 909 min │ pirated: 6.06GB MEM 1755% CPU │ machine: 20.01 load  32.779GB hdd │ Rescanning 92.56% @ block 2579469
+ 910 min │ pirated: 6.06GB MEM 1709% CPU │ machine: 19.67 load  32.779GB hdd │ Rescanning 92.58% @ block 2580120
+ 911 min │ pirated: 6.06GB MEM 1726% CPU │ machine: 19.00 load  32.779GB hdd │ Rescanning 92.61% @ block 2580806
+ 912 min │ pirated: 6.06GB MEM 1713% CPU │ machine: 18.91 load  32.779GB hdd │ Rescanning 92.63% @ block 2581432
+ 913 min │ pirated: 6.06GB MEM 1678% CPU │ machine: 17.46 load  32.779GB hdd │ Rescanning 92.65% @ block 2582074
+ 914 min │ pirated: 6.06GB MEM 1705% CPU │ machine: 18.23 load  32.779GB hdd │ Rescanning 92.67% @ block 2582748
+ 915 min │ pirated: 6.06GB MEM 1669% CPU │ machine: 20.61 load  32.779GB hdd │ Rescanning 92.69% @ block 2583491
+ 916 min │ pirated: 6.06GB MEM 1851% CPU │ machine: 18.72 load  32.779GB hdd │ Rescanning 92.72% @ block 2584246
+ 917 min │ pirated: 6.06GB MEM 1708% CPU │ machine: 18.14 load  32.779GB hdd │ Rescanning 92.75% @ block 2585131
+ 918 min │ pirated: 6.06GB MEM 1737% CPU │ machine: 15.78 load  32.779GB hdd │ Rescanning 92.77% @ block 2586040
+ 919 min │ pirated: 6.06GB MEM 1716% CPU │ machine: 14.99 load  32.779GB hdd │ Rescanning 92.80% @ block 2586775
+ 920 min │ pirated: 6.06GB MEM 1693% CPU │ machine: 14.42 load  32.779GB hdd │ Rescanning 92.82% @ block 2587512
+ 921 min │ pirated: 6.06GB MEM 1749% CPU │ machine: 17.22 load  32.779GB hdd │ Rescanning 92.85% @ block 2588436
+ 922 min │ pirated: 6.06GB MEM 1559% CPU │ machine: 15.80 load  32.779GB hdd │ Rescanning 92.88% @ block 2589395
+ 923 min │ pirated: 6.06GB MEM 1726% CPU │ machine: 18.64 load  32.779GB hdd │ Rescanning 92.91% @ block 2590387
+ 924 min │ pirated: 6.06GB MEM 1735% CPU │ machine: 17.27 load  32.779GB hdd │ Rescanning 92.94% @ block 2591566
+ 925 min │ pirated: 6.06GB MEM 1737% CPU │ machine: 18.47 load  32.779GB hdd │ Rescanning 92.97% @ block 2592575
+ 926 min │ pirated: 6.06GB MEM 1678% CPU │ machine: 17.26 load  32.779GB hdd │ Rescanning 93.00% @ block 2593389
+ 927 min │ pirated: 6.06GB MEM 1778% CPU │ machine: 19.54 load  32.779GB hdd │ Rescanning 93.03% @ block 2594423
+ 928 min │ pirated: 6.06GB MEM 1619% CPU │ machine: 19.21 load  32.779GB hdd │ Rescanning 93.06% @ block 2595491
+ 929 min │ pirated: 6.06GB MEM 1755% CPU │ machine: 15.85 load  32.779GB hdd │ Rescanning 93.10% @ block 2596752
+ 930 min │ pirated: 6.06GB MEM 1506% CPU │ machine: 14.26 load  32.779GB hdd │ Rescanning 93.13% @ block 2597891
+ 931 min │ pirated: 6.06GB MEM 1613% CPU │ machine: 13.89 load  32.779GB hdd │ Rescanning 93.17% @ block 2599209
+ 932 min │ pirated: 6.06GB MEM 1667% CPU │ machine: 16.17 load  32.779GB hdd │ Rescanning 93.20% @ block 2600250
+ 933 min │ pirated: 6.06GB MEM 1659% CPU │ machine: 15.84 load  32.779GB hdd │ Rescanning 93.23% @ block 2601452
+ 934 min │ pirated: 6.06GB MEM 1661% CPU │ machine: 19.19 load  32.779GB hdd │ Rescanning 93.27% @ block 2602718
+ 935 min │ pirated: 6.06GB MEM 1738% CPU │ machine: 20.41 load  32.779GB hdd │ Rescanning 93.31% @ block 2604031
+ 936 min │ pirated: 6.06GB MEM 1637% CPU │ machine: 16.76 load  32.779GB hdd │ Rescanning 93.34% @ block 2605119
+ 937 min │ pirated: 6.06GB MEM 1731% CPU │ machine: 16.87 load  32.779GB hdd │ Rescanning 93.37% @ block 2606116
+ 938 min │ pirated: 6.06GB MEM 1677% CPU │ machine: 16.53 load  32.779GB hdd │ Rescanning 93.40% @ block 2607334
+ 939 min │ pirated: 6.06GB MEM 1678% CPU │ machine: 17.90 load  32.779GB hdd │ Rescanning 93.44% @ block 2608572
+ 940 min │ pirated: 6.06GB MEM 1731% CPU │ machine: 14.64 load  32.779GB hdd │ Rescanning 93.48% @ block 2609845
+ 941 min │ pirated: 6.06GB MEM 1769% CPU │ machine: 16.61 load  32.779GB hdd │ Rescanning 93.51% @ block 2611039
+ 942 min │ pirated: 6.06GB MEM 1785% CPU │ machine: 17.34 load  32.779GB hdd │ Rescanning 93.55% @ block 2612277
+ 943 min │ pirated: 6.06GB MEM 1676% CPU │ machine: 19.45 load  32.779GB hdd │ Rescanning 93.58% @ block 2613455
+ 944 min │ pirated: 6.07GB MEM 1678% CPU │ machine: 19.83 load  32.779GB hdd │ Rescanning 93.62% @ block 2614686
+ 945 min │ pirated: 6.07GB MEM 1664% CPU │ machine: 17.56 load  32.779GB hdd │ Rescanning 93.65% @ block 2615917
+ 946 min │ pirated: 6.07GB MEM 1656% CPU │ machine: 18.66 load  32.779GB hdd │ Rescanning 93.69% @ block 2617136
+ 947 min │ pirated: 6.07GB MEM 1753% CPU │ machine: 17.73 load  32.779GB hdd │ Rescanning 93.72% @ block 2618367
+ 948 min │ pirated: 6.07GB MEM 1542% CPU │ machine: 17.57 load  32.779GB hdd │ Rescanning 93.76% @ block 2619603
+ 949 min │ pirated: 6.07GB MEM 1664% CPU │ machine: 17.73 load  32.779GB hdd │ Rescanning 93.79% @ block 2620775
+ 950 min │ pirated: 6.07GB MEM 1731% CPU │ machine: 18.98 load  32.779GB hdd │ Rescanning 93.83% @ block 2621931
+ 951 min │ pirated: 6.07GB MEM 1717% CPU │ machine: 21.44 load  32.779GB hdd │ Rescanning 93.86% @ block 2623132
+ 952 min │ pirated: 6.07GB MEM 1680% CPU │ machine: 13.53 load  32.779GB hdd │ Rescanning 93.90% @ block 2624295
+ 953 min │ pirated: 6.07GB MEM 1704% CPU │ machine: 16.18 load  32.779GB hdd │ Rescanning 93.93% @ block 2625474
+ 954 min │ pirated: 6.08GB MEM 1672% CPU │ machine: 15.85 load  32.779GB hdd │ Rescanning 93.97% @ block 2626595
+ 955 min │ pirated: 6.08GB MEM 1655% CPU │ machine: 20.00 load  32.779GB hdd │ Rescanning 94.00% @ block 2627871
+ 956 min │ pirated: 6.08GB MEM 1682% CPU │ machine: 18.62 load  32.779GB hdd │ Rescanning 94.04% @ block 2629032
+ 957 min │ pirated: 6.08GB MEM 1808% CPU │ machine: 17.50 load  32.779GB hdd │ Rescanning 94.07% @ block 2630185
+ 958 min │ pirated: 6.08GB MEM 1570% CPU │ machine: 17.96 load  32.779GB hdd │ Rescanning 94.11% @ block 2631385
+ 959 min │ pirated: 6.08GB MEM 1688% CPU │ machine: 18.68 load  32.779GB hdd │ Rescanning 94.14% @ block 2632540
+ 960 min │ pirated: 6.08GB MEM 1744% CPU │ machine: 17.73 load  32.779GB hdd │ Rescanning 94.18% @ block 2633740
+ 961 min │ pirated: 6.08GB MEM 1598% CPU │ machine: 19.27 load  32.779GB hdd │ Rescanning 94.21% @ block 2634857
+ 962 min │ pirated: 6.08GB MEM 1604% CPU │ machine: 19.20 load  32.779GB hdd │ Rescanning 94.25% @ block 2635945
+ 963 min │ pirated: 6.09GB MEM 1599% CPU │ machine: 16.42 load  32.779GB hdd │ Rescanning 94.28% @ block 2637078
+ 964 min │ pirated: 6.09GB MEM 1642% CPU │ machine: 17.42 load  32.779GB hdd │ Rescanning 94.32% @ block 2638226
+ 965 min │ pirated: 6.09GB MEM 1592% CPU │ machine: 16.86 load  32.779GB hdd │ Rescanning 94.35% @ block 2639381
+ 966 min │ pirated: 6.09GB MEM 1736% CPU │ machine: 19.90 load  32.779GB hdd │ Rescanning 94.38% @ block 2640482
+ 967 min │ pirated: 6.09GB MEM 1775% CPU │ machine: 16.59 load  32.779GB hdd │ Rescanning 94.42% @ block 2641600
+ 968 min │ pirated: 6.09GB MEM 1590% CPU │ machine: 15.84 load  32.779GB hdd │ Rescanning 94.45% @ block 2642787
+ 969 min │ pirated: 6.09GB MEM 1584% CPU │ machine: 15.52 load  32.779GB hdd │ Rescanning 94.49% @ block 2643960
+ 970 min │ pirated: 6.09GB MEM 1616% CPU │ machine: 16.35 load  32.779GB hdd │ Rescanning 94.52% @ block 2644972
+ 971 min │ pirated: 6.09GB MEM 1650% CPU │ machine: 15.02 load  32.779GB hdd │ Rescanning 94.55% @ block 2646107
+ 972 min │ pirated: 6.10GB MEM 1611% CPU │ machine: 16.81 load  32.779GB hdd │ Rescanning 94.58% @ block 2647181
+ 973 min │ pirated: 6.10GB MEM 1666% CPU │ machine: 16.74 load  32.779GB hdd │ Rescanning 94.62% @ block 2648329
+ 974 min │ pirated: 6.10GB MEM 1645% CPU │ machine: 16.99 load  32.779GB hdd │ Rescanning 94.65% @ block 2649435
+ 975 min │ pirated: 6.10GB MEM 1696% CPU │ machine: 15.12 load  32.779GB hdd │ Rescanning 94.68% @ block 2650493
+ 976 min │ pirated: 6.10GB MEM 1774% CPU │ machine: 15.22 load  32.779GB hdd │ Rescanning 94.72% @ block 2651585
+ 977 min │ pirated: 6.10GB MEM 1758% CPU │ machine: 16.72 load  32.779GB hdd │ Rescanning 94.75% @ block 2652763
+ 978 min │ pirated: 6.10GB MEM 1622% CPU │ machine: 15.77 load  32.779GB hdd │ Rescanning 94.79% @ block 2653939
+ 979 min │ pirated: 6.10GB MEM 1779% CPU │ machine: 18.55 load  32.779GB hdd │ Rescanning 94.82% @ block 2655150
+ 980 min │ pirated: 6.11GB MEM 1740% CPU │ machine: 18.01 load  32.779GB hdd │ Rescanning 94.86% @ block 2656342
+ 981 min │ pirated: 6.11GB MEM 1659% CPU │ machine: 19.84 load  32.779GB hdd │ Rescanning 94.89% @ block 2657492
+ 982 min │ pirated: 6.11GB MEM 1692% CPU │ machine: 17.14 load  32.779GB hdd │ Rescanning 94.93% @ block 2658592
+ 983 min │ pirated: 6.11GB MEM 1628% CPU │ machine: 16.20 load  32.779GB hdd │ Rescanning 94.96% @ block 2659789
+ 984 min │ pirated: 6.11GB MEM 1634% CPU │ machine: 17.75 load  32.779GB hdd │ Rescanning 94.99% @ block 2660986
+ 985 min │ pirated: 6.11GB MEM 1772% CPU │ machine: 14.81 load  32.779GB hdd │ Rescanning 95.03% @ block 2662254
+ 986 min │ pirated: 6.11GB MEM  387% CPU │ machine: 18.01 load  32.779GB hdd │ Rescanning 95.07% @ block 2663460
+ 987 min │ pirated: 6.12GB MEM  999% CPU │ machine: 10.01 load  32.779GB hdd │ Rescanning 95.32% @ block 2673254
+ 988 min │ pirated: 6.12GB MEM  937% CPU │ machine: 11.61 load  32.779GB hdd │ Rescanning 95.72% @ block 2688220
+ 989 min │ pirated: 6.13GB MEM  888% CPU │ machine: 10.00 load  32.779GB hdd │ Rescanning 96.08% @ block 2701550
+ 990 min │ pirated: 6.14GB MEM 1014% CPU │ machine: 14.80 load  32.779GB hdd │ Rescanning 96.45% @ block 2715040
+ 991 min │ pirated: 6.15GB MEM  875% CPU │ machine: 14.01 load  32.779GB hdd │ Rescanning 96.82% @ block 2728412
+ 992 min │ pirated: 6.15GB MEM  955% CPU │ machine: 16.71 load  32.779GB hdd │ Rescanning 97.14% @ block 2739366
+ 993 min │ pirated: 6.16GB MEM  979% CPU │ machine: 14.07 load  32.779GB hdd │ Rescanning 97.48% @ block 2751410
+ 994 min │ pirated: 6.17GB MEM  852% CPU │ machine:  9.26 load  32.779GB hdd │ Rescanning 97.85% @ block 2764919
+ 995 min │ pirated: 6.18GB MEM  961% CPU │ machine: 14.34 load  32.779GB hdd │ Rescanning 98.23% @ block 2779214
+ 996 min │ pirated: 6.18GB MEM  927% CPU │ machine: 15.64 load  32.779GB hdd │ Rescanning 98.55% @ block 2790983
+ 997 min │ pirated: 6.09GB MEM  101% CPU │ machine: 11.62 load  32.779GB hdd │ waiting: daemon executing task...
+ 998 min │ pirated: 6.09GB MEM  101% CPU │ machine:  4.90 load  32.779GB hdd │ Validating Note Position: 100.00%
+ 999 min │ pirated: 6.09GB MEM    0% CPU │ machine:  2.35 load  32.779GB hdd │ peers 0  sync 0.000%  blocks 2803995 (+2803995)
+1000 min │ pirated: 6.10GB MEM  101% CPU │ machine:  0.86 load  32.779GB hdd │ peers 1  sync 99.308%  blocks 2803996 (+1)
+1001 min │ pirated: 6.17GB MEM  213% CPU │ machine:  0.86 load  32.780GB hdd │ peers 1  sync 99.366%  blocks 2805627 (+1631)
+1002 min │ pirated: 6.18GB MEM  197% CPU │ machine:  0.90 load  32.796GB hdd │ peers 2  sync 99.432%  blocks 2807488 (+1861)
+1003 min │ pirated: 6.18GB MEM  245% CPU │ machine:  2.78 load  32.798GB hdd │ peers 2  sync 99.504%  blocks 2809529 (+2041)
+1004 min │ pirated: 6.19GB MEM  299% CPU │ machine:  2.11 load  32.809GB hdd │ peers 3  sync 99.573%  blocks 2811475 (+1946)
+1005 min │ pirated: 6.19GB MEM  251% CPU │ machine:  3.28 load  32.809GB hdd │ peers 3  sync 99.625%  blocks 2812930 (+1455)
+1006 min │ pirated: 6.24GB MEM  212% CPU │ machine:  3.71 load  32.810GB hdd │ peers 3  sync 99.670%  blocks 2814218 (+1288)
+1007 min │ pirated: 6.25GB MEM  390% CPU │ machine:  6.26 load  32.812GB hdd │ peers 3  sync 99.718%  blocks 2815560 (+1342)
+1008 min │ pirated: 6.25GB MEM  195% CPU │ machine:  3.44 load  32.828GB hdd │ peers 2  sync 99.788%  blocks 2817548 (+1988)
+1009 min │ pirated: 6.25GB MEM  409% CPU │ machine:  2.40 load  32.829GB hdd │ peers 2  sync 99.819%  blocks 2818411 (+863)
+1010 min │ pirated: 6.25GB MEM  388% CPU │ machine:  4.00 load  32.829GB hdd │ peers 2  sync 99.874%  blocks 2819973 (+1562)
+1011 min │ pirated: 6.25GB MEM    0% CPU │ machine:  2.28 load  32.830GB hdd │ peers 3  sync 99.889%  blocks 2820402 (+429)
+1012 min │ pirated: 6.25GB MEM  192% CPU │ machine:  2.34 load  32.845GB hdd │ peers 3  sync 99.916%  blocks 2821160 (+758)
+1013 min │ pirated: 6.25GB MEM  399% CPU │ machine:  2.03 load  32.846GB hdd │ peers 3  sync 99.977%  blocks 2822875 (+1715)
+pirated syncronized with the network.
+Took 16 hours 54 minutes
+preparing report...
+
+PIRATE NETWORK SYNC - Summary Report
+
+
+SYNCHRONIZATION TIME:
+	16 hours 53 minutes
+	Sunday, 10 March 2024, 23:11:11 UTC+0000
+
+ENVIRONMENT:
+	Operating system:       Ubuntu 22.04.4 LTS
+	Platform:               Linux-5.15.0-100-generic-x86_64-with-glibc2.35
+	File system:            ext4
+	Disk space free:        13493.93 GB of 14782.98 GB
+	Read speed test:        6499.87 MB/s
+	Write speed test:       889.01 MB/s
+	Memory:                 94.31 GB
+	Processor Name:         Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz (x2)
+	Architecture:           x86_64
+	Frequency:              2700.00Mhz
+	Cores:                  24 logical | 12 physical
+
+NODE DETAILS:
+	Pirate daemon version:  v5.8.0-a0f0bba2f
+	Reachable networks:     2 (ipv4, ipv6)
+	Unreachable networks:   2 (onion, i2p)
+	Tx count:               9649
+	Sapling notes:          9649
+	Archived tx count:      9649
+	Archived sapling notes: 9649
+	Sapling addresses:      6332
+	Sapling spending keys:  101
+	Sapling full view keys: 0
+	Key pool oldest:        2021-05-06
+	Key pool size:          101
+
+TELEMETRY SUMMARY:
+	Block download source:  Bootstrap
+	Blocks synced:          2822875
+	Blockchain size:        28.05GB
+	Max disk used:          56.77GB
+	Pirated MEM:            5.40GB avg (6.25GB peak)
+	Pirated CPU:            1342% avg (2309% peak)
+	Machine load:           15.17 avg (22.56 peak)
+
+SYNC PROCESSES:
+	Total sync time:        16 hours 53 minutes
+	Startup sequence:       16h 39m 7s
+	Bootstrap download:     0h 29m 20s
+	Block extraction:       0h 2m 32s
+	Rescan:                 15h 55m 43s
+	Building witness cache: 0 minutes
+	Validate note position: 0h 0m 57s
+
+The sync summary, data CSV, error logs, and chart saved in 'output/date_2024-03-10_time_0616-47Z'

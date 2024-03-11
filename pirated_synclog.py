@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# 
-#   ░█▀█░▀█▀░█▀▄░█▀█░▀█▀░█▀▀
-#   ░█▀▀░░█░░█▀▄░█▀█░░█░░█▀▀
-#   ░▀░░░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀                                                    
+#!/usr/bin/env python                                              
 # 
 #   PIRATE DAEMON SYNC LOGGER
 #   
@@ -10,9 +6,7 @@
 #   while the pirate daemon synchronizes with the network
 #
 #   https://github.com/scott-ftf/pirated_synclog
-#   
-#   Arrr! ⚓
-#   
+#    
 #   commands:
 #       python3 pirated_synclog.py start 
 #       python3 pirated_synclog.py stop
@@ -446,7 +440,7 @@ def dataCollectionLoop(start_time, data_file):
             blockchain_size = "{:6.3f}".format(blockchain_size_gb)
 
             # Display Message
-            message += f" │ pirated: {memory}GB MEM {cpu}% CPU │ machine: {load1} load  {blockchain_size}GB hdd"
+            message += f" │ pirated: {memory}GB MEM {cpu}% CPU │ machine: {load1} load {blockchain_size}GB hdd"
 
             # No need trying the RPC until startup is complete
             if startup_complete.is_set():
