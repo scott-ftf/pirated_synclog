@@ -40,7 +40,7 @@
         },
         "bootstrap":{
             "default_settings": "pirated_synclog_v5.7.5_BOOTSTRAP.csv",
-            "9_wallet": "pirated_synclog_v5.7.5_BOOTSTRAP_9k-wallet.csv"
+            "9k_wallet": "pirated_synclog_v5.7.5_BOOTSTRAP_9k-wallet.csv"
         }
     },  
     "v5.8.0":  {
